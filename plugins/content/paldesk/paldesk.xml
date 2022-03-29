@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content" method="upgrade">
+    <name>Paldesk - Live Chat and Helpdesk</name>
+    <author>Paldesk Team</author>
+    <creationDate>March 2018</creationDate>
+    <copyright>Copyright (C) 2018 to Paldesk.com. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>alen.begovic@gmail.com</authorEmail>
+    <authorUrl>www.paldesk.com</authorUrl>
+    <version>1.1.2</version>
+    <type>plugin</type>
+    <description>PLG_PALDESK_PLUGIN_DESC</description>
+    <files>
+        <filename plugin="paldesk">paldesk.php</filename>
+        <folder>scripts</folder>
+    </files>
+    <languages folder="language/en-GB/">
+        <language tag="en-GB">en-GB.plg_content_paldesk.ini</language>
+        <language tag="en-GB">en-GB.plg_content_paldesk.sys.ini</language>
+    </languages>
+    <media folder="media" destination="plg_bb8-paldesk-joomla">
+        <folder>tpl</folder>
+    </media>
+    <config>
+    <!--WIDGET-->
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="api_key_widget"
+                        type="text"
+                        label="Website Widget API Key"
+                        description="PLG_PALDESK_API_KEY_DESC"
+                        default=""
+                        required="false"
+                        filter="string"
+                        size="50"
+                />
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field name="admin_show"
+                       type="radio"
+                       default="0"
+                       class="radio btn-group btn-group-yesno"
+                       label="PLG_PALDESK_PARAMS_ADMINSHOW_LBL"
+                       description="PLG_PALDESK_PARAMS_ADMINSHOW_DESC">
+
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+
+                </field>
+
+                <field name="requirejs"
+                       type="radio"
+                       default="0"
+                       class="radio btn-group btn-group-yesno"
+                       label="PLG_PALDESK_PARAMS_REQUIREJS_LBL"
+                       description="PLG_PALDESK_PARAMS_REQUIREJS_DESC">
+
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+
+                </field>
+
+                <field name="position_widget"
+                       type="list"
+                       default="body_end"
+                       class="radio btn-group btn-group-yesno"
+                       label="PLG_PALDESK_PARAMS_POSITION_LBL"
+                       description="PLG_PALDESK_PARAMS_POSITION_DESC">
+
+                    <option value="head_start">PLG_PALDESK_PARAMS_POSITION_VAL_START_OF_HEAD</option>
+                    <option value="head_end">PLG_PALDESK_PARAMS_POSITION_VAL_END_OF_HEAD</option>
+                    <option value="body_end">PLG_PALDESK_PARAMS_POSITION_VAL_END_OF_BODY</option>
+
+                </field>
+
+                <field name="user_data_config_enabled"
+                       type="radio"
+                       default="0"
+                       class="radio btn-group btn-group-yesno"
+                       label="PLG_PALDESK_PARAMS_USER_DATA_CONFIG_ENABLED_LBL"
+                       description="PLG_PALDESK_PARAMS_USER_DATA_CONFIG_ENABLED_DESC">
+
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+
+                </field>
+
+                <field name="custom_widget_css"
+                       type="textarea"
+                       default=""
+                       label="PLG_PALDESK_PARAMS_CUSTOM_WIDGET_CSS_LBL"
+                       description="PLG_PALDESK_PARAMS_CUSTOM_WIDGET_CSS_DESC"
+                       rows="10"
+                       cols="5"
+                       filter="raw"/>
+
+                <field name="custom_widget_css_example"
+                       type="note"
+                       label="PLG_PALDESK_PARAMS_CUSTOM_WIDGET_CSS_EXAMPLE_LBL"
+                       description="PLG_PALDESK_PARAMS_CUSTOM_WIDGET_CSS_EXAMPLE_DESC"/>
+
+
+
+
+
+            </fieldset>
+        </fields>
+    <!--WIDGET-->
+    </config>
+    <!--NOTIFICATION-->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="api_key_notification"
+                        type="text"
+                        label="Easy Popup API Key"
+                        description="PLG_PALDESK_API_KEY_DESC"
+                        default=""
+                        required="false"
+                        filter="string"
+                        size="50"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <!--NOTIFICATION-->
+    <!--FEEDBACK-->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="api_key_feedback"
+                        type="text"
+                        label="Feedback API Key"
+                        description="PLG_PALDESK_API_KEY_DESC"
+                        default=""
+                        required="false"
+                        filter="string"
+                        size="50"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <!--FEEDBACK-->
+    <updateservers>
+        <server type="extension" name="paldesk" priority="1">https://raw.githubusercontent.com/paldesk/bb8-paldesk-joomla/master/paldesk_update.xml</server>
+    </updateservers>
+</extension>
