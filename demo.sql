@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 25-03-2022 a las 16:55:39
--- Versión del servidor: 5.7.23-23
--- Versión de PHP: 7.3.32
+-- Tiempo de generación: 07-04-2022 a las 12:56:32
+-- Versión del servidor: 8.0.28
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `reingesa_web`
+-- Base de datos: `headsys1_reingesac`
 --
 
 -- --------------------------------------------------------
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `qmdc0_action_logs` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `message_language_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `message_language_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `log_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_id` int(11) NOT NULL DEFAULT '0',
-  `item_id` int(11) NOT NULL DEFAULT '0',
-  `ip_address` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0.0.0.0'
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_id` int NOT NULL DEFAULT '0',
+  `item_id` int NOT NULL DEFAULT '0',
+  `ip_address` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0.0.0.0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -46,8 +46,8 @@ CREATE TABLE `qmdc0_action_logs` (
 --
 
 CREATE TABLE `qmdc0_action_logs_extensions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `extension` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `id` int UNSIGNED NOT NULL,
+  `extension` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -81,9 +81,9 @@ INSERT INTO `qmdc0_action_logs_extensions` (`id`, `extension`) VALUES
 --
 
 CREATE TABLE `qmdc0_action_logs_users` (
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `notify` tinyint(1) UNSIGNED NOT NULL,
-  `extensions` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `user_id` int UNSIGNED NOT NULL,
+  `notify` tinyint UNSIGNED NOT NULL,
+  `extensions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -93,13 +93,13 @@ CREATE TABLE `qmdc0_action_logs_users` (
 --
 
 CREATE TABLE `qmdc0_action_log_config` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `id_holder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title_holder` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `table_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `text_prefix` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `id` int UNSIGNED NOT NULL,
+  `type_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id_holder` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_holder` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_prefix` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -135,7 +135,7 @@ INSERT INTO `qmdc0_action_log_config` (`id`, `type_title`, `type_alias`, `id_hol
 
 CREATE TABLE `qmdc0_akeeba_common` (
   `key` varchar(190) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL
+  `value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -156,11 +156,11 @@ INSERT INTO `qmdc0_akeeba_common` (`key`, `value`) VALUES
 --
 
 CREATE TABLE `qmdc0_ak_profiles` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `configuration` longtext COLLATE utf8mb4_unicode_ci,
-  `filters` longtext COLLATE utf8mb4_unicode_ci,
-  `quickicon` tinyint(3) NOT NULL DEFAULT '1'
+  `id` int UNSIGNED NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `configuration` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `filters` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `quickicon` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -177,23 +177,23 @@ INSERT INTO `qmdc0_ak_profiles` (`id`, `description`, `configuration`, `filters`
 --
 
 CREATE TABLE `qmdc0_ak_stats` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment` longtext COLLATE utf8mb4_unicode_ci,
+  `id` bigint UNSIGNED NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `backupstart` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `backupend` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` enum('run','fail','complete') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'run',
-  `origin` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'backend',
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'full',
-  `profile_id` bigint(20) NOT NULL DEFAULT '1',
-  `archivename` longtext COLLATE utf8mb4_unicode_ci,
-  `absolute_path` longtext COLLATE utf8mb4_unicode_ci,
-  `multipart` int(11) NOT NULL DEFAULT '0',
-  `tag` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `backupid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `filesexist` tinyint(3) NOT NULL DEFAULT '1',
-  `remote_filename` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total_size` bigint(20) NOT NULL DEFAULT '0'
+  `status` enum('run','fail','complete') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'run',
+  `origin` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'backend',
+  `type` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'full',
+  `profile_id` bigint NOT NULL DEFAULT '1',
+  `archivename` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `absolute_path` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `multipart` int NOT NULL DEFAULT '0',
+  `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `backupid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `filesexist` tinyint NOT NULL DEFAULT '1',
+  `remote_filename` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_size` bigint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -213,9 +213,9 @@ INSERT INTO `qmdc0_ak_stats` (`id`, `description`, `comment`, `backupstart`, `ba
 --
 
 CREATE TABLE `qmdc0_ak_storage` (
-  `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `data` longtext COLLATE utf8mb4_unicode_ci
+  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -225,14 +225,14 @@ CREATE TABLE `qmdc0_ak_storage` (
 --
 
 CREATE TABLE `qmdc0_assets` (
-  `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
-  `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set parent.',
-  `lft` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
-  `rgt` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
-  `level` int(10) UNSIGNED NOT NULL COMMENT 'The cached level in the nested tree.',
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The unique name for the asset.\n',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The descriptive title for the asset.',
-  `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.'
+  `id` int UNSIGNED NOT NULL COMMENT 'Primary Key',
+  `parent_id` int NOT NULL DEFAULT '0' COMMENT 'Nested set parent.',
+  `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
+  `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
+  `level` int UNSIGNED NOT NULL COMMENT 'The cached level in the nested tree.',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The unique name for the asset.\n',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The descriptive title for the asset.',
+  `rules` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `qmdc0_assets` (
 --
 
 INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-(1, 0, 0, 229, 0, 'root.1', 'Root Asset', '{\"core.login.site\":{\"6\":1,\"2\":1},\"core.login.admin\":{\"6\":1},\"core.login.offline\":{\"6\":1},\"core.admin\":{\"8\":1},\"core.manage\":{\"7\":1},\"core.create\":{\"6\":1,\"3\":1},\"core.delete\":{\"6\":1},\"core.edit\":{\"6\":1,\"4\":1},\"core.edit.state\":{\"6\":1,\"5\":1},\"core.edit.own\":{\"6\":1,\"3\":1}}'),
+(1, 0, 0, 237, 0, 'root.1', 'Root Asset', '{\"core.login.site\":{\"6\":1,\"2\":1},\"core.login.admin\":{\"6\":1},\"core.login.offline\":{\"6\":1},\"core.admin\":{\"8\":1},\"core.manage\":{\"7\":1},\"core.create\":{\"6\":1,\"3\":1},\"core.delete\":{\"6\":1},\"core.edit\":{\"6\":1,\"4\":1},\"core.edit.state\":{\"6\":1,\"5\":1},\"core.edit.own\":{\"6\":1,\"3\":1}}'),
 (2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 (3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
 (4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"7\":1}}'),
@@ -257,25 +257,25 @@ INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 (15, 1, 37, 38, 1, 'com_media', 'com_media', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1},\"core.create\":{\"3\":1},\"core.delete\":{\"5\":1}}'),
 (16, 1, 39, 44, 1, 'com_menus', 'com_menus', '{\"core.admin\":{\"7\":1}}'),
 (17, 1, 45, 46, 1, 'com_messages', 'com_messages', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"7\":1}}'),
-(18, 1, 47, 186, 1, 'com_modules', 'com_modules', '{\"core.admin\":{\"7\":1}}'),
-(19, 1, 187, 190, 1, 'com_newsfeeds', 'com_newsfeeds', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
-(20, 1, 191, 192, 1, 'com_plugins', 'com_plugins', '{\"core.admin\":{\"7\":1}}'),
-(21, 1, 193, 194, 1, 'com_redirect', 'com_redirect', '{\"core.admin\":{\"7\":1}}'),
-(22, 1, 195, 196, 1, 'com_search', 'com_search', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
-(23, 1, 197, 198, 1, 'com_templates', 'com_templates', '{\"core.admin\":{\"7\":1}}'),
-(24, 1, 199, 202, 1, 'com_users', 'com_users', '{\"core.admin\":{\"7\":1}}'),
-(26, 1, 203, 204, 1, 'com_wrapper', 'com_wrapper', '{}'),
+(18, 1, 47, 194, 1, 'com_modules', 'com_modules', '{\"core.admin\":{\"7\":1}}'),
+(19, 1, 195, 198, 1, 'com_newsfeeds', 'com_newsfeeds', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
+(20, 1, 199, 200, 1, 'com_plugins', 'com_plugins', '{\"core.admin\":{\"7\":1}}'),
+(21, 1, 201, 202, 1, 'com_redirect', 'com_redirect', '{\"core.admin\":{\"7\":1}}'),
+(22, 1, 203, 204, 1, 'com_search', 'com_search', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
+(23, 1, 205, 206, 1, 'com_templates', 'com_templates', '{\"core.admin\":{\"7\":1}}'),
+(24, 1, 207, 210, 1, 'com_users', 'com_users', '{\"core.admin\":{\"7\":1}}'),
+(26, 1, 211, 212, 1, 'com_wrapper', 'com_wrapper', '{}'),
 (27, 8, 18, 23, 2, 'com_content.category.2', 'Uncategorised', '{}'),
 (28, 3, 4, 5, 2, 'com_banners.category.3', 'Uncategorised', '{}'),
 (29, 7, 14, 15, 2, 'com_contact.category.4', 'Uncategorised', '{}'),
-(30, 19, 188, 189, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
-(32, 24, 200, 201, 2, 'com_users.category.7', 'Uncategorised', '{}'),
-(33, 1, 205, 206, 1, 'com_finder', 'com_finder', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
-(34, 1, 207, 208, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
-(35, 1, 209, 210, 1, 'com_tags', 'com_tags', '{}'),
-(36, 1, 211, 212, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
-(37, 1, 213, 214, 1, 'com_ajax', 'com_ajax', '{}'),
-(38, 1, 215, 216, 1, 'com_postinstall', 'com_postinstall', '{}'),
+(30, 19, 196, 197, 2, 'com_newsfeeds.category.5', 'Uncategorised', '{}'),
+(32, 24, 208, 209, 2, 'com_users.category.7', 'Uncategorised', '{}'),
+(33, 1, 213, 214, 1, 'com_finder', 'com_finder', '{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1}}'),
+(34, 1, 215, 216, 1, 'com_joomlaupdate', 'com_joomlaupdate', '{}'),
+(35, 1, 217, 218, 1, 'com_tags', 'com_tags', '{}'),
+(36, 1, 219, 220, 1, 'com_contenthistory', 'com_contenthistory', '{}'),
+(37, 1, 221, 222, 1, 'com_ajax', 'com_ajax', '{}'),
+(38, 1, 223, 224, 1, 'com_postinstall', 'com_postinstall', '{}'),
 (39, 18, 48, 49, 2, 'com_modules.module.1', 'Main Menu', '{}'),
 (40, 18, 50, 51, 2, 'com_modules.module.2', 'Login', '{}'),
 (41, 18, 52, 53, 2, 'com_modules.module.3', 'Popular Articles', '{}'),
@@ -300,7 +300,7 @@ INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 (60, 18, 88, 89, 2, 'com_modules.module.92', 'Proyectos', '{}'),
 (61, 18, 90, 91, 2, 'com_modules.module.93', 'Quiénes Somos', '{}'),
 (64, 18, 92, 93, 2, 'com_modules.module.96', 'Test', '{}'),
-(65, 1, 217, 218, 1, 'com_k2', 'COM_K2', '{}'),
+(65, 1, 225, 226, 1, 'com_k2', 'COM_K2', '{}'),
 (66, 18, 94, 95, 2, 'com_modules.module.97', 'K2 Comments', '{}'),
 (67, 18, 96, 97, 2, 'com_modules.module.98', 'Servicios', '{}'),
 (68, 18, 98, 99, 2, 'com_modules.module.99', 'K2 Tools', '{}'),
@@ -331,13 +331,13 @@ INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 (93, 18, 144, 145, 2, 'com_modules.module.122', 'Popular posts', '{}'),
 (94, 18, 146, 147, 2, 'com_modules.module.123', 'FAQ sidebar', '{}'),
 (95, 18, 148, 149, 2, 'com_modules.module.124', 'Contact our agent', '{}'),
-(98, 1, 219, 220, 1, 'com_akeeba', 'Akeeba', '{}'),
+(98, 1, 227, 228, 1, 'com_akeeba', 'Akeeba', '{}'),
 (99, 18, 150, 151, 2, 'com_modules.module.125', 'Send Message to Johnathan', '{}'),
 (100, 18, 152, 153, 2, 'com_modules.module.126', 'Right header', '{}'),
-(101, 1, 221, 222, 1, 'com_fields', 'com_fields', '{}'),
-(102, 1, 223, 224, 1, 'com_associations', 'com_associations', '{}'),
-(103, 1, 225, 226, 1, 'com_privacy', 'com_privacy', '{}'),
-(104, 1, 227, 228, 1, 'com_actionlogs', 'com_actionlogs', '{}'),
+(101, 1, 229, 230, 1, 'com_fields', 'com_fields', '{}'),
+(102, 1, 231, 232, 1, 'com_associations', 'com_associations', '{}'),
+(103, 1, 233, 234, 1, 'com_privacy', 'com_privacy', '{}'),
+(104, 1, 235, 236, 1, 'com_actionlogs', 'com_actionlogs', '{}'),
 (105, 18, 154, 155, 2, 'com_modules.module.127', 'JF slideshow (2)', '{}'),
 (106, 27, 21, 22, 3, 'com_content.article.2', 'Quiénes Somos', '{}'),
 (107, 18, 156, 157, 2, 'com_modules.module.128', 'Custom HTML advanced', '{}'),
@@ -354,7 +354,11 @@ INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 (118, 18, 178, 179, 2, 'com_modules.module.139', 'About Sybix villa (2)', '{}'),
 (119, 18, 180, 181, 2, 'com_modules.module.140', 'Banner About (2)', '{}'),
 (120, 18, 182, 183, 2, 'com_modules.module.141', 'EB Whatsapp Chat', '{}'),
-(121, 18, 184, 185, 2, 'com_modules.module.142', 'whatsap', '{}');
+(121, 18, 184, 185, 2, 'com_modules.module.142', 'whatsap', '{}'),
+(122, 18, 186, 187, 2, 'com_modules.module.143', 'mod_rueba', '{}'),
+(123, 18, 188, 189, 2, 'com_modules.module.144', 'Solicita Una Cotización', '{}'),
+(124, 18, 190, 191, 2, 'com_modules.module.145', 'Za Contact Form', '{}'),
+(125, 18, 192, 193, 2, 'com_modules.module.146', 'Solicita Cotización', '{}');
 
 -- --------------------------------------------------------
 
@@ -363,9 +367,9 @@ INSERT INTO `qmdc0_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 --
 
 CREATE TABLE `qmdc0_associations` (
-  `id` int(11) NOT NULL COMMENT 'A reference to the associated item.',
-  `context` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
-  `key` char(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The key for the association computed from an md5 on associated ids.'
+  `id` int NOT NULL COMMENT 'A reference to the associated item.',
+  `context` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The context of the associated item.',
+  `key` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The key for the association computed from an md5 on associated ids.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -375,40 +379,40 @@ CREATE TABLE `qmdc0_associations` (
 --
 
 CREATE TABLE `qmdc0_banners` (
-  `id` int(11) NOT NULL,
-  `cid` int(11) NOT NULL DEFAULT '0',
-  `type` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id` int NOT NULL,
+  `cid` int NOT NULL DEFAULT '0',
+  `type` int NOT NULL DEFAULT '0',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `imptotal` int(11) NOT NULL DEFAULT '0',
-  `impmade` int(11) NOT NULL DEFAULT '0',
-  `clicks` int(11) NOT NULL DEFAULT '0',
-  `clickurl` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `state` tinyint(3) NOT NULL DEFAULT '0',
-  `catid` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `custombannercode` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sticky` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imptotal` int NOT NULL DEFAULT '0',
+  `impmade` int NOT NULL DEFAULT '0',
+  `clicks` int NOT NULL DEFAULT '0',
+  `clickurl` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `state` tinyint NOT NULL DEFAULT '0',
+  `catid` int UNSIGNED NOT NULL DEFAULT '0',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custombannercode` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sticky` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `ordering` int NOT NULL DEFAULT '0',
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `own_prefix` tinyint(1) NOT NULL DEFAULT '0',
-  `metakey_prefix` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `purchase_type` tinyint(4) NOT NULL DEFAULT '-1',
-  `track_clicks` tinyint(4) NOT NULL DEFAULT '-1',
-  `track_impressions` tinyint(4) NOT NULL DEFAULT '-1',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `metakey_prefix` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `purchase_type` tinyint NOT NULL DEFAULT '-1',
+  `track_clicks` tinyint NOT NULL DEFAULT '-1',
+  `track_impressions` tinyint NOT NULL DEFAULT '-1',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `reset` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `created_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1'
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `version` int UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -418,20 +422,20 @@ CREATE TABLE `qmdc0_banners` (
 --
 
 CREATE TABLE `qmdc0_banner_clients` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `extrainfo` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `state` tinyint(3) NOT NULL DEFAULT '0',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `contact` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extrainfo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` tinyint NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `own_prefix` tinyint(4) NOT NULL DEFAULT '0',
-  `metakey_prefix` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `purchase_type` tinyint(4) NOT NULL DEFAULT '-1',
-  `track_clicks` tinyint(4) NOT NULL DEFAULT '-1',
-  `track_impressions` tinyint(4) NOT NULL DEFAULT '-1'
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `own_prefix` tinyint NOT NULL DEFAULT '0',
+  `metakey_prefix` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `purchase_type` tinyint NOT NULL DEFAULT '-1',
+  `track_clicks` tinyint NOT NULL DEFAULT '-1',
+  `track_impressions` tinyint NOT NULL DEFAULT '-1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -442,9 +446,9 @@ CREATE TABLE `qmdc0_banner_clients` (
 
 CREATE TABLE `qmdc0_banner_tracks` (
   `track_date` datetime NOT NULL,
-  `track_type` int(10) UNSIGNED NOT NULL,
-  `banner_id` int(10) UNSIGNED NOT NULL,
-  `count` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `track_type` int UNSIGNED NOT NULL,
+  `banner_id` int UNSIGNED NOT NULL,
+  `count` int UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -454,33 +458,33 @@ CREATE TABLE `qmdc0_banner_tracks` (
 --
 
 CREATE TABLE `qmdc0_categories` (
-  `id` int(11) NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `lft` int(11) NOT NULL DEFAULT '0',
-  `rgt` int(11) NOT NULL DEFAULT '0',
-  `level` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id` int NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
+  `parent_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `lft` int NOT NULL DEFAULT '0',
+  `rgt` int NOT NULL DEFAULT '0',
+  `level` int UNSIGNED NOT NULL DEFAULT '0',
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `checked_out` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta description for the page.',
-  `metakey` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta keywords for the page.',
-  `metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
-  `created_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta description for the page.',
+  `metakey` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'The meta keywords for the page.',
+  `metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
+  `created_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `modified_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1'
+  `hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `version` int UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -502,49 +506,49 @@ INSERT INTO `qmdc0_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `le
 --
 
 CREATE TABLE `qmdc0_contact_details` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `con_position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `suburb` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postcode` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telephone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fax` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `misc` mediumtext COLLATE utf8mb4_unicode_ci,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email_to` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `default_con` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `con_position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `suburb` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `postcode` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `misc` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_to` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default_con` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT '0',
-  `catid` int(11) NOT NULL DEFAULT '0',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `webpage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `sortname3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `language` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ordering` int NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL DEFAULT '0',
+  `catid` int NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `mobile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `webpage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `sortname3` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `featured` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Set if contact is featured.',
-  `xreference` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `featured` tinyint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Set if contact is featured.',
+  `xreference` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `version` int UNSIGNED NOT NULL DEFAULT '1',
+  `hits` int UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -552,7 +556,7 @@ CREATE TABLE `qmdc0_contact_details` (
 --
 
 INSERT INTO `qmdc0_contact_details` (`id`, `name`, `alias`, `con_position`, `address`, `suburb`, `state`, `country`, `postcode`, `telephone`, `fax`, `misc`, `image`, `email_to`, `default_con`, `published`, `checked_out`, `checked_out_time`, `ordering`, `params`, `user_id`, `catid`, `access`, `mobile`, `webpage`, `sortname1`, `sortname2`, `sortname3`, `language`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `metakey`, `metadesc`, `metadata`, `featured`, `xreference`, `publish_up`, `publish_down`, `version`, `hits`) VALUES
-(1, 'Contáctanos', 'single-contact', '', 'Calle Canamelares N° 426 - Urb. Maranga - San Miguel', 'Lima', 'Peru', '', '', '(01) 2647663', '', '', '', 'administracion@reingesac.com', 0, 1, 0, '0000-00-00 00:00:00', 1, '{\"show_contact_category\":\"hide\",\"show_contact_list\":\"\",\"presentation_style\":\"\",\"show_tags\":\"\",\"show_info\":\"\",\"show_name\":\"\",\"show_position\":\"\",\"show_email\":\"\",\"add_mailto_link\":\"\",\"show_street_address\":\"\",\"show_suburb\":\"\",\"show_state\":\"\",\"show_postcode\":\"\",\"show_country\":\"\",\"show_telephone\":\"\",\"show_mobile\":\"\",\"show_fax\":\"\",\"show_webpage\":\"\",\"show_image\":\"\",\"show_misc\":\"\",\"allow_vcard\":\"\",\"show_articles\":\"\",\"articles_display_num\":\"\",\"show_profile\":\"\",\"show_links\":\"\",\"linka_name\":\"\",\"linka\":false,\"linkb_name\":\"\",\"linkb\":false,\"linkc_name\":\"\",\"linkc\":false,\"linkd_name\":\"\",\"linkd\":false,\"linke_name\":\"\",\"linke\":false,\"contact_layout\":\"\",\"show_email_form\":\"\",\"show_email_copy\":\"\",\"validate_session\":\"\",\"custom_reply\":\"\",\"redirect\":\"\"}', 0, 4, 1, '964812500', '', '', '', '', '*', '2018-05-02 07:48:31', 311, '', '2021-04-05 08:28:09', 311, '', '', '{\"robots\":\"\",\"rights\":\"\"}', 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 15, 634);
+(1, 'Contáctanos.', 'single-contact', '', '', '', '', '', '', '', '', '<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<p><b>Oficina Centra</b>l<br /> Calle Canamelares N° 426 - Urb. Maranga<br />San Miguel - Lima</p>\r\n<p><b>Horario: </b>De Lunes a Viernes de 9 am. a 6 pm.<br />Sabado de 9 am a 1 pm.</p>\r\n</div>\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<p><b>Oficina Trujillo</b><br /> Urb. Covicorti Mz L. Lt. 23 - Of. 201<br />Trujillo</p>\r\n<p><b>Teléfono:</b> (01) 2647663<br /> <b>Correo:</b> administracion@reingesac.com</p>\r\n</div>\r\n<div id=\"contact-form1\" class=\"contact-form\"><!--p>{loadmodule mod_simplecontact}</p--></div>\r\n</div>', '', 'administracion@reingesac.com', 0, 1, 311, '2022-03-29 11:49:22', 1, '{\"show_contact_category\":\"\",\"show_contact_list\":\"\",\"presentation_style\":\"\",\"show_tags\":\"\",\"show_info\":\"\",\"show_name\":\"\",\"show_position\":\"\",\"show_email\":\"\",\"add_mailto_link\":\"\",\"show_street_address\":\"\",\"show_suburb\":\"\",\"show_state\":\"\",\"show_postcode\":\"\",\"show_country\":\"\",\"show_telephone\":\"\",\"show_mobile\":\"\",\"show_fax\":\"\",\"show_webpage\":\"\",\"show_image\":\"\",\"show_misc\":\"\",\"allow_vcard\":\"\",\"show_articles\":\"\",\"articles_display_num\":\"\",\"show_profile\":\"\",\"show_links\":\"1\",\"linka_name\":\"\",\"linka\":false,\"linkb_name\":\"\",\"linkb\":false,\"linkc_name\":\"\",\"linkc\":false,\"linkd_name\":\"\",\"linkd\":false,\"linke_name\":\"\",\"linke\":false,\"contact_layout\":\"\",\"show_email_form\":\"\",\"show_email_copy\":\"\",\"validate_session\":\"\",\"custom_reply\":\"\",\"redirect\":\"\"}', 0, 4, 1, '', '', '', '', '', '*', '2018-05-02 07:48:31', 311, '', '2022-03-29 11:52:47', 311, '', '', '{\"robots\":\"\",\"rights\":\"\"}', 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 30, 650);
 
 -- --------------------------------------------------------
 
@@ -561,37 +565,37 @@ INSERT INTO `qmdc0_contact_details` (`id`, `name`, `alias`, `con_position`, `add
 --
 
 CREATE TABLE `qmdc0_content` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id` int UNSIGNED NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `introtext` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fulltext` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `state` tinyint(3) NOT NULL DEFAULT '0',
-  `catid` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `introtext` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fulltext` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` tinyint NOT NULL DEFAULT '0',
+  `catid` int UNSIGNED NOT NULL DEFAULT '0',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urls` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attribs` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `featured` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Set if article is featured.',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The language code for the article.',
-  `xreference` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attribs` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version` int UNSIGNED NOT NULL DEFAULT '1',
+  `ordering` int NOT NULL DEFAULT '0',
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `featured` tinyint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Set if article is featured.',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The language code for the article.',
+  `xreference` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -609,12 +613,12 @@ INSERT INTO `qmdc0_content` (`id`, `asset_id`, `title`, `alias`, `introtext`, `f
 --
 
 CREATE TABLE `qmdc0_contentitem_tag_map` (
-  `type_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `core_content_id` int(10) UNSIGNED NOT NULL COMMENT 'PK from the core content table',
-  `content_item_id` int(11) NOT NULL COMMENT 'PK from the content type table',
-  `tag_id` int(10) UNSIGNED NOT NULL COMMENT 'PK from the tag table',
+  `type_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_content_id` int UNSIGNED NOT NULL COMMENT 'PK from the core content table',
+  `content_item_id` int NOT NULL COMMENT 'PK from the content type table',
+  `tag_id` int UNSIGNED NOT NULL COMMENT 'PK from the tag table',
   `tag_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of most recent save for this tag-item',
-  `type_id` mediumint(8) NOT NULL COMMENT 'PK from the content_type table'
+  `type_id` mediumint NOT NULL COMMENT 'PK from the content_type table'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maps items from content tables to tags';
 
 -- --------------------------------------------------------
@@ -624,8 +628,8 @@ CREATE TABLE `qmdc0_contentitem_tag_map` (
 --
 
 CREATE TABLE `qmdc0_content_frontpage` (
-  `content_id` int(11) NOT NULL DEFAULT '0',
-  `ordering` int(11) NOT NULL DEFAULT '0'
+  `content_id` int NOT NULL DEFAULT '0',
+  `ordering` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -635,10 +639,10 @@ CREATE TABLE `qmdc0_content_frontpage` (
 --
 
 CREATE TABLE `qmdc0_content_rating` (
-  `content_id` int(11) NOT NULL DEFAULT '0',
-  `rating_sum` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `rating_count` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `lastip` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `content_id` int NOT NULL DEFAULT '0',
+  `rating_sum` int UNSIGNED NOT NULL DEFAULT '0',
+  `rating_count` int UNSIGNED NOT NULL DEFAULT '0',
+  `lastip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -648,14 +652,14 @@ CREATE TABLE `qmdc0_content_rating` (
 --
 
 CREATE TABLE `qmdc0_content_types` (
-  `type_id` int(10) UNSIGNED NOT NULL,
-  `type_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `table` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `rules` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `field_mappings` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `router` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `content_history_options` varchar(5120) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON string for com_contenthistory options'
+  `type_id` int UNSIGNED NOT NULL,
+  `type_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `type_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `table` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `rules` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `field_mappings` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `router` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `content_history_options` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON string for com_contenthistory options'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -684,8 +688,8 @@ INSERT INTO `qmdc0_content_types` (`type_id`, `type_title`, `type_alias`, `table
 --
 
 CREATE TABLE `qmdc0_core_log_searches` (
-  `search_term` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `search_term` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `hits` int UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -695,24 +699,24 @@ CREATE TABLE `qmdc0_core_log_searches` (
 --
 
 CREATE TABLE `qmdc0_extensions` (
-  `extension_id` int(11) NOT NULL,
-  `package_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Parent package ID for extensions installed as a package.',
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `element` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `folder` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `client_id` tinyint(3) NOT NULL,
-  `enabled` tinyint(3) NOT NULL DEFAULT '0',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `protected` tinyint(3) NOT NULL DEFAULT '0',
-  `manifest_cache` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `custom_data` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_data` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `extension_id` int NOT NULL,
+  `package_id` int NOT NULL DEFAULT '0' COMMENT 'Parent package ID for extensions installed as a package.',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `element` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `folder` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_id` tinyint NOT NULL,
+  `enabled` tinyint NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '1',
+  `protected` tinyint NOT NULL DEFAULT '0',
+  `manifest_cache` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custom_data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `ordering` int(11) DEFAULT '0',
-  `state` int(11) DEFAULT '0'
+  `ordering` int DEFAULT '0',
+  `state` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -727,14 +731,14 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (5, 0, 'com_cache', 'component', 'com_cache', '', 1, 1, 1, 1, '{\"name\":\"com_cache\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CACHE_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (6, 0, 'com_categories', 'component', 'com_categories', '', 1, 1, 1, 1, '{\"name\":\"com_categories\",\"type\":\"component\",\"creationDate\":\"December 2007\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CATEGORIES_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (7, 0, 'com_checkin', 'component', 'com_checkin', '', 1, 1, 1, 1, '{\"name\":\"com_checkin\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CHECKIN_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(8, 0, 'com_contact', 'component', 'com_contact', '', 1, 1, 1, 0, '{\"name\":\"com_contact\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CONTACT_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"contact\"}', '{\"contact_layout\":\"_:default\",\"show_contact_category\":\"hide\",\"save_history\":\"1\",\"history_limit\":10,\"show_contact_list\":\"0\",\"presentation_style\":\"plain\",\"show_tags\":\"1\",\"show_info\":\"1\",\"show_name\":\"1\",\"show_position\":\"1\",\"show_email\":\"0\",\"add_mailto_link\":\"1\",\"show_street_address\":\"1\",\"show_suburb\":\"1\",\"show_state\":\"1\",\"show_postcode\":\"1\",\"show_country\":\"1\",\"show_telephone\":\"1\",\"show_mobile\":\"1\",\"show_fax\":\"1\",\"show_webpage\":\"1\",\"show_image\":\"1\",\"image\":\"\",\"show_misc\":\"1\",\"allow_vcard\":\"0\",\"show_articles\":\"0\",\"articles_display_num\":\"10\",\"show_profile\":\"0\",\"show_user_custom_fields\":[\"-1\"],\"show_links\":\"0\",\"linka_name\":\"\",\"linkb_name\":\"\",\"linkc_name\":\"\",\"linkd_name\":\"\",\"linke_name\":\"\",\"contact_icons\":\"0\",\"icon_address\":\"\",\"icon_email\":\"\",\"icon_telephone\":\"\",\"icon_mobile\":\"\",\"icon_fax\":\"\",\"icon_misc\":\"\",\"category_layout\":\"_:default\",\"show_category_title\":\"1\",\"show_description\":\"1\",\"show_description_image\":\"0\",\"maxLevel\":\"-1\",\"show_subcat_desc\":\"1\",\"show_empty_categories\":\"0\",\"show_cat_items\":\"1\",\"show_cat_tags\":\"1\",\"show_base_description\":\"1\",\"maxLevelcat\":\"-1\",\"show_subcat_desc_cat\":\"1\",\"show_empty_categories_cat\":\"0\",\"show_cat_items_cat\":\"1\",\"filter_field\":\"0\",\"show_pagination_limit\":\"0\",\"show_headings\":\"1\",\"show_image_heading\":\"0\",\"show_position_headings\":\"1\",\"show_email_headings\":\"0\",\"show_telephone_headings\":\"1\",\"show_mobile_headings\":\"0\",\"show_fax_headings\":\"0\",\"show_suburb_headings\":\"1\",\"show_state_headings\":\"1\",\"show_country_headings\":\"1\",\"show_pagination\":\"2\",\"show_pagination_results\":\"1\",\"initial_sort\":\"ordering\",\"captcha\":\"recaptcha\",\"show_email_form\":\"1\",\"show_email_copy\":\"0\",\"banned_email\":\"\",\"banned_subject\":\"\",\"banned_text\":\"\",\"validate_session\":\"1\",\"custom_reply\":\"0\",\"redirect\":\"\",\"show_feed_link\":\"1\",\"sef_advanced\":0,\"sef_ids\":0,\"custom_fields_enable\":\"1\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(8, 0, 'com_contact', 'component', 'com_contact', '', 1, 1, 1, 0, '{\"name\":\"com_contact\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CONTACT_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"contact\"}', '{\"contact_layout\":\"beez3:encyclopedia\",\"show_contact_category\":\"hide\",\"save_history\":\"1\",\"history_limit\":10,\"show_contact_list\":\"0\",\"presentation_style\":\"plain\",\"show_tags\":\"1\",\"show_info\":\"1\",\"show_name\":\"1\",\"show_position\":\"1\",\"show_email\":\"0\",\"add_mailto_link\":\"1\",\"show_street_address\":\"1\",\"show_suburb\":\"1\",\"show_state\":\"1\",\"show_postcode\":\"1\",\"show_country\":\"1\",\"show_telephone\":\"1\",\"show_mobile\":\"1\",\"show_fax\":\"1\",\"show_webpage\":\"1\",\"show_image\":\"1\",\"image\":\"\",\"show_misc\":\"1\",\"allow_vcard\":\"0\",\"show_articles\":\"0\",\"articles_display_num\":\"10\",\"show_profile\":\"0\",\"show_user_custom_fields\":[\"-1\"],\"show_links\":\"0\",\"linka_name\":\"\",\"linkb_name\":\"\",\"linkc_name\":\"\",\"linkd_name\":\"\",\"linke_name\":\"\",\"contact_icons\":\"0\",\"icon_address\":\"\",\"icon_email\":\"\",\"icon_telephone\":\"\",\"icon_mobile\":\"\",\"icon_fax\":\"\",\"icon_misc\":\"\",\"category_layout\":\"_:default\",\"show_category_title\":\"1\",\"show_description\":\"1\",\"show_description_image\":\"0\",\"maxLevel\":\"-1\",\"show_subcat_desc\":\"1\",\"show_empty_categories\":\"0\",\"show_cat_items\":\"1\",\"show_cat_tags\":\"1\",\"show_base_description\":\"1\",\"maxLevelcat\":\"-1\",\"show_subcat_desc_cat\":\"1\",\"show_empty_categories_cat\":\"0\",\"show_cat_items_cat\":\"1\",\"filter_field\":\"0\",\"show_pagination_limit\":\"0\",\"show_headings\":\"1\",\"show_image_heading\":\"0\",\"show_position_headings\":\"1\",\"show_email_headings\":\"0\",\"show_telephone_headings\":\"1\",\"show_mobile_headings\":\"0\",\"show_fax_headings\":\"0\",\"show_suburb_headings\":\"1\",\"show_state_headings\":\"1\",\"show_country_headings\":\"1\",\"show_pagination\":\"2\",\"show_pagination_results\":\"1\",\"initial_sort\":\"ordering\",\"captcha\":\"recaptcha\",\"show_email_form\":\"1\",\"show_email_copy\":\"0\",\"banned_email\":\"\",\"banned_subject\":\"\",\"banned_text\":\"\",\"validate_session\":\"1\",\"custom_reply\":\"0\",\"redirect\":\"\",\"show_feed_link\":\"1\",\"sef_advanced\":0,\"sef_ids\":0,\"custom_fields_enable\":\"1\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (9, 0, 'com_cpanel', 'component', 'com_cpanel', '', 1, 1, 1, 1, '{\"name\":\"com_cpanel\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_CPANEL_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10, 0, 'com_installer', 'component', 'com_installer', '', 1, 1, 1, 1, '{\"name\":\"com_installer\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_INSTALLER_XML_DESCRIPTION\",\"group\":\"\"}', '{\"show_jed_info\":\"1\",\"cachetimeout\":\"6\",\"minimum_stability\":\"4\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (11, 0, 'com_languages', 'component', 'com_languages', '', 1, 1, 1, 1, '{\"name\":\"com_languages\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_LANGUAGES_XML_DESCRIPTION\",\"group\":\"\"}', '{\"administrator\":\"en-GB\",\"site\":\"en-GB\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (12, 0, 'com_login', 'component', 'com_login', '', 1, 1, 1, 1, '{\"name\":\"com_login\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_LOGIN_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (13, 0, 'com_media', 'component', 'com_media', '', 1, 1, 0, 1, '{\"name\":\"com_media\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_MEDIA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"media\"}', '{\"upload_extensions\":\"bmp,csv,doc,gif,ico,jpg,jpeg,odg,odp,ods,odt,pdf,png,ppt,txt,xcf,xls,BMP,CSV,DOC,GIF,ICO,JPG,JPEG,ODG,ODP,ODS,ODT,PDF,PNG,PPT,TXT,XCF,XLS\",\"upload_maxsize\":\"10\",\"file_path\":\"images\",\"image_path\":\"images\",\"restrict_uploads\":\"1\",\"allowed_media_usergroup\":\"3\",\"check_mime\":\"1\",\"image_extensions\":\"bmp,gif,jpg,png\",\"ignore_extensions\":\"\",\"upload_mime\":\"image\\/jpeg,image\\/gif,image\\/png,image\\/bmp,application\\/msword,application\\/excel,application\\/pdf,application\\/powerpoint,text\\/plain,application\\/x-zip\",\"upload_mime_illegal\":\"text\\/html\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (14, 0, 'com_menus', 'component', 'com_menus', '', 1, 1, 1, 1, '{\"name\":\"com_menus\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_MENUS_XML_DESCRIPTION\",\"group\":\"\"}', '{\"page_title\":\"\",\"show_page_heading\":0,\"page_heading\":\"\",\"pageclass_sfx\":\"\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(15, 0, 'com_messages', 'component', 'com_messages', '', 1, 1, 1, 1, '{\"name\":\"com_messages\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_MESSAGES_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(15, 0, 'com_messages', 'component', 'com_messages', '', 1, 1, 1, 1, '{\"name\":\"com_messages\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_MESSAGES_XML_DESCRIPTION\",\"group\":\"\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (16, 0, 'com_modules', 'component', 'com_modules', '', 1, 1, 1, 1, '{\"name\":\"com_modules\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_MODULES_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (17, 0, 'com_newsfeeds', 'component', 'com_newsfeeds', '', 1, 1, 1, 0, '{\"name\":\"com_newsfeeds\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_NEWSFEEDS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"newsfeeds\"}', '{\"newsfeed_layout\":\"_:default\",\"save_history\":\"1\",\"history_limit\":5,\"show_feed_image\":\"1\",\"show_feed_description\":\"1\",\"show_item_description\":\"1\",\"feed_character_count\":\"0\",\"feed_display_order\":\"des\",\"float_first\":\"right\",\"float_second\":\"right\",\"show_tags\":\"1\",\"category_layout\":\"_:default\",\"show_category_title\":\"1\",\"show_description\":\"1\",\"show_description_image\":\"1\",\"maxLevel\":\"-1\",\"show_empty_categories\":\"0\",\"show_subcat_desc\":\"1\",\"show_cat_items\":\"1\",\"show_cat_tags\":\"1\",\"show_base_description\":\"1\",\"maxLevelcat\":\"-1\",\"show_empty_categories_cat\":\"0\",\"show_subcat_desc_cat\":\"1\",\"show_cat_items_cat\":\"1\",\"filter_field\":\"1\",\"show_pagination_limit\":\"1\",\"show_headings\":\"1\",\"show_articles\":\"0\",\"show_link\":\"1\",\"show_pagination\":\"1\",\"show_pagination_results\":\"1\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (18, 0, 'com_plugins', 'component', 'com_plugins', '', 1, 1, 1, 1, '{\"name\":\"com_plugins\",\"type\":\"component\",\"creationDate\":\"April 2006\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"COM_PLUGINS_XML_DESCRIPTION\",\"group\":\"\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -755,7 +759,7 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (35, 0, 'com_privacy', 'component', 'com_privacy', '', 1, 1, 1, 1, '{\"name\":\"com_privacy\",\"type\":\"component\",\"creationDate\":\"May 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"COM_PRIVACY_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"privacy\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (36, 0, 'com_actionlogs', 'component', 'com_actionlogs', '', 1, 1, 1, 1, '{\"name\":\"com_actionlogs\",\"type\":\"component\",\"creationDate\":\"May 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"COM_ACTIONLOGS_XML_DESCRIPTION\",\"group\":\"\"}', '{\"ip_logging\":0,\"csv_delimiter\":\",\",\"loggable_extensions\":[\"com_banners\",\"com_cache\",\"com_categories\",\"com_checkin\",\"com_config\",\"com_contact\",\"com_content\",\"com_installer\",\"com_media\",\"com_menus\",\"com_messages\",\"com_modules\",\"com_newsfeeds\",\"com_plugins\",\"com_redirect\",\"com_tags\",\"com_templates\",\"com_users\"]}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (102, 0, 'LIB_PHPUTF8', 'library', 'phputf8', '', 0, 1, 1, 1, '{\"name\":\"LIB_PHPUTF8\",\"type\":\"library\",\"creationDate\":\"2006\",\"author\":\"Harry Fuecks\",\"copyright\":\"Copyright various authors\",\"authorEmail\":\"hfuecks@gmail.com\",\"authorUrl\":\"http:\\/\\/sourceforge.net\\/projects\\/phputf8\",\"version\":\"0.5\",\"description\":\"LIB_PHPUTF8_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"phputf8\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(103, 0, 'LIB_JOOMLA', 'library', 'joomla', '', 0, 1, 1, 1, '{\"name\":\"LIB_JOOMLA\",\"type\":\"library\",\"creationDate\":\"2008\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"https:\\/\\/www.joomla.org\",\"version\":\"13.1\",\"description\":\"LIB_JOOMLA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"joomla\"}', '{\"mediaversion\":\"98dd7c1a1a1f1ef6e10f712e6af9010b\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(103, 0, 'LIB_JOOMLA', 'library', 'joomla', '', 0, 1, 1, 1, '{\"name\":\"LIB_JOOMLA\",\"type\":\"library\",\"creationDate\":\"2008\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"https:\\/\\/www.joomla.org\",\"version\":\"13.1\",\"description\":\"LIB_JOOMLA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"joomla\"}', '{\"mediaversion\":\"e7ad130278943b0e66abe2cb85947303\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (104, 0, 'LIB_IDNA', 'library', 'idna_convert', '', 0, 1, 1, 1, '{\"name\":\"LIB_IDNA\",\"type\":\"library\",\"creationDate\":\"2004\",\"author\":\"phlyLabs\",\"copyright\":\"2004-2011 phlyLabs Berlin, http:\\/\\/phlylabs.de\",\"authorEmail\":\"phlymail@phlylabs.de\",\"authorUrl\":\"http:\\/\\/phlylabs.de\",\"version\":\"0.8.0\",\"description\":\"LIB_IDNA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"idna_convert\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (105, 0, 'FOF', 'library', 'fof', '', 0, 1, 1, 1, '{\"name\":\"FOF\",\"type\":\"library\",\"creationDate\":\"2015-04-22 13:15:32\",\"author\":\"Nicholas K. Dionysopoulos \\/ Akeeba Ltd\",\"copyright\":\"(C)2011-2015 Nicholas K. Dionysopoulos\",\"authorEmail\":\"nicholas@akeebabackup.com\",\"authorUrl\":\"https:\\/\\/www.akeebabackup.com\",\"version\":\"2.4.3\",\"description\":\"LIB_FOF_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"fof\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (106, 0, 'LIB_PHPASS', 'library', 'phpass', '', 0, 1, 1, 1, '{\"name\":\"LIB_PHPASS\",\"type\":\"library\",\"creationDate\":\"2004-2006\",\"author\":\"Solar Designer\",\"copyright\":\"\",\"authorEmail\":\"solar@openwall.com\",\"authorUrl\":\"http:\\/\\/www.openwall.com\\/phpass\\/\",\"version\":\"0.3\",\"description\":\"LIB_PHPASS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"phpass\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -840,7 +844,7 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (436, 0, 'plg_system_languagecode', 'plugin', 'languagecode', 'system', 0, 0, 1, 0, '{\"name\":\"plg_system_languagecode\",\"type\":\"plugin\",\"creationDate\":\"November 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_SYSTEM_LANGUAGECODE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"languagecode\"}', '', '', '', 0, '0000-00-00 00:00:00', 10, 0),
 (437, 0, 'plg_quickicon_joomlaupdate', 'plugin', 'joomlaupdate', 'quickicon', 0, 1, 1, 1, '{\"name\":\"plg_quickicon_joomlaupdate\",\"type\":\"plugin\",\"creationDate\":\"August 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_QUICKICON_JOOMLAUPDATE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"joomlaupdate\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (438, 0, 'plg_quickicon_extensionupdate', 'plugin', 'extensionupdate', 'quickicon', 0, 1, 1, 1, '{\"name\":\"plg_quickicon_extensionupdate\",\"type\":\"plugin\",\"creationDate\":\"August 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_QUICKICON_EXTENSIONUPDATE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"extensionupdate\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(439, 0, 'plg_captcha_recaptcha', 'plugin', 'recaptcha', 'captcha', 0, 1, 1, 0, '{\"name\":\"plg_captcha_recaptcha\",\"type\":\"plugin\",\"creationDate\":\"December 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.4.0\",\"description\":\"PLG_CAPTCHA_RECAPTCHA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"recaptcha\"}', '{\"version\":\"2.0\",\"public_key\":\"6LedJp4aAAAAAHjcweDnyhH8mvFNYSYbtgUAfLFi\",\"private_key\":\"6LedJp4aAAAAAMpAcroRQF_1Ub9FSZMlw_TrhDWt\",\"theme\":\"clean\",\"theme2\":\"light\",\"size\":\"normal\",\"tabindex\":\"0\",\"callback\":\"\",\"expired_callback\":\"\",\"error_callback\":\"\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(439, 0, 'plg_captcha_recaptcha', 'plugin', 'recaptcha', 'captcha', 0, 1, 1, 0, '{\"name\":\"plg_captcha_recaptcha\",\"type\":\"plugin\",\"creationDate\":\"December 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.4.0\",\"description\":\"PLG_CAPTCHA_RECAPTCHA_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"recaptcha\"}', '{\"version\":\"1.0\",\"public_key\":\"6LedJp4aAAAAAHjcweDnyhH8mvFNYSYbtgUAfLFi\",\"private_key\":\"6LedJp4aAAAAAMpAcroRQF_1Ub9FSZMlw_TrhDWt\",\"theme\":\"red\",\"theme2\":\"light\",\"size\":\"normal\",\"tabindex\":\"0\",\"callback\":\"\",\"expired_callback\":\"\",\"error_callback\":\"\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (440, 0, 'plg_system_highlight', 'plugin', 'highlight', 'system', 0, 1, 1, 0, '{\"name\":\"plg_system_highlight\",\"type\":\"plugin\",\"creationDate\":\"August 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_SYSTEM_HIGHLIGHT_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"highlight\"}', '', '', '', 0, '0000-00-00 00:00:00', 7, 0),
 (441, 0, 'plg_content_finder', 'plugin', 'finder', 'content', 0, 0, 1, 0, '{\"name\":\"plg_content_finder\",\"type\":\"plugin\",\"creationDate\":\"December 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_CONTENT_FINDER_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"finder\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (442, 0, 'plg_finder_categories', 'plugin', 'categories', 'finder', 0, 1, 1, 0, '{\"name\":\"plg_finder_categories\",\"type\":\"plugin\",\"creationDate\":\"August 2011\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_FINDER_CATEGORIES_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"categories\"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
@@ -852,7 +856,7 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (449, 0, 'plg_authentication_cookie', 'plugin', 'cookie', 'authentication', 0, 1, 1, 0, '{\"name\":\"plg_authentication_cookie\",\"type\":\"plugin\",\"creationDate\":\"July 2013\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_AUTH_COOKIE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"cookie\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (450, 0, 'plg_twofactorauth_yubikey', 'plugin', 'yubikey', 'twofactorauth', 0, 0, 1, 0, '{\"name\":\"plg_twofactorauth_yubikey\",\"type\":\"plugin\",\"creationDate\":\"September 2013\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.2.0\",\"description\":\"PLG_TWOFACTORAUTH_YUBIKEY_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"yubikey\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (451, 0, 'plg_search_tags', 'plugin', 'tags', 'search', 0, 1, 1, 0, '{\"name\":\"plg_search_tags\",\"type\":\"plugin\",\"creationDate\":\"March 2014\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.0.0\",\"description\":\"PLG_SEARCH_TAGS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"tags\"}', '{\"search_limit\":\"50\",\"show_tagged_items\":\"1\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{\"name\":\"plg_system_updatenotification\",\"type\":\"plugin\",\"creationDate\":\"May 2015\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.5.0\",\"description\":\"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"updatenotification\"}', '{\"lastrun\":1648242598}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(452, 0, 'plg_system_updatenotification', 'plugin', 'updatenotification', 'system', 0, 1, 1, 0, '{\"name\":\"plg_system_updatenotification\",\"type\":\"plugin\",\"creationDate\":\"May 2015\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.5.0\",\"description\":\"PLG_SYSTEM_UPDATENOTIFICATION_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"updatenotification\"}', '{\"lastrun\":1649347596}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (453, 0, 'plg_editors-xtd_module', 'plugin', 'module', 'editors-xtd', 0, 1, 1, 0, '{\"name\":\"plg_editors-xtd_module\",\"type\":\"plugin\",\"creationDate\":\"October 2015\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.5.0\",\"description\":\"PLG_MODULE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"module\"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (454, 0, 'plg_system_stats', 'plugin', 'stats', 'system', 0, 1, 1, 0, '{\"name\":\"plg_system_stats\",\"type\":\"plugin\",\"creationDate\":\"November 2013\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.5.0\",\"description\":\"PLG_SYSTEM_STATS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"stats\"}', '{\"mode\":3,\"lastrun\":\"\",\"unique_id\":\"545e681755f7efbadce282af6df477978f0cf772\",\"interval\":12}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (455, 0, 'plg_installer_packageinstaller', 'plugin', 'packageinstaller', 'installer', 0, 1, 1, 1, '{\"name\":\"plg_installer_packageinstaller\",\"type\":\"plugin\",\"creationDate\":\"May 2016\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.6.0\",\"description\":\"PLG_INSTALLER_PACKAGEINSTALLER_PLUGIN_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"packageinstaller\"}', '', '', '', 0, '0000-00-00 00:00:00', 1, 0),
@@ -895,7 +899,7 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (491, 0, 'plg_privacy_content', 'plugin', 'content', 'privacy', 0, 1, 1, 0, '{\"name\":\"plg_privacy_content\",\"type\":\"plugin\",\"creationDate\":\"July 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"PLG_PRIVACY_CONTENT_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"content\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (492, 0, 'plg_privacy_message', 'plugin', 'message', 'privacy', 0, 1, 1, 0, '{\"name\":\"plg_privacy_message\",\"type\":\"plugin\",\"creationDate\":\"July 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"PLG_PRIVACY_MESSAGE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"message\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (493, 0, 'plg_privacy_actionlogs', 'plugin', 'actionlogs', 'privacy', 0, 1, 1, 0, '{\"name\":\"plg_privacy_actionlogs\",\"type\":\"plugin\",\"creationDate\":\"July 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"PLG_PRIVACY_ACTIONLOGS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"actionlogs\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(494, 0, 'plg_captcha_recaptcha_invisible', 'plugin', 'recaptcha_invisible', 'captcha', 0, 0, 1, 0, '{\"name\":\"plg_captcha_recaptcha_invisible\",\"type\":\"plugin\",\"creationDate\":\"November 2017\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.8\",\"description\":\"PLG_CAPTCHA_RECAPTCHA_INVISIBLE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"recaptcha_invisible\"}', '{\"public_key\":\"\",\"private_key\":\"\",\"theme\":\"clean\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(494, 0, 'plg_captcha_recaptcha_invisible', 'plugin', 'recaptcha_invisible', 'captcha', 0, 0, 1, 0, '{\"name\":\"plg_captcha_recaptcha_invisible\",\"type\":\"plugin\",\"creationDate\":\"November 2017\",\"author\":\"Joomla! Project\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.8\",\"description\":\"PLG_CAPTCHA_RECAPTCHA_INVISIBLE_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"recaptcha_invisible\"}', '{\"public_key\":\"6LedJp4aAAAAAHjcweDnyhH8mvFNYSYbtgUAfLFi\",\"private_key\":\"6LedJp4aAAAAAMpAcroRQF_1Ub9FSZMlw_TrhDWt\",\"badge\":\"bottomright\",\"tabindex\":0,\"callback\":\"\",\"expired_callback\":\"\",\"error_callback\":\"\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (495, 0, 'plg_privacy_consents', 'plugin', 'consents', 'privacy', 0, 1, 1, 0, '{\"name\":\"plg_privacy_consents\",\"type\":\"plugin\",\"creationDate\":\"July 2018\",\"author\":\"Joomla! Project\",\"copyright\":\"(C) 2005 - 2019 Open Source Matters. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"www.joomla.org\",\"version\":\"3.9.0\",\"description\":\"PLG_PRIVACY_CONSENTS_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"consents\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (503, 0, 'beez3', 'template', 'beez3', '', 0, 1, 1, 0, '{\"name\":\"beez3\",\"type\":\"template\",\"creationDate\":\"25 November 2009\",\"author\":\"Angie Radtke\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.\",\"authorEmail\":\"a.radtke@derauftritt.de\",\"authorUrl\":\"http:\\/\\/www.der-auftritt.de\",\"version\":\"3.1.0\",\"description\":\"TPL_BEEZ3_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"templateDetails\"}', '{\"wrapperSmall\":\"53\",\"wrapperLarge\":\"72\",\"sitetitle\":\"\",\"sitedescription\":\"\",\"navposition\":\"center\",\"templatecolor\":\"nature\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (504, 0, 'hathor', 'template', 'hathor', '', 1, 1, 1, 0, '{\"name\":\"hathor\",\"type\":\"template\",\"creationDate\":\"May 2010\",\"author\":\"Andrea Tarr\",\"copyright\":\"Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.\",\"authorEmail\":\"admin@joomla.org\",\"authorUrl\":\"\",\"version\":\"3.0.0\",\"description\":\"TPL_HATHOR_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"templateDetails\"}', '{\"showSiteName\":\"0\",\"colourChoice\":\"0\",\"boldText\":\"0\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -932,7 +936,9 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 (10033, 0, 'SP Image Gallery', 'module', 'mod_sp_simple_gallery', '', 0, 1, 0, 0, '{\"name\":\"SP Image Gallery\",\"type\":\"module\",\"creationDate\":\"May 2010\",\"author\":\"JoomShaper.com\",\"copyright\":\"Copyright (C) 2010 - 2014 JoomShaper.com. All rights reserved.\",\"authorEmail\":\"support@joomshaper.com\",\"authorUrl\":\"www.JoomShaper.com\",\"version\":\"3.0\",\"description\":\"SP Image Gallery - Best lightweight image gallery module\",\"group\":\"\",\"filename\":\"mod_sp_simple_gallery\"}', '{\"path\":\"\",\"thumbwidth\":\"100\",\"thumbheight\":\"100\",\"thumbratio\":\"1\",\"custom_css\":\"border:1px solid #DDD; margin:0 5px 10px 5px; padding:5px; background:#fff;\",\"js_framework\":\"mootools\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10034, 10026, 'PLG_ACTIONLOG_AKEEBABACKUP', 'plugin', 'akeebabackup', 'actionlog', 0, 0, 1, 0, '{\"name\":\"PLG_ACTIONLOG_AKEEBABACKUP\",\"type\":\"plugin\",\"creationDate\":\"2020-05-21\",\"author\":\"Nicholas K. Dionysopoulos\",\"copyright\":\"Copyright (c)2006-2019 Nicholas K. Dionysopoulos\",\"authorEmail\":\"nicholas@dionysopoulos.me\",\"authorUrl\":\"http:\\/\\/www.akeebabackup.com\",\"version\":\"7.1.4\",\"description\":\"PLG_ACTIONLOG_AKEEBABACKUP_XML_DESCRIPTION\",\"group\":\"\",\"filename\":\"akeebabackup\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10035, 0, 'EB Whatsapp Chat', 'module', 'mod_ebwhatsappchat', '', 0, 1, 0, 0, '{\"name\":\"EB Whatsapp Chat\",\"type\":\"module\",\"creationDate\":\"2019-01-30\",\"author\":\"ExtnBakers\",\"copyright\":\"Copyright (C) 2020 extnbakers.com. All rights reserved.\",\"authorEmail\":\"hello@extnbakers.com\",\"authorUrl\":\"https:\\/\\/www.extnbakers.com\",\"version\":\"1.4\",\"description\":\"This module adds live Whatsapp chat option.  <br \\/><br \\/><strong>NOTE:<\\/strong> <em>This module needs to be enabled at DEBUG module position.<\\/em><br \\/><br \\/>  \",\"group\":\"\",\"filename\":\"mod_ebwhatsappchat\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(10036, 0, 'AllVideos (by JoomlaWorks)', 'plugin', 'jw_allvideos', 'content', 0, 0, 1, 0, '{\"name\":\"AllVideos (by JoomlaWorks)\",\"type\":\"plugin\",\"creationDate\":\"May 22nd, 2020\",\"author\":\"JoomlaWorks\",\"copyright\":\"Copyright (c) 2006 - 2020 JoomlaWorks Ltd. All rights reserved.\",\"authorEmail\":\"please-use-the-contact-form@joomlaworks.net\",\"authorUrl\":\"www.joomlaworks.net\",\"version\":\"6.1.0\",\"description\":\"JW_PLG_AV_XML_DESC\",\"group\":\"\",\"filename\":\"jw_allvideos\"}', '{\"\":\"JW_PLG_AV_GLOBAL_PARAMETERS\",\"playerTemplate\":\"Responsive\",\"vfolder\":\"images\\/videos\",\"vwidth\":\"600\",\"vheight\":\"450\",\"muted\":\"0\",\"allowVideoDownloading\":\"0\",\"afolder\":\"images\\/audio\",\"awidth\":\"600\",\"aheight\":\"60\",\"randomPosterForAudio\":\"0\",\"allowAudioDownloading\":\"0\",\"maxwidth\":\"\",\"controls\":\"1\",\"autoplay\":\"0\",\"loop\":\"0\",\"ytnocookie\":\"0\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+(10036, 0, 'AllVideos (by JoomlaWorks)', 'plugin', 'jw_allvideos', 'content', 0, 0, 1, 0, '{\"name\":\"AllVideos (by JoomlaWorks)\",\"type\":\"plugin\",\"creationDate\":\"May 22nd, 2020\",\"author\":\"JoomlaWorks\",\"copyright\":\"Copyright (c) 2006 - 2020 JoomlaWorks Ltd. All rights reserved.\",\"authorEmail\":\"please-use-the-contact-form@joomlaworks.net\",\"authorUrl\":\"www.joomlaworks.net\",\"version\":\"6.1.0\",\"description\":\"JW_PLG_AV_XML_DESC\",\"group\":\"\",\"filename\":\"jw_allvideos\"}', '{\"\":\"JW_PLG_AV_GLOBAL_PARAMETERS\",\"playerTemplate\":\"Responsive\",\"vfolder\":\"images\\/videos\",\"vwidth\":\"600\",\"vheight\":\"450\",\"muted\":\"0\",\"allowVideoDownloading\":\"0\",\"afolder\":\"images\\/audio\",\"awidth\":\"600\",\"aheight\":\"60\",\"randomPosterForAudio\":\"0\",\"allowAudioDownloading\":\"0\",\"maxwidth\":\"\",\"controls\":\"1\",\"autoplay\":\"0\",\"loop\":\"0\",\"ytnocookie\":\"0\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(10037, 0, 'Za Contact Form', 'module', 'mod_za_contactform', '', 0, 1, 0, 0, '{\"name\":\"Za Contact Form\",\"type\":\"module\",\"creationDate\":\"2021\",\"author\":\"Andrey\",\"copyright\":\"Copyright (C) Za-studio.net. All rights reserved.\",\"authorEmail\":\"design@za-studio.ru\",\"authorUrl\":\"www.za-studio.net\",\"version\":\"2.2\",\"description\":\" \\n\\t\\n    \\n\\t<a href=\\\"http:\\/\\/za-studio.net\\\" style=\\\"float:left;\\\"><img src=\\\"..\\/modules\\/mod_za_contactform\\/assets\\/images\\/logo.png\\\" \\/><\\/a>Za Contact Form - Ajax based quick contact Module. <br\\/>\\n<br\\/>\\n\\t\\n    \\n\\t\",\"group\":\"\",\"filename\":\"mod_za_contactform\"}', '{\"width_button\":\"200\",\"label_text\":\"Contact\",\"login_text\":\"Contact form\",\"email\":\"\",\"success\":\"Email was sent successfully.\",\"failed\":\"Email could not be sent.\",\"formcaptcha\":\"1\",\"captcha_question\":\"5 + 4 = ?\",\"captcha_answer\":\"9\",\"failed_captcha\":\"You have entered wrong captcha. Please try again.\",\"color_text\":\"#e75854\",\"backgr_text\":\"#fef0e3\",\"hide_text\":\"#b09a86\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(10038, 0, 'Rapid Contact', 'module', 'mod_rapid_contact', '', 0, 1, 0, 0, '{\"name\":\"Rapid Contact\",\"type\":\"module\",\"creationDate\":\"March 2011\",\"author\":\"Christopher Mavros\",\"copyright\":\"Copyright (C) 2009-2011 Christopher Mavros. All rights reserved.\",\"authorEmail\":\"mavrosxristoforos@gmail.com\",\"authorUrl\":\"https:\\/\\/mavrosxristoforos.com\\/\",\"version\":\"1.4.24\",\"description\":\"Rapid Contact. Lightweight, fast and easy, configuring a contact form, was never a pleasure before.\",\"group\":\"\",\"filename\":\"mod_rapid_contact\"}', '{\"email_recipient\":\"email@email.com\",\"from_name\":\"Rapid Contact\",\"from_email\":\"rapid_contact@yoursite.com\",\"email_label\":\"email@site.com\",\"subject_label\":\"Subject\",\"message_label\":\"Your Message\",\"button_text\":\"Send Message\",\"page_text\":\"Thank you for your contact.\",\"error_text\":\"Your message could not be sent. Please try again.\",\"no_email\":\"Please write your email\",\"invalid_email\":\"Please write a valid email\",\"wrong_antispam\":\"Wrong Anti-Spam Answer\",\"pre_text\":\"\",\"thank_text_color\":\"#000000\",\"error_text_color\":\"#FF0000\",\"email_width\":\"10\",\"subject_width\":\"10\",\"message_width\":\"7\",\"label_pos\":\"2\",\"addcss\":\"\",\"enable_anti_spam\":\"1\",\"anti_spam_q\":\"How many eyes has a typical person?\",\"anti_spam_a\":\"2\",\"anti_spam_position\":\"1\",\"please_complete_captcha_text\":\"Please complete the captcha\",\"moduleclass_sfx\":\"\",\"fixed_url\":\"0\",\"fixed_url_address\":\"\",\"cache\":\"1\",\"cache_time\":\"900\"}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -941,30 +947,30 @@ INSERT INTO `qmdc0_extensions` (`extension_id`, `package_id`, `name`, `type`, `e
 --
 
 CREATE TABLE `qmdc0_fields` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `context` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `group_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `label` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `default_value` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'text',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `context` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `group_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `default_value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'text',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint(1) NOT NULL DEFAULT '0',
   `required` tinyint(1) NOT NULL DEFAULT '0',
-  `checked_out` int(11) NOT NULL DEFAULT '0',
+  `checked_out` int NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fieldparams` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `ordering` int NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fieldparams` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `created_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `access` int(11) NOT NULL DEFAULT '1'
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `access` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -974,8 +980,8 @@ CREATE TABLE `qmdc0_fields` (
 --
 
 CREATE TABLE `qmdc0_fields_categories` (
-  `field_id` int(11) NOT NULL DEFAULT '0',
-  `category_id` int(11) NOT NULL DEFAULT '0'
+  `field_id` int NOT NULL DEFAULT '0',
+  `category_id` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -985,23 +991,23 @@ CREATE TABLE `qmdc0_fields_categories` (
 --
 
 CREATE TABLE `qmdc0_fields_groups` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `context` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `context` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint(1) NOT NULL DEFAULT '0',
-  `checked_out` int(11) NOT NULL DEFAULT '0',
+  `checked_out` int NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `ordering` int NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `created_by` int UNSIGNED NOT NULL DEFAULT '0',
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `access` int(11) NOT NULL DEFAULT '1'
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `access` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1011,9 +1017,9 @@ CREATE TABLE `qmdc0_fields_groups` (
 --
 
 CREATE TABLE `qmdc0_fields_values` (
-  `field_id` int(10) UNSIGNED NOT NULL,
-  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Allow references to items which have strings as ids, eg. none db systems.',
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `field_id` int UNSIGNED NOT NULL,
+  `item_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Allow references to items which have strings as ids, eg. none db systems.',
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1023,20 +1029,20 @@ CREATE TABLE `qmdc0_fields_values` (
 --
 
 CREATE TABLE `qmdc0_finder_filters` (
-  `filter_id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `alias` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `filter_id` int UNSIGNED NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint(1) NOT NULL DEFAULT '1',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by` int(10) UNSIGNED NOT NULL,
-  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `created_by` int UNSIGNED NOT NULL,
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `map_count` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `data` text CHARACTER SET utf8mb4 NOT NULL,
-  `params` mediumtext CHARACTER SET utf8mb4
+  `map_count` int UNSIGNED NOT NULL DEFAULT '0',
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `params` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1046,24 +1052,24 @@ CREATE TABLE `qmdc0_finder_filters` (
 --
 
 CREATE TABLE `qmdc0_finder_links` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `url` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `route` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `title` varchar(400) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `description` text CHARACTER SET utf8mb4,
+  `link_id` int UNSIGNED NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `route` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `indexdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `md5sum` varchar(32) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `md5sum` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `published` tinyint(1) NOT NULL DEFAULT '1',
-  `state` int(5) DEFAULT '1',
-  `access` int(5) DEFAULT '0',
-  `language` varchar(8) CHARACTER SET utf8mb4 NOT NULL,
+  `state` int DEFAULT '1',
+  `access` int DEFAULT '0',
+  `language` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `publish_start_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_end_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `start_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `end_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `list_price` double UNSIGNED NOT NULL DEFAULT '0',
   `sale_price` double UNSIGNED NOT NULL DEFAULT '0',
-  `type_id` int(11) NOT NULL,
+  `type_id` int NOT NULL,
   `object` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1074,8 +1080,8 @@ CREATE TABLE `qmdc0_finder_links` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms0` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1086,8 +1092,8 @@ CREATE TABLE `qmdc0_finder_links_terms0` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms1` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1098,8 +1104,8 @@ CREATE TABLE `qmdc0_finder_links_terms1` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms2` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1110,8 +1116,8 @@ CREATE TABLE `qmdc0_finder_links_terms2` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms3` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1122,8 +1128,8 @@ CREATE TABLE `qmdc0_finder_links_terms3` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms4` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1134,8 +1140,8 @@ CREATE TABLE `qmdc0_finder_links_terms4` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms5` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1146,8 +1152,8 @@ CREATE TABLE `qmdc0_finder_links_terms5` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms6` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1158,8 +1164,8 @@ CREATE TABLE `qmdc0_finder_links_terms6` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms7` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1170,8 +1176,8 @@ CREATE TABLE `qmdc0_finder_links_terms7` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms8` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1182,8 +1188,8 @@ CREATE TABLE `qmdc0_finder_links_terms8` (
 --
 
 CREATE TABLE `qmdc0_finder_links_terms9` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1194,8 +1200,8 @@ CREATE TABLE `qmdc0_finder_links_terms9` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termsa` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1206,8 +1212,8 @@ CREATE TABLE `qmdc0_finder_links_termsa` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termsb` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1218,8 +1224,8 @@ CREATE TABLE `qmdc0_finder_links_termsb` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termsc` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1230,8 +1236,8 @@ CREATE TABLE `qmdc0_finder_links_termsc` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termsd` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1242,8 +1248,8 @@ CREATE TABLE `qmdc0_finder_links_termsd` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termse` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1254,8 +1260,8 @@ CREATE TABLE `qmdc0_finder_links_termse` (
 --
 
 CREATE TABLE `qmdc0_finder_links_termsf` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `term_id` int(10) UNSIGNED NOT NULL,
+  `link_id` int UNSIGNED NOT NULL,
+  `term_id` int UNSIGNED NOT NULL,
   `weight` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1266,12 +1272,12 @@ CREATE TABLE `qmdc0_finder_links_termsf` (
 --
 
 CREATE TABLE `qmdc0_finder_taxonomy` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `state` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
-  `access` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `ordering` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+  `id` int UNSIGNED NOT NULL,
+  `parent_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` tinyint UNSIGNED NOT NULL DEFAULT '1',
+  `access` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `ordering` tinyint UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1281,8 +1287,8 @@ CREATE TABLE `qmdc0_finder_taxonomy` (
 --
 
 CREATE TABLE `qmdc0_finder_taxonomy_map` (
-  `link_id` int(10) UNSIGNED NOT NULL,
-  `node_id` int(10) UNSIGNED NOT NULL
+  `link_id` int UNSIGNED NOT NULL,
+  `node_id` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1292,15 +1298,15 @@ CREATE TABLE `qmdc0_finder_taxonomy_map` (
 --
 
 CREATE TABLE `qmdc0_finder_terms` (
-  `term_id` int(10) UNSIGNED NOT NULL,
-  `term` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `stem` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `common` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `phrase` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `term_id` int UNSIGNED NOT NULL,
+  `term` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stem` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `common` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `phrase` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `weight` float UNSIGNED NOT NULL DEFAULT '0',
-  `soundex` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `links` int(10) NOT NULL DEFAULT '0',
-  `language` char(3) CHARACTER SET utf8mb4 NOT NULL DEFAULT ''
+  `soundex` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `links` int NOT NULL DEFAULT '0',
+  `language` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1310,8 +1316,8 @@ CREATE TABLE `qmdc0_finder_terms` (
 --
 
 CREATE TABLE `qmdc0_finder_terms_common` (
-  `term` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `language` varchar(3) CHARACTER SET utf8mb4 NOT NULL
+  `term` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1437,13 +1443,13 @@ INSERT INTO `qmdc0_finder_terms_common` (`term`, `language`) VALUES
 --
 
 CREATE TABLE `qmdc0_finder_tokens` (
-  `term` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `stem` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `common` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `phrase` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `term` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stem` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `common` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `phrase` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `weight` float UNSIGNED NOT NULL DEFAULT '1',
-  `context` tinyint(1) UNSIGNED NOT NULL DEFAULT '2',
-  `language` char(3) CHARACTER SET utf8mb4 NOT NULL DEFAULT ''
+  `context` tinyint UNSIGNED NOT NULL DEFAULT '2',
+  `language` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1453,17 +1459,17 @@ CREATE TABLE `qmdc0_finder_tokens` (
 --
 
 CREATE TABLE `qmdc0_finder_tokens_aggregate` (
-  `term_id` int(10) UNSIGNED NOT NULL,
-  `map_suffix` char(1) CHARACTER SET utf8mb4 NOT NULL,
-  `term` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `stem` varchar(75) CHARACTER SET utf8mb4 NOT NULL,
-  `common` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `phrase` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `term_id` int UNSIGNED NOT NULL,
+  `map_suffix` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stem` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `common` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `phrase` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `term_weight` float UNSIGNED NOT NULL,
-  `context` tinyint(1) UNSIGNED NOT NULL DEFAULT '2',
+  `context` tinyint UNSIGNED NOT NULL DEFAULT '2',
   `context_weight` float UNSIGNED NOT NULL,
   `total_weight` float UNSIGNED NOT NULL,
-  `language` char(3) CHARACTER SET utf8mb4 NOT NULL DEFAULT ''
+  `language` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1473,9 +1479,9 @@ CREATE TABLE `qmdc0_finder_tokens_aggregate` (
 --
 
 CREATE TABLE `qmdc0_finder_types` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `mime` varchar(100) CHARACTER SET utf8mb4 NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mime` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1496,12 +1502,12 @@ INSERT INTO `qmdc0_finder_types` (`id`, `title`, `mime`) VALUES
 --
 
 CREATE TABLE `qmdc0_k2_attachments` (
-  `id` int(11) NOT NULL,
-  `itemID` int(11) NOT NULL,
-  `filename` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `titleAttribute` text CHARACTER SET utf8 NOT NULL,
-  `hits` int(11) NOT NULL
+  `id` int NOT NULL,
+  `itemID` int NOT NULL,
+  `filename` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `titleAttribute` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `hits` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1511,20 +1517,20 @@ CREATE TABLE `qmdc0_k2_attachments` (
 --
 
 CREATE TABLE `qmdc0_k2_categories` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `alias` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `description` text CHARACTER SET utf8 NOT NULL,
-  `parent` int(11) DEFAULT '0',
-  `extraFieldsGroup` int(11) NOT NULL,
-  `published` smallint(6) NOT NULL DEFAULT '0',
-  `access` int(11) NOT NULL DEFAULT '0',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `image` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `params` text CHARACTER SET utf8 NOT NULL,
-  `trash` smallint(6) NOT NULL DEFAULT '0',
-  `plugins` text CHARACTER SET utf8 NOT NULL,
-  `language` char(7) CHARACTER SET utf8 NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `alias` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `parent` int DEFAULT '0',
+  `extraFieldsGroup` int NOT NULL,
+  `published` smallint NOT NULL DEFAULT '0',
+  `access` int NOT NULL DEFAULT '0',
+  `ordering` int NOT NULL DEFAULT '0',
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `params` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `trash` smallint NOT NULL DEFAULT '0',
+  `plugins` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1551,15 +1557,15 @@ INSERT INTO `qmdc0_k2_categories` (`id`, `name`, `alias`, `description`, `parent
 --
 
 CREATE TABLE `qmdc0_k2_comments` (
-  `id` int(11) NOT NULL,
-  `itemID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  `userName` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `id` int NOT NULL,
+  `itemID` int NOT NULL,
+  `userID` int NOT NULL,
+  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `commentDate` datetime NOT NULL,
-  `commentText` text CHARACTER SET utf8 NOT NULL,
-  `commentEmail` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `commentURL` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `published` int(11) NOT NULL DEFAULT '0'
+  `commentText` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `commentEmail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `commentURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `published` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1569,13 +1575,13 @@ CREATE TABLE `qmdc0_k2_comments` (
 --
 
 CREATE TABLE `qmdc0_k2_extra_fields` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `value` text CHARACTER SET utf8 NOT NULL,
-  `type` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `group` int(11) NOT NULL,
-  `published` tinyint(4) NOT NULL,
-  `ordering` int(11) NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `value` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `group` int NOT NULL,
+  `published` tinyint NOT NULL,
+  `ordering` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1585,8 +1591,8 @@ CREATE TABLE `qmdc0_k2_extra_fields` (
 --
 
 CREATE TABLE `qmdc0_k2_extra_fields_groups` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1596,42 +1602,42 @@ CREATE TABLE `qmdc0_k2_extra_fields_groups` (
 --
 
 CREATE TABLE `qmdc0_k2_items` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `alias` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `catid` int(11) NOT NULL,
-  `published` smallint(6) NOT NULL DEFAULT '0',
-  `introtext` mediumtext CHARACTER SET utf8 NOT NULL,
-  `fulltext` mediumtext CHARACTER SET utf8 NOT NULL,
-  `video` text CHARACTER SET utf8,
-  `gallery` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `id` int NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `alias` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `catid` int NOT NULL,
+  `published` smallint NOT NULL DEFAULT '0',
+  `introtext` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `fulltext` mediumtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `video` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `gallery` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `extra_fields` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `extra_fields_search` text CHARACTER SET utf8 NOT NULL,
+  `extra_fields_search` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `created` datetime NOT NULL,
-  `created_by` int(11) NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `checked_out` int(10) UNSIGNED NOT NULL,
+  `created_by` int NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `checked_out` int UNSIGNED NOT NULL,
   `checked_out_time` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `modified_by` int(11) NOT NULL DEFAULT '0',
+  `modified_by` int NOT NULL DEFAULT '0',
   `publish_up` datetime NOT NULL,
   `publish_down` datetime NOT NULL,
-  `trash` smallint(6) NOT NULL DEFAULT '0',
-  `access` int(11) NOT NULL DEFAULT '0',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `featured` smallint(6) NOT NULL DEFAULT '0',
-  `featured_ordering` int(11) NOT NULL DEFAULT '0',
-  `image_caption` text CHARACTER SET utf8 NOT NULL,
-  `image_credits` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `video_caption` text CHARACTER SET utf8 NOT NULL,
-  `video_credits` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `hits` int(10) UNSIGNED NOT NULL,
-  `params` text CHARACTER SET utf8 NOT NULL,
-  `metadesc` text CHARACTER SET utf8 NOT NULL,
-  `metadata` text CHARACTER SET utf8 NOT NULL,
-  `metakey` text CHARACTER SET utf8 NOT NULL,
-  `plugins` text CHARACTER SET utf8 NOT NULL,
-  `language` char(7) CHARACTER SET utf8 NOT NULL
+  `trash` smallint NOT NULL DEFAULT '0',
+  `access` int NOT NULL DEFAULT '0',
+  `ordering` int NOT NULL DEFAULT '0',
+  `featured` smallint NOT NULL DEFAULT '0',
+  `featured_ordering` int NOT NULL DEFAULT '0',
+  `image_caption` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `image_credits` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `video_caption` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `video_credits` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `hits` int UNSIGNED NOT NULL,
+  `params` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `metadesc` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `plugins` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `language` char(7) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1641,7 +1647,7 @@ CREATE TABLE `qmdc0_k2_items` (
 INSERT INTO `qmdc0_k2_items` (`id`, `title`, `alias`, `catid`, `published`, `introtext`, `fulltext`, `video`, `gallery`, `extra_fields`, `extra_fields_search`, `created`, `created_by`, `created_by_alias`, `checked_out`, `checked_out_time`, `modified`, `modified_by`, `publish_up`, `publish_down`, `trash`, `access`, `ordering`, `featured`, `featured_ordering`, `image_caption`, `image_credits`, `video_caption`, `video_credits`, `hits`, `params`, `metadesc`, `metadata`, `metakey`, `plugins`, `language`) VALUES
 (1, 'Monitoreo Ocupacional', 'monitoreo-ocupacional', 1, 0, '<p>Lorem ipsum dolor sit amet, consecte4tur adipis sollicitudin. Duis iaculis, arcu ut hen.</p>', '', NULL, NULL, '[]', '', '2018-04-19 06:48:00', 311, '', 0, '0000-00-00 00:00:00', '2021-03-05 16:45:19', 311, '2018-04-19 06:48:00', '0000-00-00 00:00:00', 0, 1, 1, 0, 0, '', '', '', '', 4, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"\",\"catItemAttachmentsCounter\":\"\",\"catItemVideo\":\"\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"\",\"catItemK2Plugins\":\"\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"\",\"itemVideo\":\"\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
 (2, 'Consultoría Ambiental', 'consultoria-ambiental', 1, 0, '<p>Lorem ipsum dolor sit amet, consecte4tur adipis sollicitudin. Duis iaculis, arcu ut hen.</p>', '', NULL, NULL, '[]', '', '2018-04-19 06:48:58', 311, '', 0, '0000-00-00 00:00:00', '2021-03-05 10:31:12', 311, '2018-04-19 06:48:00', '0000-00-00 00:00:00', 0, 1, 4, 0, 0, '', '', '', '', 2, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"\",\"catItemAttachmentsCounter\":\"\",\"catItemVideo\":\"\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"\",\"catItemK2Plugins\":\"\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"\",\"itemVideo\":\"\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
-(3, 'Saneamiento Ambiental', 'saneamiento-ambiental', 1, 1, '<p style=\"text-align: justify;\">Somos una empresa líder en la prestación de servicios de limpieza y mantenimiento integral de edificios, oficinas, centros comerciales, entidades privadas y públicas de los rubros de salud, educación, hidroeléctricas, mineras y otras con gran profesionalismo y calidad.</p>\r\n', '\r\n<p>Nuestra empresa está autorizada para realizar las siguientes actividades:</p>\r\n<ul class=\"row bolg_post_list\">\r\n<li class=\"col-sm-6\">Desinfección</li>\r\n<li class=\"col-sm-6\">Desinsectación</li>\r\n<li class=\"col-sm-6\">Desratizacion</li>\r\n<li class=\"col-sm-6\">Limpieza de Pozos Septicos</li>\r\n<li class=\"col-sm-6\">Limpieza y desinfección de reservorios de agua</li>\r\n<li class=\"col-sm-6\">Limpieza en General</li>\r\n<li class=\"col-sm-6\"></li>\r\n</ul>\r\n<div class=\"col-sm-6\">\r\n<h1><video controls=\"controls\" width=\"500\" height=\"250\"><source src=\"/images/VIDEO PAGINA 2021 - II.mp4\" /></video></h1>\r\n</div>\r\n<div class=\"col-sm-6\">\r\n<h1><video controls=\"controls\" width=\"500\" height=\"250\"><source src=\"/images/video para la pagina 2021.mp4\" /></video></h1>\r\n</div>\r\n<blockquote>\r\n<p>Control y Monitoreo Ambiental.<br />Calidad de Aire</p>\r\n<p> </p>\r\n</blockquote>', '', NULL, '[]', '', '2018-04-19 06:51:03', 311, '', 311, '2021-05-28 07:29:51', '2021-05-20 05:36:04', 311, '2018-04-19 06:48:00', '0000-00-00 00:00:00', 0, 1, 2, 0, 0, '', '', '', '', 258, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"0\",\"catItemAttachmentsCounter\":\"0\",\"catItemVideo\":\"1\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"0\",\"catItemK2Plugins\":\"0\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"0\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"0\",\"itemVideo\":\"1\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"0\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"1\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
+(3, 'Saneamiento Ambiental', 'saneamiento-ambiental', 1, 1, '<p style=\"text-align: justify;\">Somos una empresa líder en la prestación de servicios de limpieza y mantenimiento integral de edificios, oficinas, centros comerciales, entidades privadas y públicas de los rubros de salud, educación, hidroeléctricas, mineras y otras con gran profesionalismo y calidad.</p>\r\n', '\r\n<p>Nuestra empresa está autorizada para realizar las siguientes actividades:</p>\r\n<ul class=\"row bolg_post_list\">\r\n<li class=\"col-sm-6\">Desinfección</li>\r\n<li class=\"col-sm-6\">Desinsectación</li>\r\n<li class=\"col-sm-6\">Desratizacion</li>\r\n<li class=\"col-sm-6\">Limpieza de Pozos Septicos</li>\r\n<li class=\"col-sm-6\">Limpieza y desinfección de reservorios de agua</li>\r\n<li class=\"col-sm-6\">Limpieza en General</li>\r\n<li class=\"col-sm-6\"></li>\r\n</ul>\r\n<div class=\"col-sm-6\">\r\n<h1><video controls=\"controls\" width=\"500\" height=\"250\"><source src=\"/images/VIDEO PAGINA 2021 - II.mp4\" /></video></h1>\r\n</div>\r\n<div class=\"col-sm-6\">\r\n<h1><video controls=\"controls\" width=\"500\" height=\"250\"><source src=\"/images/video para la pagina 2021.mp4\" /></video></h1>\r\n</div>\r\n<blockquote>\r\n<p>Control y Monitoreo Ambiental.<br />Calidad de Aire</p>\r\n<p> </p>\r\n</blockquote>', '', NULL, '[]', '', '2018-04-19 06:51:03', 311, '', 311, '2021-05-28 07:29:51', '2021-05-20 05:36:04', 311, '2018-04-19 06:48:00', '0000-00-00 00:00:00', 0, 1, 2, 0, 0, '', '', '', '', 259, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"0\",\"catItemAttachmentsCounter\":\"0\",\"catItemVideo\":\"1\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"0\",\"catItemK2Plugins\":\"0\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"0\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"0\",\"itemVideo\":\"1\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"0\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"1\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
 (4, 'Servicios de Seguridad, Salud e Higiene Industrial', 'residuos-solidos', 1, 1, '<p style=\"text-align: justify;\">Para brindarle a todas las empresas, asesoría y acompañamiento en el desarrollo de los programas y actividades que en salud ocupacional sean necesarios para garantizar a los trabajadores condiciones seguras y ambientes de trabajo saludables.</p>\r\n', '\r\n<ul class=\"row bolg_post_list\">\r\n<li class=\"col-sm-6\">Elaboración e implementación del reglamento de seguridad y salud en el trabajo DS 006-2014TR.</li>\r\n<li class=\"col-sm-6\">Elaboración de estudios Ergonómicos.</li>\r\n<li class=\"col-sm-6\">Psicosociología.</li>\r\n<li class=\"col-sm-6\">Programas de asesoría permanente.</li>\r\n<li class=\"col-sm-6\">Análisis de riesgos.</li>\r\n<li class=\"col-sm-6\">Planes de contingencia.</li>\r\n<li class=\"col-sm-6\">Gestión de la calidad de seguridad para contratistas.</li>\r\n<li class=\"col-sm-6\">Implementación de Sistemas Integrados de Gestión.</li>\r\n<li class=\"col-sm-6\">Identificación de peligros y evaluación de riesgos.</li>\r\n<li class=\"col-sm-6\">Manejo defensivo</li>\r\n<li class=\"col-sm-6\">Control interno de seguridad.</li>\r\n<li class=\"col-sm-6\">Procedimientos de seguridad.</li>\r\n<li class=\"col-sm-6\">Diseño de reportes mensuales.</li>\r\n<li class=\"col-sm-6\">Evaluación de diagnóstico de sistema de seguridad.</li>\r\n<li class=\"col-sm-6\">Prevención de perdidas internas.</li>\r\n<li class=\"col-sm-6\">Higiene industrial (monitoreos, evaluaciones, estudios).</li>\r\n</ul>\r\n<blockquote>\r\n<p>Monitoreo de Estrés Térmico. <br />Monitoreo de Iluminación <br />Monitoreo de Ruido Ocupacional <br />Monitoreo de Polvos Respirables e Inhalables</p>\r\n</blockquote>', NULL, NULL, '[]', '', '2018-04-19 06:51:03', 311, '', 0, '0000-00-00 00:00:00', '2021-05-20 05:32:38', 311, '2018-04-19 06:48:00', '0000-00-00 00:00:00', 0, 1, 5, 0, 0, '', '', '', '', 535, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"0\",\"catItemDateCreated\":\"0\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"\",\"catItemAttachmentsCounter\":\"\",\"catItemVideo\":\"\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"0\",\"catItemK2Plugins\":\"\",\"itemDateCreated\":\"0\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"0\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"0\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"\",\"itemVideo\":\"\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"0\",\"itemTwitterButton\":\"0\",\"itemFacebookButton\":\"1\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
 (5, 'Image 1', 'image-1', 8, 1, '', '', NULL, NULL, '[]', '', '2018-04-19 10:00:02', 311, '', 0, '0000-00-00 00:00:00', '2021-05-20 04:21:50', 311, '2018-04-19 10:00:02', '0000-00-00 00:00:00', 0, 1, 1, 0, 0, '', '', '', '', 9, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"\",\"catItemAttachmentsCounter\":\"\",\"catItemVideo\":\"\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"\",\"catItemK2Plugins\":\"\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"\",\"itemVideo\":\"\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
 (6, 'Image 2', 'image-2', 8, 1, '', '', NULL, NULL, '[]', '', '2018-04-19 10:00:46', 311, '', 0, '0000-00-00 00:00:00', '2021-05-20 04:22:18', 311, '2018-04-19 10:00:46', '0000-00-00 00:00:00', 0, 1, 2, 0, 0, '', '', '', '', 9, '{\"catItemTitle\":\"\",\"catItemTitleLinked\":\"\",\"catItemFeaturedNotice\":\"\",\"catItemAuthor\":\"\",\"catItemDateCreated\":\"\",\"catItemRating\":\"\",\"catItemImage\":\"\",\"catItemIntroText\":\"\",\"catItemExtraFields\":\"\",\"catItemHits\":\"\",\"catItemCategory\":\"\",\"catItemTags\":\"\",\"catItemAttachments\":\"\",\"catItemAttachmentsCounter\":\"\",\"catItemVideo\":\"\",\"catItemVideoWidth\":\"\",\"catItemVideoHeight\":\"\",\"catItemAudioWidth\":\"\",\"catItemAudioHeight\":\"\",\"catItemVideoAutoPlay\":\"\",\"catItemImageGallery\":\"\",\"catItemImageGalleryWidth\":\"\",\"catItemImageGalleryHeight\":\"\",\"catItemDateModified\":\"\",\"catItemReadMore\":\"\",\"catItemCommentsAnchor\":\"\",\"catItemK2Plugins\":\"\",\"itemDateCreated\":\"\",\"itemTitle\":\"\",\"itemFeaturedNotice\":\"\",\"itemAuthor\":\"\",\"itemFontResizer\":\"\",\"itemPrintButton\":\"\",\"itemEmailButton\":\"\",\"itemSocialButton\":\"\",\"itemVideoAnchor\":\"\",\"itemImageGalleryAnchor\":\"\",\"itemCommentsAnchor\":\"\",\"itemRating\":\"\",\"itemImage\":\"\",\"itemImgSize\":\"\",\"itemImageMainCaption\":\"\",\"itemImageMainCredits\":\"\",\"itemIntroText\":\"\",\"itemFullText\":\"\",\"itemExtraFields\":\"\",\"itemDateModified\":\"\",\"itemHits\":\"\",\"itemCategory\":\"\",\"itemTags\":\"\",\"itemAttachments\":\"\",\"itemAttachmentsCounter\":\"\",\"itemVideo\":\"\",\"itemVideoWidth\":\"\",\"itemVideoHeight\":\"\",\"itemAudioWidth\":\"\",\"itemAudioHeight\":\"\",\"itemVideoAutoPlay\":\"\",\"itemVideoCaption\":\"\",\"itemVideoCredits\":\"\",\"itemImageGallery\":\"\",\"itemImageGalleryWidth\":\"\",\"itemImageGalleryHeight\":\"\",\"itemNavigation\":\"\",\"itemComments\":\"\",\"itemTwitterButton\":\"\",\"itemFacebookButton\":\"\",\"itemGooglePlusOneButton\":\"\",\"itemAuthorBlock\":\"\",\"itemAuthorImage\":\"\",\"itemAuthorDescription\":\"\",\"itemAuthorURL\":\"\",\"itemAuthorEmail\":\"\",\"itemAuthorLatest\":\"\",\"itemAuthorLatestLimit\":\"\",\"itemRelated\":\"\",\"itemRelatedLimit\":\"\",\"itemRelatedTitle\":\"\",\"itemRelatedCategory\":\"\",\"itemRelatedImageSize\":\"\",\"itemRelatedIntrotext\":\"\",\"itemRelatedFulltext\":\"\",\"itemRelatedAuthor\":\"\",\"itemRelatedMedia\":\"\",\"itemRelatedImageGallery\":\"\",\"itemK2Plugins\":\"\"}', '', 'robots=\nauthor=', '', '', '*'),
@@ -1671,8 +1677,8 @@ INSERT INTO `qmdc0_k2_items` (`id`, `title`, `alias`, `catid`, `published`, `int
 --
 
 CREATE TABLE `qmdc0_k2_log` (
-  `status` int(11) NOT NULL,
-  `response` text CHARACTER SET utf8 NOT NULL,
+  `status` int NOT NULL,
+  `response` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1690,10 +1696,10 @@ INSERT INTO `qmdc0_k2_log` (`status`, `response`, `timestamp`) VALUES
 --
 
 CREATE TABLE `qmdc0_k2_rating` (
-  `itemID` int(11) NOT NULL DEFAULT '0',
-  `rating_sum` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `rating_count` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `lastip` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+  `itemID` int NOT NULL DEFAULT '0',
+  `rating_sum` int UNSIGNED NOT NULL DEFAULT '0',
+  `rating_count` int UNSIGNED NOT NULL DEFAULT '0',
+  `lastip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1703,9 +1709,9 @@ CREATE TABLE `qmdc0_k2_rating` (
 --
 
 CREATE TABLE `qmdc0_k2_tags` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `published` smallint(6) NOT NULL DEFAULT '0'
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `published` smallint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1715,9 +1721,9 @@ CREATE TABLE `qmdc0_k2_tags` (
 --
 
 CREATE TABLE `qmdc0_k2_tags_xref` (
-  `id` int(11) NOT NULL,
-  `tagID` int(11) NOT NULL,
-  `itemID` int(11) NOT NULL
+  `id` int NOT NULL,
+  `tagID` int NOT NULL,
+  `itemID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1727,18 +1733,18 @@ CREATE TABLE `qmdc0_k2_tags_xref` (
 --
 
 CREATE TABLE `qmdc0_k2_users` (
-  `id` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  `userName` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `gender` enum('m','f') CHARACTER SET utf8 NOT NULL DEFAULT 'm',
-  `description` text CHARACTER SET utf8 NOT NULL,
-  `image` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `url` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `group` int(11) NOT NULL DEFAULT '0',
-  `plugins` text CHARACTER SET utf8 NOT NULL,
-  `ip` varchar(15) CHARACTER SET utf8 NOT NULL,
-  `hostname` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `notes` text CHARACTER SET utf8 NOT NULL
+  `id` int NOT NULL,
+  `userID` int NOT NULL,
+  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `gender` enum('m','f') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'm',
+  `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `group` int NOT NULL DEFAULT '0',
+  `plugins` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ip` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `hostname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `notes` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1748,9 +1754,9 @@ CREATE TABLE `qmdc0_k2_users` (
 --
 
 CREATE TABLE `qmdc0_k2_user_groups` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `permissions` text CHARACTER SET utf8 NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `permissions` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1768,20 +1774,20 @@ INSERT INTO `qmdc0_k2_user_groups` (`id`, `name`, `permissions`) VALUES
 --
 
 CREATE TABLE `qmdc0_languages` (
-  `lang_id` int(11) UNSIGNED NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `lang_id` int UNSIGNED NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0',
   `lang_code` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_native` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sef` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sitename` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `published` int(11) NOT NULL DEFAULT '0',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `ordering` int(11) NOT NULL DEFAULT '0'
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_native` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sef` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sitename` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `published` int NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `ordering` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1798,30 +1804,30 @@ INSERT INTO `qmdc0_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `tit
 --
 
 CREATE TABLE `qmdc0_menu` (
-  `id` int(11) NOT NULL,
-  `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The display title of the menu item.',
+  `id` int NOT NULL,
+  `menutype` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The display title of the menu item.',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'The SEF alias of the menu item.',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `path` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The computed path of the menu item based on the alias field.',
-  `link` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The actually link the menu item refers to.',
-  `type` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of link: Component, URL, Alias, Separator',
-  `published` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'The published state of the menu link.',
-  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'The parent menu item in the menu tree.',
-  `level` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'The relative level in the tree.',
-  `component_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to #__extensions.id',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to #__users.id',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `path` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The computed path of the menu item based on the alias field.',
+  `link` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The actually link the menu item refers to.',
+  `type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The type of link: Component, URL, Alias, Separator',
+  `published` tinyint NOT NULL DEFAULT '0' COMMENT 'The published state of the menu link.',
+  `parent_id` int UNSIGNED NOT NULL DEFAULT '1' COMMENT 'The parent menu item in the menu tree.',
+  `level` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'The relative level in the tree.',
+  `component_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to #__extensions.id',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to #__users.id',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'The time the menu item was checked out.',
-  `browserNav` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'The click behaviour of the link.',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'The access level required to view the menu item.',
-  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image of the menu item.',
-  `template_style_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded data for the menu item.',
-  `lft` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
-  `rgt` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
-  `home` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Indicates if this menu item is the home or default page.',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `client_id` tinyint(4) NOT NULL DEFAULT '0'
+  `browserNav` tinyint NOT NULL DEFAULT '0' COMMENT 'The click behaviour of the link.',
+  `access` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'The access level required to view the menu item.',
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image of the menu item.',
+  `template_style_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded data for the menu item.',
+  `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
+  `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
+  `home` tinyint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Indicates if this menu item is the home or default page.',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `client_id` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1862,7 +1868,7 @@ INSERT INTO `qmdc0_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `l
 (121, 'mainmenu', 'Nosotros', 'about-us', '', 'about-us', 'index.php?option=com_content&view=article&id=2', 'component', 0, 1, 1, 22, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"show_title\":\"\",\"link_titles\":\"\",\"show_intro\":\"\",\"info_block_position\":\"\",\"info_block_show_title\":\"\",\"show_category\":\"\",\"link_category\":\"\",\"show_parent_category\":\"\",\"link_parent_category\":\"\",\"show_associations\":\"\",\"show_author\":\"\",\"link_author\":\"\",\"show_create_date\":\"\",\"show_modify_date\":\"\",\"show_publish_date\":\"\",\"show_item_navigation\":\"\",\"show_vote\":\"\",\"show_icons\":\"\",\"show_print_icon\":\"\",\"show_email_icon\":\"\",\"show_hits\":\"\",\"show_tags\":\"\",\"show_noauth\":\"\",\"urls_position\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 21, 22, 0, '*', 0),
 (122, 'mainmenu', 'Home variation', 'home-variation', '', 'home/home-variation', 'index.php?option=com_content&view=featured', 'component', -2, 101, 2, 22, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"featured_categories\":[\"\"],\"layout_type\":\"blog\",\"num_leading_articles\":\"\",\"num_intro_articles\":\"\",\"num_columns\":\"\",\"num_links\":\"\",\"multi_column_order\":\"\",\"orderby_pri\":\"\",\"orderby_sec\":\"\",\"order_date\":\"\",\"show_pagination\":\"\",\"show_pagination_results\":\"\",\"show_title\":\"\",\"link_titles\":\"\",\"show_intro\":\"\",\"info_block_position\":\"\",\"info_block_show_title\":\"\",\"show_category\":\"\",\"link_category\":\"\",\"show_parent_category\":\"\",\"link_parent_category\":\"\",\"show_associations\":\"\",\"show_author\":\"\",\"link_author\":\"\",\"show_create_date\":\"\",\"show_modify_date\":\"\",\"show_publish_date\":\"\",\"show_item_navigation\":\"\",\"show_vote\":\"\",\"show_readmore\":\"\",\"show_readmore_title\":\"\",\"show_icons\":\"\",\"show_print_icon\":\"\",\"show_email_icon\":\"\",\"show_hits\":\"\",\"show_tags\":\"\",\"show_noauth\":\"\",\"show_feed_link\":\"\",\"feed_summary\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"home-variation\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 6, 7, 0, '*', 0),
 (123, 'mainmenu', 'Blog', 'blog', '', 'blog', 'index.php?option=com_k2&view=itemlist&layout=category&task=category&id=1', 'component', 0, 1, 1, 10003, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"categories\":[\"1\"],\"singleCatOrdering\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 27, 30, 0, '*', 0),
-(124, 'mainmenu', 'Contáctanos', 'contact', '', 'contact', 'index.php?option=com_contact&view=contact&id=1', 'component', 1, 1, 1, 8, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"presentation_style\":\"\",\"show_contact_category\":\"hide\",\"show_contact_list\":\"\",\"show_name\":\"\",\"show_tags\":\"\",\"show_info\":\"\",\"show_position\":\"\",\"show_email\":\"\",\"add_mailto_link\":\"\",\"show_street_address\":\"\",\"show_suburb\":\"\",\"show_state\":\"\",\"show_postcode\":\"\",\"show_country\":\"\",\"show_telephone\":\"\",\"show_mobile\":\"\",\"show_fax\":\"\",\"show_webpage\":\"\",\"show_image\":\"\",\"allow_vcard\":\"\",\"show_misc\":\"\",\"show_articles\":\"\",\"articles_display_num\":\"\",\"show_profile\":\"\",\"show_links\":\"\",\"linka_name\":\"\",\"linkb_name\":\"\",\"linkc_name\":\"\",\"linkd_name\":\"\",\"linke_name\":\"\",\"show_email_form\":\"\",\"show_email_copy\":\"\",\"validate_session\":\"\",\"custom_reply\":\"\",\"redirect\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 33, 34, 0, '*', 0),
+(124, 'mainmenu', 'Contáctanos', 'contact', '', 'contact', 'index.php?option=com_contact&view=contact&id=1', 'component', 1, 1, 1, 8, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"presentation_style\":\"\",\"show_contact_category\":\"hide\",\"show_contact_list\":\"\",\"show_name\":\"\",\"show_tags\":\"\",\"show_info\":\"\",\"show_position\":\"\",\"show_email\":\"\",\"add_mailto_link\":\"\",\"show_street_address\":\"\",\"show_suburb\":\"\",\"show_state\":\"\",\"show_postcode\":\"\",\"show_country\":\"\",\"show_telephone\":\"\",\"show_mobile\":\"\",\"show_fax\":\"\",\"show_webpage\":\"\",\"show_image\":\"\",\"allow_vcard\":\"\",\"show_misc\":\"\",\"show_articles\":\"\",\"articles_display_num\":\"\",\"show_profile\":\"\",\"show_links\":\"\",\"linka_name\":\"\",\"linkb_name\":\"\",\"linkc_name\":\"\",\"linkd_name\":\"\",\"linke_name\":\"\",\"show_email_form\":\"0\",\"show_email_copy\":\"\",\"validate_session\":\"\",\"custom_reply\":\"\",\"redirect\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 33, 34, 0, '*', 0),
 (125, 'mainmenu', 'FAQ', 'faq', '', 'faq', 'index.php?option=com_k2&view=itemlist&layout=category&task=category&id=6', 'component', 0, 1, 1, 10003, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"categories\":[\"6\"],\"singleCatOrdering\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 31, 32, 0, '*', 0),
 (126, 'mainmenu', 'Galería', 'gallery-2', '', 'gallery-2', 'index.php?option=com_k2&view=itemlist&layout=category&task=category&id=2', 'component', 1, 1, 1, 10003, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"categories\":[\"2\"],\"singleCatOrdering\":\"\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 25, 26, 0, '*', 0),
 (127, 'mainmenu', 'Blog Post', 'blog-post', '', 'blog/blog-post', 'index.php?option=com_k2&view=item&layout=item&id=4', 'component', 0, 123, 2, 10003, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_image_css\":\"\",\"menu_text\":1,\"menu_show\":1,\"page_title\":\"\",\"show_page_heading\":\"\",\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0}', 28, 29, 0, '*', 0),
@@ -1889,12 +1895,12 @@ INSERT INTO `qmdc0_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `l
 --
 
 CREATE TABLE `qmdc0_menu_types` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `menutype` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `client_id` int(11) NOT NULL DEFAULT '0'
+  `id` int UNSIGNED NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `menutype` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `client_id` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1912,15 +1918,15 @@ INSERT INTO `qmdc0_menu_types` (`id`, `asset_id`, `menutype`, `title`, `descript
 --
 
 CREATE TABLE `qmdc0_messages` (
-  `message_id` int(10) UNSIGNED NOT NULL,
-  `user_id_from` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `user_id_to` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `folder_id` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `message_id` int UNSIGNED NOT NULL,
+  `user_id_from` int UNSIGNED NOT NULL DEFAULT '0',
+  `user_id_to` int UNSIGNED NOT NULL DEFAULT '0',
+  `folder_id` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `date_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `state` tinyint(1) NOT NULL DEFAULT '0',
-  `priority` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `priority` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1930,9 +1936,9 @@ CREATE TABLE `qmdc0_messages` (
 --
 
 CREATE TABLE `qmdc0_messages_cfg` (
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `cfg_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `cfg_value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `cfg_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `cfg_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1942,24 +1948,24 @@ CREATE TABLE `qmdc0_messages_cfg` (
 --
 
 CREATE TABLE `qmdc0_modules` (
-  `id` int(11) NOT NULL,
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `position` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id` int NOT NULL,
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ordering` int NOT NULL DEFAULT '0',
+  `position` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `module` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `showtitle` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `client_id` tinyint(4) NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL
+  `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `showtitle` tinyint UNSIGNED NOT NULL DEFAULT '1',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_id` tinyint NOT NULL DEFAULT '0',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1979,12 +1985,12 @@ INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 (14, 48, 'User Status', '', '', 2, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_status', 3, 1, '', 1, '*'),
 (15, 49, 'Title', '', '', 1, 'title', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_title', 3, 1, '', 1, '*'),
 (16, 50, 'Login Form', '', '', 7, 'position-7', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_login', 1, 1, '{\"greeting\":\"1\",\"name\":\"0\"}', 0, '*'),
-(17, 51, 'Breadcrumbs', '', '', 1, 'breadcrumbs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_breadcrumbs', 1, 1, '{\"showHere\":\"0\",\"showHome\":\"1\",\"homeText\":\"Home\",\"showLast\":\"1\",\"separator\":\">\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"0\",\"cache_time\":\"0\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(17, 51, 'Breadcrumbs', '', '', 1, 'breadcrumbs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_breadcrumbs', 1, 1, '{\"showHere\":0,\"showHome\":1,\"homeText\":\"Inicio\",\"showLast\":1,\"separator\":\">\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":0,\"cache_time\":0,\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (79, 52, 'Multilanguage status', '', '', 1, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_multilangstatus', 3, 1, '{\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"0\"}', 1, '*'),
 (86, 53, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{\"format\":\"short\",\"product\":\"1\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"0\"}', 1, '*'),
 (87, 55, 'Sample Data', '', '', 0, 'cpanel', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_sampledata', 6, 1, '{}', 1, '*'),
 (88, 56, 'JF slideshow', '', '', 1, 'slideshow', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_jfslideshow', 1, 1, '{\"moduleclass_sfx\":\"\",\"moduletype\":\"0\",\"youtubeoption_id\":\"\",\"youtubeoption_start\":\"0\",\"youtubeoption_mute\":\"1\",\"youtubeoption_repeat\":\"1\",\"slideoption_slidetype\":\"1\",\"slideoption_navigation\":\"0\",\"slideoption_arrow\":\"1\",\"slideoption_textresponsive\":\"0\",\"slideoption_slide_interval\":\"3000\",\"slideoption_transition\":\"1\",\"slideoption_transition_speed\":\"1000\",\"slideoption_performance\":\"3\",\"slideoption_slidecaption\":\"1\",\"slideoption_transition2\":\"random\",\"slideoption_maxheight\":\"750\",\"slideoption_image1\":\"images\\/slideshow\\/1.jpg\",\"slideoption_slogan1\":\"\",\"slideoption_font1\":\"none\",\"slideoption_color1\":\"\",\"slideoption_size1\":\"18\",\"slideoption_sloganshadow1\":\"1\",\"slideoption_link1\":\"0\",\"slideoption_linkurl1\":\"\",\"slideoption_des1\":\"\",\"slideoption_desfont1\":\"none\",\"slideoption_descsize1\":\"12\",\"slideoption_descolor1\":\"\",\"slideoption_desbgcolor1\":\"\",\"slideoption_deswidth1\":\"300\",\"slideoption_desradius1\":\"0\",\"slideoption_desshadow1\":\"0\",\"slideoption_linkbg1\":\"0\",\"slideoption_linkbgcolor1\":\"\",\"slideoption_linkcolorhover1\":\"\",\"slideoption_linkcolornormal1\":\"\",\"slideoption_image2\":\"images\\/slideshow\\/2.jpg\",\"slideoption_slogan2\":\"\",\"slideoption_font2\":\"none\",\"slideoption_color2\":\"\",\"slideoption_size2\":\"18\",\"slideoption_sloganshadow2\":\"1\",\"slideoption_link2\":\"0\",\"slideoption_linkurl2\":\"\",\"slideoption_des2\":\"\",\"slideoption_desfont2\":\"none\",\"slideoption_descsize2\":\"12\",\"slideoption_descolor2\":\"\",\"slideoption_desbgcolor2\":\"\",\"slideoption_deswidth2\":\"300\",\"slideoption_desradius2\":\"0\",\"slideoption_desshadow2\":\"0\",\"slideoption_linkbg2\":\"0\",\"slideoption_linkbgcolor2\":\"\",\"slideoption_linkcolorhover2\":\"\",\"slideoption_linkcolornormal2\":\"\",\"slideoption_image3\":\"\",\"slideoption_slogan3\":\"\",\"slideoption_font3\":\"none\",\"slideoption_color3\":\"\",\"slideoption_size3\":\"18\",\"slideoption_sloganshadow3\":\"1\",\"slideoption_link3\":\"0\",\"slideoption_linkurl3\":\"\",\"slideoption_des3\":\"\",\"slideoption_desfont3\":\"none\",\"slideoption_descsize3\":\"12\",\"slideoption_descolor3\":\"\",\"slideoption_desbgcolor3\":\"\",\"slideoption_deswidth3\":\"300\",\"slideoption_desradius3\":\"0\",\"slideoption_desshadow3\":\"0\",\"slideoption_linkbg3\":\"0\",\"slideoption_linkbgcolor3\":\"\",\"slideoption_linkcolorhover3\":\"\",\"slideoption_linkcolornormal3\":\"\",\"slideoption_image4\":\"\",\"slideoption_slogan4\":\"\",\"slideoption_font4\":\"none\",\"slideoption_color4\":\"\",\"slideoption_size4\":\"18\",\"slideoption_sloganshadow4\":\"1\",\"slideoption_link4\":\"0\",\"slideoption_linkurl4\":\"\",\"slideoption_des4\":\"\",\"slideoption_desfont4\":\"none\",\"slideoption_descsize4\":\"12\",\"slideoption_descolor4\":\"\",\"slideoption_desbgcolor4\":\"\",\"slideoption_deswidth4\":\"300\",\"slideoption_desradius4\":\"0\",\"slideoption_desshadow4\":\"0\",\"slideoption_linkbg4\":\"0\",\"slideoption_linkbgcolor4\":\"\",\"slideoption_linkcolorhover4\":\"\",\"slideoption_linkcolornormal4\":\"\",\"slideoption_image5\":\"\",\"slideoption_slogan5\":\"\",\"slideoption_font5\":\"none\",\"slideoption_color5\":\"\",\"slideoption_size5\":\"18\",\"slideoption_sloganshadow5\":\"1\",\"slideoption_link5\":\"0\",\"slideoption_linkurl5\":\"\",\"slideoption_des5\":\"\",\"slideoption_desfont5\":\"none\",\"slideoption_descsize5\":\"12\",\"slideoption_descolor5\":\"\",\"slideoption_desbgcolor5\":\"\",\"slideoption_deswidth5\":\"300\",\"slideoption_desradius5\":\"0\",\"slideoption_desshadow5\":\"0\",\"slideoption_linkbg5\":\"0\",\"slideoption_linkbgcolor5\":\"\",\"slideoption_linkcolorhover5\":\"\",\"slideoption_linkcolornormal5\":\"\",\"slideoption_image6\":\"\",\"slideoption_slogan6\":\"\",\"slideoption_font6\":\"none\",\"slideoption_color6\":\"\",\"slideoption_size6\":\"18\",\"slideoption_sloganshadow6\":\"1\",\"slideoption_link6\":\"0\",\"slideoption_linkurl6\":\"\",\"slideoption_des6\":\"\",\"slideoption_desfont6\":\"none\",\"slideoption_descsize6\":\"12\",\"slideoption_descolor6\":\"\",\"slideoption_desbgcolor6\":\"\",\"slideoption_deswidth6\":\"300\",\"slideoption_desradius6\":\"0\",\"slideoption_desshadow6\":\"0\",\"slideoption_linkbg6\":\"0\",\"slideoption_linkbgcolor6\":\"\",\"slideoption_linkcolorhover6\":\"\",\"slideoption_linkcolornormal6\":\"\",\"slideoption_image7\":\"\",\"slideoption_slogan7\":\"\",\"slideoption_font7\":\"none\",\"slideoption_color7\":\"\",\"slideoption_size7\":\"18\",\"slideoption_sloganshadow7\":\"1\",\"slideoption_link7\":\"0\",\"slideoption_linkurl7\":\"\",\"slideoption_des7\":\"\",\"slideoption_desfont7\":\"none\",\"slideoption_descsize7\":\"12\",\"slideoption_descolor7\":\"\",\"slideoption_desbgcolor7\":\"\",\"slideoption_deswidth7\":\"300\",\"slideoption_desradius7\":\"0\",\"slideoption_desshadow7\":\"0\",\"slideoption_linkbg7\":\"0\",\"slideoption_linkbgcolor7\":\"\",\"slideoption_linkcolorhover7\":\"\",\"slideoption_linkcolornormal7\":\"\",\"slideoption_image8\":\"\",\"slideoption_slogan8\":\"\",\"slideoption_font8\":\"none\",\"slideoption_color8\":\"\",\"slideoption_size8\":\"18\",\"slideoption_sloganshadow8\":\"1\",\"slideoption_link8\":\"0\",\"slideoption_linkurl8\":\"\",\"slideoption_des8\":\"\",\"slideoption_desfont8\":\"none\",\"slideoption_descsize8\":\"12\",\"slideoption_descolor8\":\"\",\"slideoption_desbgcolor8\":\"\",\"slideoption_deswidth8\":\"300\",\"slideoption_desradius8\":\"0\",\"slideoption_desshadow8\":\"0\",\"slideoption_linkbg8\":\"0\",\"slideoption_linkbgcolor8\":\"\",\"slideoption_linkcolorhover8\":\"\",\"slideoption_linkcolornormal8\":\"\",\"slideoption_image9\":\"\",\"slideoption_slogan9\":\"\",\"slideoption_font9\":\"none\",\"slideoption_color9\":\"\",\"slideoption_size9\":\"18\",\"slideoption_sloganshadow9\":\"1\",\"slideoption_link9\":\"0\",\"slideoption_linkurl9\":\"\",\"slideoption_des9\":\"\",\"slideoption_desfont9\":\"none\",\"slideoption_descsize9\":\"12\",\"slideoption_descolor9\":\"\",\"slideoption_desbgcolor9\":\"\",\"slideoption_deswidth9\":\"300\",\"slideoption_desradius9\":\"0\",\"slideoption_desshadow9\":\"0\",\"slideoption_linkbg9\":\"0\",\"slideoption_linkbgcolor9\":\"\",\"slideoption_linkcolorhover9\":\"\",\"slideoption_linkcolornormal9\":\"\",\"slideoption_image10\":\"\",\"slideoption_slogan10\":\"\",\"slideoption_font10\":\"none\",\"slideoption_color10\":\"\",\"slideoption_size10\":\"18\",\"slideoption_sloganshadow10\":\"1\",\"slideoption_link10\":\"0\",\"slideoption_linkurl10\":\"\",\"slideoption_des10\":\"\",\"slideoption_desfont10\":\"none\",\"slideoption_descsize10\":\"12\",\"slideoption_descolor10\":\"\",\"slideoption_desbgcolor10\":\"\",\"slideoption_deswidth10\":\"300\",\"slideoption_desradius10\":\"0\",\"slideoption_desshadow10\":\"0\",\"slideoption_linkbg10\":\"0\",\"slideoption_linkbgcolor10\":\"\",\"slideoption_linkcolorhover10\":\"\",\"slideoption_linkcolornormal10\":\"\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
-(89, 57, 'Registros home', '', '<h2>REINGESAC</h2>\r\n<h4>Registro de Saneamiento Ambiental</h4>\r\n<h4>Registro Ministerio de Agricultura</h4>\r\n<h4>Registro Ministerio de Salud</h4>\r\n<h4>Registro Ministerio de Producción</h4>\r\n<h4>Registro SENACE</h4>', 1, 'property-info-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(89, 57, 'Registros home', '', '<h2>REINGESAC</h2>\r\n<h4>Registro de Saneamiento Ambiental</h4>\r\n<h4>Registro Ministerio de Agricultura</h4>\r\n<h4>Registro Ministerio de Salud</h4>\r\n<h4>Registro Ministerio de Producción</h4>\r\n<h4>Registro SENACE</h4>', 1, 'property-info-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (90, 58, 'Nuestros Clientes', '', '<div class=\"row\">\r\n<div class=\"col-lg-6 \">\r\n<h3 class=\"module-title\" style=\"text-align: center;\">Nuestros Clientes</h3>\r\n<p> </p>\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td><img src=\"images/logo/l.png\" /></td>\r\n<td><img src=\"images/logo/l1.jpg\" /></td>\r\n<td><img src=\"images/logo/l10.gif\" /></td>\r\n<td><img src=\"images/logo/l3.png\" /></td>\r\n<td><img src=\"images/logo/l4.jpg\" /></td>\r\n<td><img src=\"images/logo/l11.gif\" /></td>\r\n<td><img src=\"images/logo/l37.png\" /></td>\r\n</tr>\r\n<tr>\r\n<td><img src=\"images/logo/l5.png\" /></td>\r\n<td><img src=\"images/logo/l6.jpg\" /></td>\r\n<td><img src=\"images/logo/l7.jpg\" /></td>\r\n<td><img src=\"images/logo/l36.png\" /></td>\r\n<td><img src=\"images/logo/l9.jpg\" /></td>\r\n<td><img src=\"images/logo/l13.jpg\" /></td>\r\n<td><img src=\"images/logo/l14.gif\" /></td>\r\n</tr>\r\n<tr>\r\n<td><img src=\"images/logo/l15.jpg\" /></td>\r\n<td><img src=\"images/logo/l16.jpg\" /></td>\r\n<td><img src=\"images/logo/l17.jpg\" /></td>\r\n<td><img src=\"images/logo/l18.jpg\" /></td>\r\n<td><img src=\"images/logo/l19.jpg\" /></td>\r\n<td><img src=\"images/logo/l20.jpg\" /></td>\r\n<td><img src=\"images/logo/l21.jpg\" /></td>\r\n</tr>\r\n<tr>\r\n<td><img src=\"images/logo/l22.jpg\" /></td>\r\n<td><img src=\"images/logo/l23.jpg\" /></td>\r\n<td><img src=\"images/logo/l24.jpg\" /></td>\r\n<td><img src=\"images/logo/l25.jpg\" /></td>\r\n<td><img src=\"images/logo/l26.jpg\" /></td>\r\n<td><img src=\"images/logo/l27.jpg\" /></td>\r\n<td><img src=\"images/logo/l28.jpg\" /></td>\r\n</tr>\r\n<tr>\r\n<td><img src=\"images/logo/l29.jpg\" /></td>\r\n<td><img src=\"images/logo/l30.jpg\" /></td>\r\n<td><img src=\"images/logo/l31.jpg\" /></td>\r\n<td><img src=\"images/logo/l32.gif\" /></td>\r\n<td><img src=\"images/logo/l33.jpg\" /></td>\r\n<td><img src=\"images/logo/l34.jpg\" /></td>\r\n<td><img src=\"images/logo/l35.gif\" /></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>', 4, 'content-bottom', 0, '0000-00-00 00:00:00', '2021-03-05 00:39:48', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-aboutproperty\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (91, 59, 'Banner About', '', '<p><img src=\"images/house-banner.jpg\" alt=\"\" /></p>', 5, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-aboutproperty\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (92, 60, 'Proyectos', '', '<ul>\r\n<li><label>Declaracion Adecuacion Ambiental </label>FIMA S.A.</li>\r\n<li><label>Declaracion de Impacto Ambiental </label>Almacenes Santa Clara S.A.</li>\r\n<li><label>Informe de Monitoreo Ambiental </label>PVC GERFOR PERU S.A.C.</li>\r\n<li><label>Informe de Identificacion de Sitios Contaminados </label>FUMASA</li>\r\n<li><label>Informe de Monitoreo Ambiental </label>IMC</li>\r\n<li><label>Informe de Monitoreo Ambiental </label>TAL SA Y HORTIFRUT</li>\r\n<li><label>Informe de Plan de Aguas </label>TALSA Y HORTI FRUT</li>\r\n<li><label>Informe Plan de Manejo de Residuos Solidos </label>SIBARITA</li>\r\n<li><label>Informe de Monitoreo Ambiental </label>COTOMAR</li>\r\n<li><label>Capacitaciones en Salud Ocupacional </label>GRAFI MUNDO</li>\r\n<li><label>Capacitaciones en Seguridad y Salud Ocupacional </label>FONDO MIVIVIENDA</li>\r\n<li><label>Declaracion de Adecuacion Ambiental </label>Avantgard College</li>\r\n<li><label>Informe de Monitoreo Ocupacional </label>PROMAS</li>\r\n<li><label>Informe de Monitoreo Ocupacional </label>PVC GERFOR PERU S.A.C</li>\r\n<li><label>Programa de Adecuación y Manejo Ambiental </label>ENVIRONMENT DEVELOPMENT PERÚ</li>\r\n<li><label>Informe de Monitoreo Ambiental </label>CONDUCTORES Y CABLES DEL PERU S.A.C.</li>\r\n</ul>', 2, 'content-bottom', 311, '2021-03-04 16:28:22', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-dimentions\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
@@ -2001,14 +2007,14 @@ INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 (105, 74, 'Políticas de Seguridad, Salud, Medio Ambiente y Calidad', '', '<ul>\r\n<li style=\"text-align: justify;\">REINGENIERIA EN GESTION AMBIENTAL S.A.C, establece un estándar en dar Gestión de seguridad, salud ocupacional, medio ambiente y calidad con el objeto de alcanzar los niveles más altos de seguridad y salud declaramos los siguientes principios básicos de nuestra política:</li>\r\n<li style=\"text-align: justify;\">Estamos al servicio de nuestros clientes, comprometidos con la sociedad, el medio ambiente y la salud de nuestros trabajadores, respetando el marco legal y normativo establecido para cada caso.</li>\r\n<li style=\"text-align: justify;\">Asimismo la necesidad de una mejora continua en la calidad de nuestros productos y servicios, de nuestros procesos y condiciones de trabajo. Ello lo logramos con el trabajo bien realizado a la primera y asegurando que ninguna tarea sea ejercida sin las debidas medidas de seguridad.</li>\r\n<li style=\"text-align: justify;\">Los accidentes de trabajos o cualquier lección generada con el mismo son fundamental mente fallos de gestión y por lo tanto son evitables mediante una gestión adecuada que permita adoptar las medidas para la identificación, evaluación y control de los posibles riesgos.</li>\r\n<li style=\"text-align: justify;\">Las personas constituyen el valor más importante que garantiza nuestro futuro, por ello deben de estar calificadas e identificadas con los objetivos de nuestra organización con sus opiniones han de ser consideradas.</li>\r\n</ul>', 4, 'content-bottom', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-nearbyplaces\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"5\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (106, 75, 'Near by places - Image', '', '<p><img src=\"images/near_by_place.png\" alt=\"\" /></p>', 1, 'near-by-places', 0, '0000-00-00 00:00:00', '2018-04-23 06:53:52', '0000-00-00 00:00:00', -2, 'mod_custom', 1, 0, '{\"prepare_content\":\"0\",\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"7\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (107, 76, 'Ubicación', '', '<div id=\"map\"><!--map--></div>\r\n<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-6 col-xs-12 address-area\">\r\n<div class=\"address\">\r\n<p>Calle Canamelares 426</p>\r\n<p>Urbanización Maranga-San Miguel</p>\r\n<p>Lima - Perú</p>\r\n</div>\r\n<div class=\"contact-detail\">\r\n<p><strong>Teléfono</strong> : 01 264 7663</p>\r\n<p><strong>Celular</strong> : 964812500</p>\r\n<p><strong>Correo</strong> : <a href=\"mailto:gerenciacomercial@reingesac.com\">gerenciacomercial@reingesac.com</a></p>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4 col-xs-12 time-detail\">\r\n<p><strong>Horario de Atención</strong></p>\r\n<p>Lunes - Viernes : 9 am a 6 pm</p>\r\n<p>Sábados : 9 am a 2 pm</p>\r\n<div class=\"schedule_visit\"><a href=\"index.php/contact\">Confirmar visita</a></div>\r\n</div>\r\n</div>', 1, 'location-detail', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
-(108, 77, 'Envíanos tu mensaje', '', '', 2, 'contact-part', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_simplecontact', 1, 1, '{\"email\":\"administracion@reingesac.com\",\"subject\":\"asunto\",\"success\":\"Gracias por escribirnos!\",\"error\":\"Error al enviar su correo, Por favor intente de nuevo.\",\"name_text\":\"Ingresar nombre\",\"email_text\":\"Ingresar correo\",\"phone_text\":\"Ingresar tel\\u00e9fono\",\"message_text\":\"Ingresar mensaje\",\"submit_text\":\"Enviar\",\"moduleclass_sfx\":\" agent-form\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(108, 77, 'Envíanos tu mensaje', '', '', 2, 'contact-part', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_simplecontact', 1, 1, '{\"email\":\"administracion@reingesac.com\",\"subject\":\"asunto\",\"success\":\"Gracias por escribirnos!\",\"error\":\"Error al enviar su correo, Por favor intente de nuevo.\",\"name_text\":\"Ingresar nombre\",\"email_text\":\"Ingresar correo\",\"phone_text\":\"Ingresar tel\\u00e9fono\",\"message_text\":\"Ingresar mensaje\",\"submit_text\":\"Enviar\",\"moduleclass_sfx\":\" agent-form\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (109, 78, 'Escríbenos', '', '<div class=\"row agent-row\">\r\n<div class=\"col-md-4 col-xs-4\"><img src=\"images/agent-photo.jpg\" alt=\"agetn_photo\" /></div>\r\n<div class=\"col-md-8 col-xs-8\">\r\n<h1 class=\"agent-name\">Administración</h1>\r\n<p><span class=\"glyphicon glyphicon-earphone\"><!--icon--></span>01 2647663</p>\r\n<p><span class=\"glyphicon glyphicon-envelope\"><!--icon--></span> <a href=\"mailto:administración@reingesac.com\">administracion@reingesac.com</a></p>\r\n</div>\r\n</div>', 1, 'contact-part', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (110, 79, 'Galería de Imágenes', '', '', 4, 'content-bottom', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_k2_content', 1, 1, '{\"moduleclass_sfx\":\" section-photogalary\",\"getTemplate\":\"Gallery\",\"source\":\"filter\",\"catfilter\":\"1\",\"category_id\":[\"2\"],\"getChildren\":\"1\",\"itemCount\":\"12\",\"itemsOrdering\":\"\",\"FeaturedItems\":\"1\",\"popularityRange\":\"\",\"videosOnly\":\"0\",\"itemTitle\":\"1\",\"itemAuthor\":\"1\",\"itemAuthorAvatar\":\"1\",\"itemAuthorAvatarWidthSelect\":\"custom\",\"itemAuthorAvatarWidth\":\"50\",\"userDescription\":\"1\",\"itemIntroText\":\"1\",\"itemIntroTextWordLimit\":\"\",\"itemImage\":\"1\",\"itemImgSize\":\"XLarge\",\"itemVideo\":\"1\",\"itemVideoCaption\":\"1\",\"itemVideoCredits\":\"1\",\"itemAttachments\":\"1\",\"itemTags\":\"1\",\"itemCategory\":\"1\",\"itemDateCreated\":\"1\",\"itemHits\":\"1\",\"itemReadMore\":\"1\",\"itemExtraFields\":\"0\",\"itemCommentsCounter\":\"1\",\"feed\":\"0\",\"itemPreText\":\"\",\"itemCustomLink\":\"0\",\"itemCustomLinkTitle\":\"\",\"itemCustomLinkURL\":\"http:\\/\\/\",\"itemCustomLinkMenuItem\":\"101\",\"K2Plugins\":\"1\",\"JPlugins\":\"1\",\"cache\":\"1\",\"cache_time\":\"900\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (111, 80, 'Banner Feaures', '', '<p><img src=\"images/diningroom.jpg\" alt=\"\" /></p>', 1, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":\"0\",\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-features\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (112, 81, 'Banner Gallery', '', '<p><img src=\"images/nearbyplace.jpg\" alt=\"\" /></p>', 4, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-photogalary\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (113, 82, 'Banner Near By Place', '', '<p><img src=\"images/gallery.jpg\" alt=\"\" /></p>', 1, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-nearbyplaces\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (114, 83, 'Banner Blog', '', '<p><img src=\"images/blog_img.jpg\" alt=\"\" /></p>', 1, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":\"0\",\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-recentblog\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
-(115, 84, 'Contáctanos', '', '<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<p><b>Oficina Centra</b>l<br /> Calle Canamelares N° 426 - Urb. Maranga - San Miguel - Lima</p>\r\n<p><b>Oficina Trujillo</b><br /> Urb. Covicorti Mz L. Lt. 23 - Of. 201 - Trujillo</p>\r\n<p><b>Horario: </b>De Lunes a Viernes de 9 am. a 6 pm.<br />Sabado de 9 am a 1 pm.</p>\r\n</div>\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<ul class=\"agent-info\">\r\n<li><img class=\"agent-img\" src=\"images/agent-photo.jpg\" alt=\"agent_photo\" />\r\n<p><b>(01) 2647663      administracion@reingesac.com</b></p>\r\n</li>\r\n</ul>\r\n</div>\r\n<div id=\"contact-form1\" class=\"contact-form\">\r\n<p>{loadmodule mod_simplecontact}</p>\r\n</div>\r\n</div>', 1, 'contact-onepage', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":1,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-contactus\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(115, 84, 'Contáctanos', '', '<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<p><b>Oficina Centra</b>l<br /> Calle Canamelares N° 426 - Urb. Maranga<br />San Miguel - Lima</p>\r\n<p><b>Oficina Trujillo</b><br /> Urb. Covicorti Mz L. Lt. 23 - Of. 201 - Trujillo</p>\r\n<p><b>Horario: </b>De Lunes a Viernes de 9 am. a 6 pm.<br />Sabado de 9 am a 1 pm.</p>\r\n<p><b>Teléfono:</b> (01) 2647663</p>\r\n<p><b>Correo:</b> administracion@reingesac.com</p>\r\n</div>\r\n<div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n<ul class=\"agent-info\">\r\n<li><img class=\"agent-img\" src=\"images/agent-photo.jpg\" alt=\"agent_photo\" /></li>\r\n</ul>\r\n</div>\r\n<div id=\"contact-form1\" class=\"contact-form\"><!--p>{loadmodule mod_simplecontact}</p--></div>\r\n</div>', 1, 'contact-onepage', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":1,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-contactus\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (116, 85, 'Banner ContactUs', '', '<div id=\"map\"><!--map--></div>', 1, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-contactus\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (117, 87, 'One Page Menu', '', '', 1, 'nav-one-page', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 1, 1, '{\"menutype\":\"onepagemenu\",\"base\":\"\",\"startLevel\":\"1\",\"endLevel\":\"0\",\"showAllChildren\":\"1\",\"tag_id\":\"\",\"class_sfx\":\"\",\"window_open\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (118, 89, 'Principales Servicios', '', '<div class=\"row\">\r\n<div id=\"amenities-img\" class=\"col-md-5 col-sm-5 col-xs-12\"><img src=\"images/amenities.jpg\" alt=\"amenities\" /></div>\r\n<div id=\"amenities-content\" class=\"col-md-7 col-sm-7 col-xs-12\">\r\n<h2>Principales Servicios</h2>\r\n<p>Establecemos un estándar en la gestión de seguridad, salud ocupacional, medio ambiente y calidad con el objetivo de alcanzar los niveles más altos de seguridad y salud..</p>\r\n<p>Tal es así que brindamos los siguientes servicios</p>\r\n<div class=\"amenities-marker\">\r\n<p><i class=\"fa fa-map-marker\"><!--icon--></i>Residuso Sólidos</p>\r\n<p><i class=\"fa fa-map-marker\"><!--icon--></i>Monitoreo Ambiental</p>\r\n<p><i class=\"fa fa-map-marker\"><!--icon--></i>Monitoreo Ocupacional</p>\r\n<p><i class=\"fa fa-map-marker\"><!--icon--></i>Consultoría Ambiental</p>\r\n<p><i class=\"fa fa-map-marker\"><!--icon--></i>Saneamiento Ambiental</p>\r\n</div>\r\n</div>\r\n</div>', 1, 'content-bottom', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-amenities\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
@@ -2017,7 +2023,7 @@ INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 (121, 92, 'Archieves', '', '', 4, 'right', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_k2_tools', 1, 1, '{\"moduleclass_sfx\":\"\",\"module_usage\":\"0\",\"archiveItemsCounter\":\"0\",\"archiveCategory\":\"1\",\"authors_module_category\":\"0\",\"authorItemsCounter\":\"1\",\"authorAvatar\":\"1\",\"authorAvatarWidthSelect\":\"custom\",\"authorAvatarWidth\":\"50\",\"authorLatestItem\":\"1\",\"calendarCategory\":\"0\",\"home\":\"\",\"seperator\":\"\",\"root_id\":\"0\",\"end_level\":\"\",\"categoriesListOrdering\":\"\",\"categoriesListItemsCounter\":\"1\",\"root_id2\":\"0\",\"catfilter\":\"0\",\"getChildren\":\"0\",\"liveSearch\":\"0\",\"text\":\"\",\"button\":\"0\",\"imagebutton\":\"0\",\"button_text\":\"\",\"searchItemId\":\"\",\"min_size\":\"75\",\"max_size\":\"300\",\"cloud_limit\":\"30\",\"cloud_category\":[\"0\"],\"cloud_category_recursive\":\"0\",\"customCode\":\"\",\"parsePhp\":\"0\",\"K2Plugins\":\"0\",\"JPlugins\":\"0\",\"cache\":\"1\",\"cache_time\":\"900\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (122, 93, 'Popular posts', '', '', 3, 'right', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_k2_content', 1, 1, '{\"moduleclass_sfx\":\"\",\"getTemplate\":\"Default\",\"source\":\"filter\",\"catfilter\":\"1\",\"category_id\":[\"1\"],\"getChildren\":\"0\",\"itemCount\":\"3\",\"itemsOrdering\":\"hits\",\"FeaturedItems\":\"1\",\"popularityRange\":\"\",\"videosOnly\":\"0\",\"itemTitle\":\"1\",\"itemAuthor\":\"1\",\"itemAuthorAvatar\":\"0\",\"itemAuthorAvatarWidthSelect\":\"custom\",\"itemAuthorAvatarWidth\":\"50\",\"userDescription\":\"0\",\"itemIntroText\":\"0\",\"itemIntroTextWordLimit\":\"\",\"itemImage\":\"1\",\"itemImgSize\":\"Small\",\"itemVideo\":\"0\",\"itemVideoCaption\":\"0\",\"itemVideoCredits\":\"0\",\"itemAttachments\":\"0\",\"itemTags\":\"0\",\"itemCategory\":\"0\",\"itemDateCreated\":\"1\",\"itemHits\":\"0\",\"itemReadMore\":\"0\",\"itemExtraFields\":\"0\",\"itemCommentsCounter\":\"0\",\"feed\":\"0\",\"itemPreText\":\"\",\"itemCustomLink\":\"0\",\"itemCustomLinkTitle\":\"\",\"itemCustomLinkURL\":\"http:\\/\\/\",\"itemCustomLinkMenuItem\":\"101\",\"K2Plugins\":\"1\",\"JPlugins\":\"1\",\"cache\":\"1\",\"cache_time\":\"900\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (123, 94, 'FAQ sidebar', '', '<div class=\"inner-faq-house-info\">\r\n<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-12 col-xs-6 inner-faq-house-info-area-border\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/property_icon.png\" alt=\"icon\" /></div>\r\n<p>Property Age</p>\r\n<h3>Built Year</h3>\r\n<h2>2015</h2>\r\n</div>\r\n<div class=\"col-md-6 col-sm-12 col-xs-6 inner-faq-house-info-area-border\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/sq_ft.png\" alt=\"icon\" /></div>\r\n<p>IN Sq.ft</p>\r\n<h3>Area</h3>\r\n<h2>2790</h2>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-12 col-xs-6 inner-faq-house-info-area-border\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/bed.png\" alt=\"icon\" /></div>\r\n<p>Number of</p>\r\n<h3>Bedroom</h3>\r\n<h2>3</h2>\r\n</div>\r\n<div class=\"col-md-6 col-sm-12 col-xs-6 inner-faq-house-info-area-border\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/bath.png\" alt=\"icon\" /></div>\r\n<p>Number of</p>\r\n<h3>Bathroom</h3>\r\n<h2>3</h2>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n<div class=\"col-md-6 col-sm-12 col-xs-6\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/floor.png\" alt=\"icon\" /></div>\r\n<p>Total</p>\r\n<h3>Floors</h3>\r\n<h2>2</h2>\r\n</div>\r\n<div class=\"col-md-6 col-sm-12 col-xs-6\">\r\n<div class=\"inner-faq-house-icon\"><img src=\"images/garage.png\" alt=\"icon\" /></div>\r\n<p>Parking</p>\r\n<h3>Garage</h3>\r\n<h2>1</h2>\r\n</div>\r\n</div>\r\n</div>', 1, 'right', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{\"prepare_content\":\"0\",\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
-(124, 95, 'Contact our agent', '', '', 1, 'right', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_simplecontact', 1, 1, '{\"email\":\"info@yourdomain.com\",\"subject\":\"subject\",\"success\":\"Thanks for your contact!\",\"error\":\"Send email error,please try again.\",\"name_text\":\"Enter Name\",\"email_text\":\"Enter E-mail\",\"phone_text\":\"Enter Phone\",\"message_text\":\"Enter Message\",\"submit_text\":\"Submit\",\"moduleclass_sfx\":\" contact\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(124, 95, 'Contact our agent', '', '', 1, 'right', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_simplecontact', 1, 1, '{\"email\":\"info@yourdomain.com\",\"subject\":\"subject\",\"success\":\"Thanks for your contact!\",\"error\":\"Send email error,please try again.\",\"name_text\":\"Enter Name\",\"email_text\":\"Enter E-mail\",\"phone_text\":\"Enter Phone\",\"message_text\":\"Enter Message\",\"submit_text\":\"Submit\",\"moduleclass_sfx\":\" contact\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (125, 99, 'Send Message to Johnathan', '', '', 1, '', 0, '0000-00-00 00:00:00', '2018-05-04 07:56:16', '0000-00-00 00:00:00', -2, 'mod_simplecontact', 1, 1, '{\"email\":\"info@yourdomain.com\",\"subject\":\"subject\",\"success\":\"Thanks for your contact!\",\"error\":\"Send email error, please try again.\",\"name_text\":\"Enter Name\",\"email_text\":\"Enter E-mail\",\"phone_text\":\"Enter Phone\",\"message_text\":\"Enter Message\",\"submit_text\":\"Submit\",\"moduleclass_sfx\":\" agent-form\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (126, 100, 'Right header', '', '<p><a class=\"nav-link\" href=\"https://reingesac.com/\"><img src=\"images/linkedinicon.png\" /> </a> <a class=\"nav-link\" href=\"https://reingesac.com/\"><img src=\"images/twittericon.png\" /> </a><a class=\"nav-link\" href=\"https://www.facebook.com/Reinge-Sac-972510212789101/?fref=ts\" target=\" _blank\"><img src=\"images/facebookicon.png\" /> </a><a class=\"nav-link\" href=\"https://reingesac.com/\"><img src=\"images/instagramicon.png\" />      </a><a class=\"schedule_visit_btn\" href=\"index.php/contact\">    Sugerencias</a></p>', 1, 'right-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" schedule_visit hidden-xs\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"2\",\"header_tag\":\"h2\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*');
 INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
@@ -2036,7 +2042,11 @@ INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 (139, 118, 'About Sybix villa (2)', '', '<div class=\"row\">\r\n<div class=\"col-lg-6 \">\r\n<h3 class=\"module-title\">Antecedentes</h3>\r\n<div class=\"custom\">\r\n<h4 style=\"text-align: justify;\">Empresa peruana que surge a raíz de la visión de dos familias preocupados por la ausencia de un manejo integral de residuos sólidos,</h4>\r\n<p style=\"text-align: justify;\">Por su efecto directo en la calidad de vida de la población y en el ambiente y que nos presentan una serie de propuestas para darle una correcta manipulación y destino final a todos aquellos productos que contribuyen a la degradación del ambiente<br />Para tal fin surge DAHEMO, empresa dedicada a la recolección de productos contaminantes, asesoría y capacitación, gestión de trámites y documentación en todo lo relacionado al cuidado del medio ambiente.</p>\r\n<p><span class=\"view_on_map_btn\"> <a class=\"searchbychar\" data-target=\"view-on-map\">view on map</a> </span></p>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-6 \">\r\n<div class=\"custom\">\r\n<ul>\r\n<li>\r\n<figure><img src=\"images/property_icon.png\" alt=\"home\" />\r\n<figcaption>Property Age</figcaption>\r\n</figure>\r\n<h3>Built Year</h3>\r\n<h2>2015</h2>\r\n</li>\r\n<li>\r\n<figure><img src=\"images/sq_ft.png\" alt=\"sqft\" />\r\n<figcaption>IN Sq.ft</figcaption>\r\n</figure>\r\n<h3>area</h3>\r\n<h2>2790</h2>\r\n</li>\r\n<li>\r\n<figure><img src=\"images/bed.png\" alt=\"bed\" />\r\n<figcaption>Number of</figcaption>\r\n</figure>\r\n<h3>Bedroom</h3>\r\n<h2>3</h2>\r\n</li>\r\n<li>\r\n<figure><img class=\"bottom\" src=\"images/bath.png\" alt=\"bathroom\" />\r\n<figcaption>Number of</figcaption>\r\n</figure>\r\n<h3>Bathroom</h3>\r\n<h2>3</h2>\r\n</li>\r\n<li>\r\n<figure><img class=\"bottom\" src=\"images/floor.png\" alt=\"floor\" />\r\n<figcaption>Total</figcaption>\r\n</figure>\r\n<h3>Floors</h3>\r\n<h2>2</h2>\r\n</li>\r\n<li>\r\n<figure><img class=\"bottom\" src=\"images/garage.png\" alt=\"garage\" />\r\n<figcaption>Parking</figcaption>\r\n</figure>\r\n<h3>Garage</h3>\r\n<h2>1</h2>\r\n</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>', 4, 'content-bottom', 311, '2021-03-23 19:39:48', '2021-03-05 00:39:48', '0000-00-00 00:00:00', 0, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" section-aboutproperty\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (140, 119, 'Banner About (2)', '', '<p><img src=\"images/house-banner.jpg\" alt=\"\" /></p>', 1, 'banner-image', 0, '0000-00-00 00:00:00', '2018-04-20 07:22:34', '0000-00-00 00:00:00', 0, 'mod_custom', 1, 0, '{\"prepare_content\":0,\"backgroundimage\":\"\",\"layout\":\"_:default\",\"moduleclass_sfx\":\" banner-aboutproperty\",\"cache\":1,\"cache_time\":900,\"cachemode\":\"static\",\"module_tag\":\"div\",\"bootstrap_size\":\"6\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
 (141, 120, 'EB Whatsapp Chat', '', '', 1, 'debug', 0, '0000-00-00 00:00:00', '2021-04-25 01:08:55', '0000-00-00 00:00:00', 1, 'mod_ebwhatsappchat', 1, 1, '{\"icon_position\":\"bottom_right\",\"backgroundcolor\":\"\",\"textcolor\":\"\",\"icon_withtext\":\"\",\"icon_image\":\"style_1\",\"upload_iconimg\":\"\",\"whatsapp_number\":\"964812500\",\"initial_message\":\"Hello\",\"heading_option\":\"username_image\",\"heading_content\":\"\",\"heading_name\":\"\",\"heading_department\":\"\",\"heading_image\":\"\",\"middle_content\":\"\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
-(142, 121, 'whatsap', '', '', 1, 'debug', 311, '2021-06-11 23:26:11', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom_advanced', 1, 1, '{\"customHtml\":\"<script defer data-key=\\\"d2942a42-ceb9-4067-97d1-9b5bcacaed1d\\\" src=\\\"https:\\/\\/widget.tochat.be\\/bundle.js\\\"><\\/script>\",\"prepare_content\":\"0\",\"evalPhp\":\"\",\"moduleStyle\":\"\",\"cssOverride\":\"\",\"styleSheet\":\"\",\"javascriptFile\":\"\",\"requireHttpParam\":\"\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*');
+(142, 121, 'whatsap', '', '', 1, 'debug', 311, '2021-06-11 23:26:11', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom_advanced', 1, 1, '{\"customHtml\":\"<script defer data-key=\\\"d2942a42-ceb9-4067-97d1-9b5bcacaed1d\\\" src=\\\"https:\\/\\/widget.tochat.be\\/bundle.js\\\"><\\/script>\",\"prepare_content\":\"0\",\"evalPhp\":\"\",\"moduleStyle\":\"\",\"cssOverride\":\"\",\"styleSheet\":\"\",\"javascriptFile\":\"\",\"requireHttpParam\":\"\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(143, 122, 'mod_rueba', '', '', 1, 'property-info-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_custom_advanced', 1, 1, '{\"customHtml\":\"<!DOCTYPE html>\\r\\n<html>\\r\\n<head>\\r\\n<script src=\'https:\\/\\/www.google.com\\/recaptcha\\/api.js\'><\\/script>\\r\\n<\\/head>\\r\\n<body bgColor=\\\"grey\\\">\\r\\n    <form action=\\\"envia_captcha.php\\\" method=post name=\\\"formx\\\">\\r\\n    <table width=\\\"450px\\\">\\r\\n    <tr>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <label for=\\\"Nombre\\\">Nombre<\\/label>\\r\\n    <\\/td>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <input type=\\\"text\\\" name=\\\"Nombre\\\" maxlength=\\\"50\\\" size=\\\"30\\\">\\r\\n    <\\/td>\\r\\n    <\\/tr>\\r\\n\\r\\n    <tr>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <label for=\\\"Apellido\\\">Apellido<\\/label>\\r\\n    <\\/td>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <input type=\\\"text\\\" name=\\\"Apellido\\\" maxlength=\\\"50\\\" size=\\\"30\\\">\\r\\n    <\\/td>\\r\\n    <\\/tr>\\r\\n    <tr>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <label for=\\\"email\\\">Email<\\/label>\\r\\n    <\\/td>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <input type=\\\"text\\\" name=\\\"email\\\" maxlength=\\\"80\\\" size=\\\"30\\\">\\r\\n    <\\/td>\\r\\n\\r\\n    <\\/tr>\\r\\n    <tr>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <label for=\\\"comentario\\\">Comentario<\\/label>\\r\\n    <\\/td>\\r\\n    <td valign=\\\"top\\\">\\r\\n    <textarea name=\\\"comentario\\\" maxlength=\\\"1000\\\" cols=\\\"25\\\" rows=\\\"6\\\"><\\/textarea>\\r\\n    <\\/td>\\r\\n\\r\\n    <\\/tr>\\r\\n    <div class=\\\"g-recaptcha\\\" data-sitekey=\\\"6LedJp4aAAAAAMpAcroRQF_1Ub9FSZMlw_TrhDWt\\\"><\\/div>\\r\\n    <tr>\\r\\n    <td colspan=\\\"2\\\" style=\\\"text-align:center\\\">\\r\\n    <input type=\\\"submit\\\" value=\\\"Enviar\\\">\\r\\n    <\\/td>\\r\\n    <\\/tr>\\r\\n    <\\/table>\\r\\n\\r\\n    <\\/form>\\r\\n<\\/body>\\r\\n<\\/html>\",\"prepare_content\":\"0\",\"evalPhp\":\"<?php\\r\\n\\r\\nif ($_POST[\'g-recaptcha-response\'] == \'\') {\\r\\necho \\\"<script>\\r\\nalert(\'Ingrese captcha\');\\r\\nwindow.history.back();\\r\\n<\\/script>\\\";\\r\\n\\r\\n} else {\\r\\n    $obj = new stdClass();\\r\\n    $obj->secret = \\\"6LedJp4aAAAAAHjcweDnyhH8mvFNYSYbtgUAfLFi\\\";\\r\\n    $obj->response = $_POST[\'g-recaptcha-response\'];\\r\\n    $obj->remoteip = $_SERVER[\'REMOTE_ADDR\'];\\r\\n    $url = \'https:\\/\\/www.google.com\\/recaptcha\\/api\\/siteverify\';\\r\\n\\r\\n    $options = array(\\r\\n    \'http\' => array(\\r\\n    \'header\' => \\\"Content-type: application\\/x-www-form-urlencoded\\\\r\\\\n\\\",\\r\\n    \'method\' => \'POST\',\\r\\n    \'content\' => http_build_query($obj)\\r\\n    )\\r\\n    );\\r\\n    $context = stream_context_create($options);\\r\\n    $result = file_get_contents($url, false, $context);\\r\\n\\r\\n    $validar = json_decode($result);\\r\\n\\r\\n    \\/* FIN DE CAPTCHA *\\/\\r\\n\\r\\n    if ($validar->success) {\\r\\n        $correo = trim($_POST[\'correo\']);\\r\\n        $nombre = trim($_POST[\'nombre\']);\\r\\n        $telefono = trim($_POST[\'telefono\']);\\r\\n        $mensaje = trim($_POST[\'mensaje\']);\\r\\n        $aceptar = trim($_POST[\'aceptar\']);\\r\\n\\r\\n        $consulta = \\\"Correo: \\\" . $correo . \\\"\\\\n\\\". \\\" Nombre: \\\" . $nombre . \\\"\\\\n\\\". \\\" Telefono: \\\" . $telefono . \\\"\\\\n\\\". \\\"Mensaje: \\\" . $mensaje. \\\"\\\\n\\\". \\\"Aceptar: \\\" . $aceptar;\\r\\n\\r\\n        mail(\\\"servicios.cotizacion@inturduran.com\\\", \\\"Solicitud desde la Web\\\", $consulta);\\r\\n        echo \\\"<script>\\r\\n            alert(\'Mensaje enviado con \\u00e9xito\');\\r\\n            window.location= \'index.html\'\\r\\n            <\\/script>\\\";\\r\\n        \\/\\/include \'index.html\';\\r\\n    } else {\\r\\n\\r\\n    }\\r\\n}\\r\\n?>\",\"moduleStyle\":\"\\/css\\/template.css\",\"cssOverride\":\"\",\"styleSheet\":\"\",\"javascriptFile\":\"\",\"requireHttpParam\":\"\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(144, 123, 'Solicita Una Cotización', '', '', 1, 'property-info-header', 311, '2022-03-29 12:15:40', '2022-03-26 18:15:23', '0000-00-00 00:00:00', 1, 'mod_simplecontact', 1, 1, '{\"email\":\"administracion@reingesac.com\",\"subject\":\"Asunto\",\"success\":\"\\u00a1Gracias por escribir!\",\"error\":\"Error al enviar su mensaje. Por favor vuelva a intentarlo.\",\"name_text\":\"Nombre\",\"email_text\":\"Correo\",\"phone_text\":\"Celular\",\"message_text\":\"Mensaje\",\"submit_text\":\"Enviar\",\"moduleclass_sfx\":\"\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"Jf_sybix-jfxhtml\"}', 0, '*'),
+(145, 124, 'Za Contact Form', '', '', 1, 'property-info-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_za_contactform', 1, 1, '{\"width_button\":\"500\",\"label_text\":\"Contact\",\"login_text\":\"Cont\\u00e1ctanos\",\"email\":\"afame.sis@gmail.com\",\"success\":\"Email was sent successfully.\",\"failed\":\"Email could not be sent.\",\"formcaptcha\":\"1\",\"captcha_question\":\"5 + 4 = ?\",\"captcha_answer\":\"9\",\"failed_captcha\":\"You have entered wrong captcha. Please try again.\",\"color_text\":\"#e75854\",\"backgr_text\":\"#fef0e3\",\"hide_text\":\"#b09a86\",\"layout\":\"_:default\",\"moduleclass_sfx\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"cachemode\":\"itemid\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*'),
+(146, 125, 'Solicita Cotización', '', '', 1, 'property-info-header', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_rapid_contact', 1, 0, '{\"email_recipient\":\"afame.sis@gmail.com\",\"from_name\":\"Rapid Contact\",\"from_email\":\"rapid_contact@yoursite.com\",\"email_label\":\"afame.sis@gmail.com\",\"subject_label\":\"Asunto\",\"message_label\":\"Mensaje\",\"button_text\":\"Enviar\",\"page_text\":\"Thank you for your contact.\",\"error_text\":\"Your message could not be sent. Please try again.\",\"no_email\":\"Please write your email\",\"invalid_email\":\"Please write a valid email\",\"wrong_antispam\":\"Wrong Anti-Spam Answer\",\"pre_text\":\"\",\"thank_text_color\":\"#000000\",\"error_text_color\":\"#FF0000\",\"email_width\":\"100\",\"subject_width\":\"100\",\"message_width\":\"100\",\"label_pos\":\"2\",\"addcss\":\"\",\"enable_anti_spam\":\"1\",\"anti_spam_q\":\"How many eyes has a typical person?\",\"anti_spam_a\":\"2\",\"anti_spam_position\":\"1\",\"please_complete_captcha_text\":\"Please complete the captcha\",\"moduleclass_sfx\":\"\",\"fixed_url\":\"0\",\"fixed_url_address\":\"\",\"cache\":\"1\",\"cache_time\":\"900\",\"module_tag\":\"div\",\"bootstrap_size\":\"0\",\"header_tag\":\"h3\",\"header_class\":\"\",\"style\":\"0\"}', 0, '*');
 
 -- --------------------------------------------------------
 
@@ -2045,8 +2055,8 @@ INSERT INTO `qmdc0_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 --
 
 CREATE TABLE `qmdc0_modules_menu` (
-  `moduleid` int(11) NOT NULL DEFAULT '0',
-  `menuid` int(11) NOT NULL DEFAULT '0'
+  `moduleid` int NOT NULL DEFAULT '0',
+  `menuid` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2068,7 +2078,6 @@ INSERT INTO `qmdc0_modules_menu` (`moduleid`, `menuid`) VALUES
 (14, 0),
 (15, 0),
 (16, 0),
-(17, -122),
 (17, -114),
 (17, -101),
 (79, 0),
@@ -2106,9 +2115,7 @@ INSERT INTO `qmdc0_modules_menu` (`moduleid`, `menuid`) VALUES
 (113, 114),
 (114, 101),
 (114, 114),
-(115, 101),
 (115, 114),
-(115, 124),
 (116, 101),
 (116, 114),
 (117, 101),
@@ -2119,7 +2126,6 @@ INSERT INTO `qmdc0_modules_menu` (`moduleid`, `menuid`) VALUES
 (121, 123),
 (122, 123),
 (123, 125),
-(124, 125),
 (125, 101),
 (125, 114),
 (126, 0),
@@ -2155,7 +2161,11 @@ INSERT INTO `qmdc0_modules_menu` (`moduleid`, `menuid`) VALUES
 (141, 126),
 (141, 127),
 (141, 144),
-(142, 0);
+(142, 0),
+(143, 114),
+(144, 114),
+(145, 114),
+(146, 114);
 
 -- --------------------------------------------------------
 
@@ -2164,36 +2174,36 @@ INSERT INTO `qmdc0_modules_menu` (`moduleid`, `menuid`) VALUES
 --
 
 CREATE TABLE `qmdc0_newsfeeds` (
-  `catid` int(11) NOT NULL DEFAULT '0',
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `catid` int NOT NULL DEFAULT '0',
+  `id` int UNSIGNED NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `link` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `numarticles` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `cache_time` int(10) UNSIGNED NOT NULL DEFAULT '3600',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `numarticles` int UNSIGNED NOT NULL DEFAULT '1',
+  `cache_time` int UNSIGNED NOT NULL DEFAULT '3600',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `rtl` tinyint(4) NOT NULL DEFAULT '0',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ordering` int NOT NULL DEFAULT '0',
+  `rtl` tinyint NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `created_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_by` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadata` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `xreference` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
+  `modified_by` int UNSIGNED NOT NULL DEFAULT '0',
+  `metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `xreference` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version` int UNSIGNED NOT NULL DEFAULT '1',
+  `hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2203,10 +2213,10 @@ CREATE TABLE `qmdc0_newsfeeds` (
 --
 
 CREATE TABLE `qmdc0_overrider` (
-  `id` int(10) NOT NULL COMMENT 'Primary Key',
-  `constant` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `string` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int NOT NULL COMMENT 'Primary Key',
+  `constant` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `string` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2216,20 +2226,20 @@ CREATE TABLE `qmdc0_overrider` (
 --
 
 CREATE TABLE `qmdc0_postinstall_messages` (
-  `postinstall_message_id` bigint(20) UNSIGNED NOT NULL,
-  `extension_id` bigint(20) NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
-  `title_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for the title',
-  `description_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for description',
-  `action_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `language_extension` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'com_postinstall' COMMENT 'Extension holding lang keys',
-  `language_client_id` tinyint(3) NOT NULL DEFAULT '1',
-  `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'link' COMMENT 'Message type - message, link, action',
-  `action_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'RAD URI to the PHP file containing action method',
-  `action` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'Action method name or URL',
-  `condition_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'RAD URI to file holding display condition method',
-  `condition_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Display condition method, must return boolean',
-  `version_introduced` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '3.2.0' COMMENT 'Version when this message was introduced',
-  `enabled` tinyint(3) NOT NULL DEFAULT '1'
+  `postinstall_message_id` bigint UNSIGNED NOT NULL,
+  `extension_id` bigint NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
+  `title_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for the title',
+  `description_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Lang key for description',
+  `action_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `language_extension` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'com_postinstall' COMMENT 'Extension holding lang keys',
+  `language_client_id` tinyint NOT NULL DEFAULT '1',
+  `type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'link' COMMENT 'Message type - message, link, action',
+  `action_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'RAD URI to the PHP file containing action method',
+  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'Action method name or URL',
+  `condition_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'RAD URI to file holding display condition method',
+  `condition_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Display condition method, must return boolean',
+  `version_introduced` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '3.2.0' COMMENT 'Version when this message was introduced',
+  `enabled` tinyint NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2256,14 +2266,14 @@ INSERT INTO `qmdc0_postinstall_messages` (`postinstall_message_id`, `extension_i
 --
 
 CREATE TABLE `qmdc0_privacy_consents` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `state` int(10) NOT NULL DEFAULT '1',
+  `id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `state` int NOT NULL DEFAULT '1',
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remind` tinyint(4) NOT NULL DEFAULT '0',
-  `token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remind` tinyint NOT NULL DEFAULT '0',
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2273,12 +2283,12 @@ CREATE TABLE `qmdc0_privacy_consents` (
 --
 
 CREATE TABLE `qmdc0_privacy_requests` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id` int UNSIGNED NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `requested_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` tinyint(4) NOT NULL DEFAULT '0',
-  `request_type` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `confirm_token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `status` tinyint NOT NULL DEFAULT '0',
+  `request_type` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `confirm_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `confirm_token_created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2289,16 +2299,16 @@ CREATE TABLE `qmdc0_privacy_requests` (
 --
 
 CREATE TABLE `qmdc0_redirect_links` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `old_url` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `new_url` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `referer` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `published` tinyint(4) NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `old_url` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `new_url` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `referer` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `published` tinyint NOT NULL,
   `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `header` smallint(3) NOT NULL DEFAULT '301'
+  `header` smallint NOT NULL DEFAULT '301'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2308,8 +2318,8 @@ CREATE TABLE `qmdc0_redirect_links` (
 --
 
 CREATE TABLE `qmdc0_schemas` (
-  `extension_id` int(11) NOT NULL,
-  `version_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+  `extension_id` int NOT NULL,
+  `version_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2327,12 +2337,12 @@ INSERT INTO `qmdc0_schemas` (`extension_id`, `version_id`) VALUES
 
 CREATE TABLE `qmdc0_session` (
   `session_id` varbinary(192) NOT NULL,
-  `client_id` tinyint(3) UNSIGNED DEFAULT NULL,
-  `guest` tinyint(3) UNSIGNED DEFAULT '1',
-  `time` int(11) NOT NULL DEFAULT '0',
-  `data` mediumtext COLLATE utf8mb4_unicode_ci,
-  `userid` int(11) DEFAULT '0',
-  `username` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT ''
+  `client_id` tinyint UNSIGNED DEFAULT NULL,
+  `guest` tinyint UNSIGNED DEFAULT '1',
+  `time` int NOT NULL DEFAULT '0',
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `userid` int DEFAULT '0',
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2340,55 +2350,10 @@ CREATE TABLE `qmdc0_session` (
 --
 
 INSERT INTO `qmdc0_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-(0x3031306535353861636635663462373062393635653533386636643337373664, 0, 1, 1648242600, 'joomla|s:860:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MjU5NDtzOjQ6Imxhc3QiO2k6MTY0ODI0MjU5ODtzOjM6Im5vdyI7aToxNjQ4MjQyNjAwO31zOjU6InRva2VuIjtzOjMyOiJOWmRKTEgyekp6cGxzcnppN3l2Ykd4SlViVVVkMElWQyI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjEzOiJjb21faW5zdGFsbGVyIjtPOjg6InN0ZENsYXNzIjoyOntzOjc6Im1lc3NhZ2UiO3M6MDoiIjtzOjE3OiJleHRlbnNpb25fbWVzc2FnZSI7czowOiIiO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3035336266356537313463346663666162333734373236376637303935316461, 0, 1, 1648218074, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxODA3MTtzOjQ6Imxhc3QiO2k6MTY0ODIxODA3MjtzOjM6Im5vdyI7aToxNjQ4MjE4MDczO31zOjU6InRva2VuIjtzOjMyOiJxTFlSajUxdWtQTEp1RHZGd3hjeE9yUVRHeGp1TFpYZCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3061383661323031313938373565323339333933383665343730386338313162, 0, 1, 1648248903, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0ODg5OTtzOjQ6Imxhc3QiO2k6MTY0ODI0ODg5OTtzOjM6Im5vdyI7aToxNjQ4MjQ4OTAzO31zOjU6InRva2VuIjtzOjMyOiJialIyMGJDaGFUVExmb2tYT2NwZ3dXV3JSR0xzVFByZCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3139373464393233333136626531333339373466666334336663323030323932, 0, 1, 1648242909, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MjkwOTtzOjQ6Imxhc3QiO2k6MTY0ODI0MjkwOTtzOjM6Im5vdyI7aToxNjQ4MjQyOTA5O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3164396539653065333961643463373537316537646431336332323132663531, 0, 1, 1648239355, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzOTM1NTtzOjQ6Imxhc3QiO2k6MTY0ODIzOTM1NTtzOjM6Im5vdyI7aToxNjQ4MjM5MzU1O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3233323538623363613961393462646161333065356665613466626230393733, 0, 1, 1648244977, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0NDk3NztzOjQ6Imxhc3QiO2k6MTY0ODI0NDk3NztzOjM6Im5vdyI7aToxNjQ4MjQ0OTc3O31zOjU6InRva2VuIjtzOjMyOiJwUGJMSkFGOUMxZ2RVWjJ2YUI2QnVGb0lNaWZkY05qVyI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3336666461336439646638623834653066366562333831363161343831383163, 0, 1, 1648223087, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMzA4NjtzOjQ6Imxhc3QiO2k6MTY0ODIyMzA4NjtzOjM6Im5vdyI7aToxNjQ4MjIzMDg3O31zOjU6InRva2VuIjtzOjMyOiIxNExxdUVvalVzMmlma1pmbWZSTjhSSkFhYnVSdE1oaSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3365366638613132373930633730663031313964346166646564633537363566, 0, 1, 1648232172, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMjE3MjtzOjQ6Imxhc3QiO2k6MTY0ODIzMjE3MjtzOjM6Im5vdyI7aToxNjQ4MjMyMTcyO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3434363131643432653831306137346631316436616131623633383937393238, 0, 1, 1648223086, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMzA4NjtzOjQ6Imxhc3QiO2k6MTY0ODIyMzA4NjtzOjM6Im5vdyI7aToxNjQ4MjIzMDg2O31zOjU6InRva2VuIjtzOjMyOiJzY25wQkZnbm90RnNWcUZCaThQdk9LRnVzSUhMS05haiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3435643934326265353362326539636334616337666237353364333563323733, 0, 1, 1648217968, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxNzk2MztzOjQ6Imxhc3QiO2k6MTY0ODIxNzk2NjtzOjM6Im5vdyI7aToxNjQ4MjE3OTY4O31zOjU6InRva2VuIjtzOjMyOiJCWDlFY05sWEJzMEFHQW8yOHNGdjY2aVVleWhzVlNOWiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3465386664303238663239363536303330303136353666636535323063653464, 0, 1, 1648233461, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMzQ1OTtzOjQ6Imxhc3QiO2k6MTY0ODIzMzQ1OTtzOjM6Im5vdyI7aToxNjQ4MjMzNDYxO31zOjU6InRva2VuIjtzOjMyOiJyM1VBVkRDUVM1Q1kxaUdLU2Zvd1RGbjBlN2VoMGlKcSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3465653939386334613832636364383031383631333663346166356334336562, 0, 1, 1648233186, 'joomla|s:988:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMzE4NjtzOjQ6Imxhc3QiO2k6MTY0ODIzMzE4NjtzOjM6Im5vdyI7aToxNjQ4MjMzMTg2O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fXM6MTA6ImNvbV9tYWlsdG8iO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGlua3MiO2E6MTp7czo0MDoiOTRjMDI4ZTliNGIyMjEyNjdmMzQ4MjhmMmJkYWJlZTBhZWY0NTBmMCI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJsaW5rIjtzOjc0OiJodHRwczovL3d3dy5yZWluZ2VzYWMuY29tL2luZGV4LnBocC9zZXJ2aWNpby9pdGVtLzIxLXNhbmVhbWllbnRvLWFtYmllbnRhbCI7czo2OiJleHBpcnkiO2k6MTY0ODIzMzE4Njt9fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3532653231303432326532636262623335636266643162616538633639343539, 0, 1, 1648233971, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMzk3MTtzOjQ6Imxhc3QiO2k6MTY0ODIzMzk3MTtzOjM6Im5vdyI7aToxNjQ4MjMzOTcxO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3536396363353666633635343839373031323433343461303663366630616631, 0, 1, 1648234544, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzNDUzOTtzOjQ6Imxhc3QiO2k6MTY0ODIzNDU0MztzOjM6Im5vdyI7aToxNjQ4MjM0NTQ0O31zOjU6InRva2VuIjtzOjMyOiJ2QjBWQzVGekNOQVl2MjQ4MnpvMkhWNFgzYmJ1TUFybiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3634646438383737643031326466333962353261303237653530366136653664, 0, 1, 1648240495, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MDQ5NDtzOjQ6Imxhc3QiO2k6MTY0ODI0MDQ5NDtzOjM6Im5vdyI7aToxNjQ4MjQwNDk0O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3665306135393135396233313064306437656566393834326262613431336164, 0, 1, 1648228323, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyODMyMjtzOjQ6Imxhc3QiO2k6MTY0ODIyODMyMjtzOjM6Im5vdyI7aToxNjQ4MjI4MzIyO31zOjU6InRva2VuIjtzOjMyOiJrTTdmMGNWSGRDWmFMN21rS0paSGNFM2dXSzg4a2VlYSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3732613430323338306466363161393861653266616137346133653165343336, 0, 1, 1648216839, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxNjgzOTtzOjQ6Imxhc3QiO2k6MTY0ODIxNjgzOTtzOjM6Im5vdyI7aToxNjQ4MjE2ODM5O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3734626335626638623462663865613164303866393166643536353737326266, 0, 1, 1648238966, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzODk2NjtzOjQ6Imxhc3QiO2k6MTY0ODIzODk2NjtzOjM6Im5vdyI7aToxNjQ4MjM4OTY2O31zOjU6InRva2VuIjtzOjMyOiJlMVJTVHFpN1QyTFFmZ3ZJQkJNcDFKMnlVUUpmejNNNyI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3737363361356564653135336264663934356234373436363064666137356635, 0, 1, 1648232412, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMjQwODtzOjQ6Imxhc3QiO2k6MTY0ODIzMjQxMDtzOjM6Im5vdyI7aToxNjQ4MjMyNDExO31zOjU6InRva2VuIjtzOjMyOiJuNHlXV1FFbmZ5NnVENEUyaEJuSWk1dG5VdWxLa1JRYiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3762376434376361326135363731336337366131353733326361656430653231, 0, 1, 1648240496, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MDQ5NjtzOjQ6Imxhc3QiO2k6MTY0ODI0MDQ5NjtzOjM6Im5vdyI7aToxNjQ4MjQwNDk2O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3763316361393166333562386536613436613663343338386236393632616330, 0, 1, 1648228322, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyODMyMjtzOjQ6Imxhc3QiO2k6MTY0ODIyODMyMjtzOjM6Im5vdyI7aToxNjQ4MjI4MzIyO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3765373163643932333136363136313232316266613730353536653039376461, 0, 1, 1648219198, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxOTE5ODtzOjQ6Imxhc3QiO2k6MTY0ODIxOTE5ODtzOjM6Im5vdyI7aToxNjQ4MjE5MTk4O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x3766306532636537646431353261376231636533393132636465326164383437, 0, 1, 1648225227, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyNTIyNjtzOjQ6Imxhc3QiO2k6MTY0ODIyNTIyNjtzOjM6Im5vdyI7aToxNjQ4MjI1MjI2O31zOjU6InRva2VuIjtzOjMyOiJwRmdQUXB0VHlxUU15cFRsYkNYU2NUMldBdGhvUlNYYiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3766346333363162613436623530653336346133303461373234633836653066, 0, 1, 1648242665, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MjY2NTtzOjQ6Imxhc3QiO2k6MTY0ODI0MjY2NTtzOjM6Im5vdyI7aToxNjQ4MjQyNjY1O31zOjU6InRva2VuIjtzOjMyOiJKRmt5VjY4WExRNXZXUGRwSVVoa2h2SXpSa3hIWDNFayI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3831353935653031656136303631636136393962623431623439663830303735, 0, 1, 1648246623, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0NjYyMjtzOjQ6Imxhc3QiO2k6MTY0ODI0NjYyMjtzOjM6Im5vdyI7aToxNjQ4MjQ2NjIzO31zOjU6InRva2VuIjtzOjMyOiJHZE1EVWtCVVI5TUtGVWUxRG5LOEFOQUZJNXc4TjFDYiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3832313937343635626337356361303762396338346262353936373533346138, 0, 1, 1648233973, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMzk3MjtzOjQ6Imxhc3QiO2k6MTY0ODIzMzk3MjtzOjM6Im5vdyI7aToxNjQ4MjMzOTcyO31zOjU6InRva2VuIjtzOjMyOiJKeEdxNjlodW5wd1JQUEttZTRZdE5ZaTc0ZklraE1WUiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3863386139323530386464613537356165646136623430666438396539336636, 0, 1, 1648228516, 'joomla|s:880:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyODUxNjtzOjQ6Imxhc3QiO2k6MTY0ODIyODUxNjtzOjM6Im5vdyI7aToxNjQ4MjI4NTE2O31zOjU6InRva2VuIjtzOjMyOiJPZjJrek5UdmEwdTl0VnJodDJDSWEyZ3pjaHpIVzVuVCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjExOiJjb21fY29udGFjdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJjb250YWN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImRhdGEiO2E6MTp7czo1OiJjYXRpZCI7czoxOiI0Ijt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3864656438666433643436333464383631343437303437343738616230626665, 0, 1, 1648215288, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxNTI4MDtzOjQ6Imxhc3QiO2k6MTY0ODIxNTI4NTtzOjM6Im5vdyI7aToxNjQ4MjE1Mjg4O31zOjU6InRva2VuIjtzOjMyOiJNanRtUXREQ2lqUURSWXgzc2tTS1lqV0U4NmZ6ZXJ4MyI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3865653264626665663663616461336636653766663434373363613365343461, 0, 1, 1648228588, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyODU4ODtzOjQ6Imxhc3QiO2k6MTY0ODIyODU4ODtzOjM6Im5vdyI7aToxNjQ4MjI4NTg4O31zOjU6InRva2VuIjtzOjMyOiJVb0p2eE9TeERQVmlzblRKN3h4Vm56UWpzZlZZdGhCcCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3934656265633534303538663363383839346366393866336435656466363966, 0, 1, 1648226384, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyNjM4NDtzOjQ6Imxhc3QiO2k6MTY0ODIyNjM4NDtzOjM6Im5vdyI7aToxNjQ4MjI2Mzg0O31zOjU6InRva2VuIjtzOjMyOiJuREhFNVBObGk3OFFneG02dHVkMUhBeFBXTWxURkRNViI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x3961323261633361303266646562303764623235616539313435333430326430, 0, 1, 1648242659, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MjY1OTtzOjQ6Imxhc3QiO2k6MTY0ODI0MjY1OTtzOjM6Im5vdyI7aToxNjQ4MjQyNjU5O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6162383337656535653664303264633462326263313761636332396139653234, 0, 1, 1648236859, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzNjg1OTtzOjQ6Imxhc3QiO2k6MTY0ODIzNjg1OTtzOjM6Im5vdyI7aToxNjQ4MjM2ODU5O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6166313939383261343063623236313434636134396339616139303136363264, 0, 1, 1648222016, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMjAxNjtzOjQ6Imxhc3QiO2k6MTY0ODIyMjAxNjtzOjM6Im5vdyI7aToxNjQ4MjIyMDE2O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6234393135336166303332336332386261326361316235336339363338303034, 0, 1, 1648230772, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMDc3MjtzOjQ6Imxhc3QiO2k6MTY0ODIzMDc3MjtzOjM6Im5vdyI7aToxNjQ4MjMwNzcyO31zOjU6InRva2VuIjtzOjMyOiIyM1F6c3V0TEFmanVFNXlBNEZpaWV0WGdrZXlFQlRBTyI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6235343330383036653566313963326333393133373734303134306538636436, 0, 1, 1648244974, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0NDk3NDtzOjQ6Imxhc3QiO2k6MTY0ODI0NDk3NDtzOjM6Im5vdyI7aToxNjQ4MjQ0OTc0O31zOjU6InRva2VuIjtzOjMyOiJrMXpCVHd4SFl3YXZ4QzhtWExZbDFUUWd0VGxKQmRIeCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6263373335643237363265396539636437343437333362623666316131393062, 0, 1, 1648236357, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzNjM1NjtzOjQ6Imxhc3QiO2k6MTY0ODIzNjM1NjtzOjM6Im5vdyI7aToxNjQ4MjM2MzU3O31zOjU6InRva2VuIjtzOjMyOiJZQUNFd0pFR2lZVERlWWlpWEZVMnRRdEdZV0xOTlhqSCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6263393933336666333837313064663931346530666238613163353135376335, 0, 1, 1648242916, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0MjkxNjtzOjQ6Imxhc3QiO2k6MTY0ODI0MjkxNjtzOjM6Im5vdyI7aToxNjQ4MjQyOTE2O31zOjU6InRva2VuIjtzOjMyOiIyc0hOWEJGdGNydGpZdlJoWDBSSURqYmV2WFZnN0ZhayI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6264383763646238313863366363366139346564393332316231333135663735, 0, 1, 1648244976, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODI0NDk3NjtzOjQ6Imxhc3QiO2k6MTY0ODI0NDk3NjtzOjM6Im5vdyI7aToxNjQ4MjQ0OTc2O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6264396633393439633738636538643833346431653166336134336439333531, 0, 1, 1648231081, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMTA4MTtzOjQ6Imxhc3QiO2k6MTY0ODIzMTA4MTtzOjM6Im5vdyI7aToxNjQ4MjMxMDgxO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6336376637633938386433343233626663303763623038323638313835306139, 0, 1, 1648219095, 'joomla|s:860:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxOTA5NTtzOjQ6Imxhc3QiO2k6MTY0ODIxOTA5NTtzOjM6Im5vdyI7aToxNjQ4MjE5MDk1O31zOjU6InRva2VuIjtzOjMyOiJ6SVR0SU1UWXZZZDRWOElaQ01ja084STcySUJ3OFV6MCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjEzOiJjb21faW5zdGFsbGVyIjtPOjg6InN0ZENsYXNzIjoyOntzOjc6Im1lc3NhZ2UiO3M6MDoiIjtzOjE3OiJleHRlbnNpb25fbWVzc2FnZSI7czowOiIiO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6365323230626562383731646239346561336463393236303766313136626538, 0, 1, 1648222630, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMjYzMDtzOjQ6Imxhc3QiO2k6MTY0ODIyMjYzMDtzOjM6Im5vdyI7aToxNjQ4MjIyNjMwO31zOjU6InRva2VuIjtzOjMyOiJPRVlTVktFeFVBN1J6OWlZbjZKb2JydnVuTzQ2T0JEWCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6365613833656532646263303064316362333433663266386630663532306138, 0, 1, 1648226384, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyNjM4NDtzOjQ6Imxhc3QiO2k6MTY0ODIyNjM4NDtzOjM6Im5vdyI7aToxNjQ4MjI2Mzg0O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6435666635366136636335653733393565306462363338623331306639303561, 0, 1, 1648221758, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMTc1ODtzOjQ6Imxhc3QiO2k6MTY0ODIyMTc1ODtzOjM6Im5vdyI7aToxNjQ4MjIxNzU4O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6463666130363461316138306466636339353337626632636530613231643262, 0, 1, 1648215336, 'joomla|s:664:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxNTMzNjtzOjQ6Imxhc3QiO2k6MTY0ODIxNTMzNjtzOjM6Im5vdyI7aToxNjQ4MjE1MzM2O319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
-(0x6466363166383161336565383738653434386137353666653866363139393462, 0, 1, 1648219200, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxOTIwMDtzOjQ6Imxhc3QiO2k6MTY0ODIxOTIwMDtzOjM6Im5vdyI7aToxNjQ4MjE5MjAwO31zOjU6InRva2VuIjtzOjMyOiJTY1JLY3cxbmRzNkY1RjVkNnhvMmFaTVNTbFQ3ajJQQSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6532333331303631333466373963353639653631333238353264376433303839, 0, 1, 1648231061, 'joomla|s:880:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIzMTA2MTtzOjQ6Imxhc3QiO2k6MTY0ODIzMTA2MTtzOjM6Im5vdyI7aToxNjQ4MjMxMDYxO31zOjU6InRva2VuIjtzOjMyOiJHYTRpN1JEeW1GN21LaVFSNkdWaWRtaHoyczI0MEdHSiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjExOiJjb21fY29udGFjdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo3OiJjb250YWN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImRhdGEiO2E6MTp7czo1OiJjYXRpZCI7czoxOiI0Ijt9fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6562363166383766653230646265323031316431643833383232666165313065, 0, 1, 1648228423, 'joomla|s:980:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjI6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyODQyMztzOjQ6Imxhc3QiO2k6MTY0ODIyODQyMztzOjM6Im5vdyI7aToxNjQ4MjI4NDIzO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fXM6MTA6ImNvbV9tYWlsdG8iO086ODoic3RkQ2xhc3MiOjE6e3M6NToibGlua3MiO2E6MTp7czo0MDoiODA4YjI3ZTE3MzUxYzMwMzQ3ZmMwY2RiYTlhZWRkMGNhYmQ2YjczNyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJsaW5rIjtzOjY4OiJodHRwczovL3d3dy5yZWluZ2VzYWMuY29tL2luZGV4LnBocC9zZXJ2aWNpby9pdGVtLzQtcmVzaWR1b3Mtc29saWRvcyI7czo2OiJleHBpcnkiO2k6MTY0ODIyODQyMzt9fX19fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6562616132363866346431323162303435666665616337376632623537626630, 0, 1, 1648219675, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIxOTY1MjtzOjQ6Imxhc3QiO2k6MTY0ODIxOTY2MjtzOjM6Im5vdyI7aToxNjQ4MjE5Njc1O31zOjU6InRva2VuIjtzOjMyOiJzUlNYM0xmREZhRFkwMEpzZ2VRd0NZOTZwdHhHS041NCI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
-(0x6665393262326537306663396434616131316631643764396365616462383138, 0, 1, 1648220185, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODIyMDE2MjtzOjQ6Imxhc3QiO2k6MTY0ODIyMDE3ODtzOjM6Im5vdyI7aToxNjQ4MjIwMTg1O31zOjU6InRva2VuIjtzOjMyOiJhM3pxZUpQYTkyajBLM2FpYU9pcXBybnpUWDBCMTdjNiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, '');
+(0x35716a37686c6f68763239646e386f7533766939377638327063, 1, 1, 1649110679, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToxO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0OTExMDY3MztzOjQ6Imxhc3QiO2k6MTY0OTExMDY3MztzOjM6Im5vdyI7aToxNjQ5MTEwNjczO31zOjU6InRva2VuIjtzOjMyOiJYTzZhUkoySDRmd09aa21mRTBBVmplMXpKV1ZwMnBMNiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
+(0x3936733839333976323774677174357163316c72716f68396c63, 1, 1, 1648835862, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyOTA7czo1OiJ0b2tlbiI7czozMjoiUWVyZ2ZlUDZtSGhGNjVpenUyQUJXU1JRUlhTSjdpNmciO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0ODU5Mzk0MjtzOjQ6Imxhc3QiO2k6MTY0ODgzNTAyMjtzOjM6Im5vdyI7aToxNjQ4ODM1ODYyO319czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9\";', 0, ''),
+(0x6c757576626f726c30313969616830646e33756e66396f326674, 0, 1, 1648592424, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aTo0O3M6NToidG9rZW4iO3M6MzI6Ilcxd2VjcG5uNzlkVUdoTVJBdnoxcmlCckE0UlFBdFhhIjtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE2NDg1OTI0MDE7czo0OiJsYXN0IjtpOjE2NDg1OTI0MDg7czozOiJub3ciO2k6MTY0ODU5MjQyMzt9fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, ''),
+(0x73696262613170633376676b6661316c30686b65646b65766564, 0, 1, 1649347616, 'joomla|s:736:\"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjozOntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTY0OTM0NzU4NDtzOjQ6Imxhc3QiO2k6MTY0OTM0NzU4NDtzOjM6Im5vdyI7aToxNjQ5MzQ3NjE2O31zOjU6InRva2VuIjtzOjMyOiJkRmF4MVlqSUhaZzc2bTZkT3JUcW5PV0VVOWZFMmw3aSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==\";', 0, '');
 
 -- --------------------------------------------------------
 
@@ -2397,34 +2362,34 @@ INSERT INTO `qmdc0_session` (`session_id`, `client_id`, `guest`, `time`, `data`,
 --
 
 CREATE TABLE `qmdc0_tags` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `lft` int(11) NOT NULL DEFAULT '0',
-  `rgt` int(11) NOT NULL DEFAULT '0',
-  `level` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int UNSIGNED NOT NULL,
+  `parent_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `lft` int NOT NULL DEFAULT '0',
+  `rgt` int NOT NULL DEFAULT '0',
+  `level` int UNSIGNED NOT NULL DEFAULT '0',
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `checked_out` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metadesc` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta description for the page.',
-  `metakey` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta keywords for the page.',
-  `metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded metadata properties.',
-  `created_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `access` int UNSIGNED NOT NULL DEFAULT '0',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metadesc` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta description for the page.',
+  `metakey` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The meta keywords for the page.',
+  `metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded metadata properties.',
+  `created_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `modified_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `modified_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `images` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urls` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `version` int(10) UNSIGNED NOT NULL DEFAULT '1',
+  `images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version` int UNSIGNED NOT NULL DEFAULT '1',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2443,12 +2408,12 @@ INSERT INTO `qmdc0_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `tit
 --
 
 CREATE TABLE `qmdc0_template_styles` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `template` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `client_id` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `home` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `template` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `client_id` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `home` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2470,10 +2435,10 @@ INSERT INTO `qmdc0_template_styles` (`id`, `template`, `client_id`, `home`, `tit
 --
 
 CREATE TABLE `qmdc0_ucm_base` (
-  `ucm_id` int(10) UNSIGNED NOT NULL,
-  `ucm_item_id` int(10) NOT NULL,
-  `ucm_type_id` int(11) NOT NULL,
-  `ucm_language_id` int(11) NOT NULL
+  `ucm_id` int UNSIGNED NOT NULL,
+  `ucm_item_id` int NOT NULL,
+  `ucm_type_id` int NOT NULL,
+  `ucm_language_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2483,38 +2448,38 @@ CREATE TABLE `qmdc0_ucm_base` (
 --
 
 CREATE TABLE `qmdc0_ucm_content` (
-  `core_content_id` int(10) UNSIGNED NOT NULL,
-  `core_type_alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
-  `core_title` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_content_id` int UNSIGNED NOT NULL,
+  `core_type_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
+  `core_title` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
-  `core_body` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_body` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `core_state` tinyint(1) NOT NULL DEFAULT '0',
-  `core_checked_out_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `core_checked_out_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `core_access` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `core_params` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `core_featured` tinyint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `core_metadata` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
-  `core_created_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `core_created_by_alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_checked_out_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `core_checked_out_user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `core_access` int UNSIGNED NOT NULL DEFAULT '0',
+  `core_params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_featured` tinyint UNSIGNED NOT NULL DEFAULT '0',
+  `core_metadata` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'JSON encoded metadata properties.',
+  `core_created_user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `core_created_by_alias` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `core_modified_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Most recent user that modified',
+  `core_modified_user_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Most recent user that modified',
   `core_modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `core_language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `core_language` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `core_publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `core_publish_down` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `core_content_item_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'ID from the individual type table',
-  `asset_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
-  `core_images` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `core_urls` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `core_hits` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `core_version` int(10) UNSIGNED NOT NULL DEFAULT '1',
-  `core_ordering` int(11) NOT NULL DEFAULT '0',
-  `core_metakey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `core_metadesc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `core_catid` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `core_xreference` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
-  `core_type_id` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `core_content_item_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'ID from the individual type table',
+  `asset_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
+  `core_images` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_urls` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_hits` int UNSIGNED NOT NULL DEFAULT '0',
+  `core_version` int UNSIGNED NOT NULL DEFAULT '1',
+  `core_ordering` int NOT NULL DEFAULT '0',
+  `core_metakey` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_metadesc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `core_catid` int UNSIGNED NOT NULL DEFAULT '0',
+  `core_xreference` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'A reference to enable linkages to external data sets.',
+  `core_type_id` int UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Contains core content data in name spaced fields';
 
 -- --------------------------------------------------------
@@ -2524,16 +2489,16 @@ CREATE TABLE `qmdc0_ucm_content` (
 --
 
 CREATE TABLE `qmdc0_ucm_history` (
-  `version_id` int(10) UNSIGNED NOT NULL,
-  `ucm_item_id` int(10) UNSIGNED NOT NULL,
-  `ucm_type_id` int(10) UNSIGNED NOT NULL,
-  `version_note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Optional version name',
+  `version_id` int UNSIGNED NOT NULL,
+  `ucm_item_id` int UNSIGNED NOT NULL,
+  `ucm_type_id` int UNSIGNED NOT NULL,
+  `version_note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Optional version name',
   `save_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `editor_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `character_count` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Number of characters in this version.',
-  `sha1_hash` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'SHA1 hash of the version_data column.',
-  `version_data` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'json-encoded string of version data',
-  `keep_forever` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=auto delete; 1=keep'
+  `editor_user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `character_count` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Number of characters in this version.',
+  `sha1_hash` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'SHA1 hash of the version_data column.',
+  `version_data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'json-encoded string of version data',
+  `keep_forever` tinyint NOT NULL DEFAULT '0' COMMENT '0=auto delete; 1=keep'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2541,9 +2506,9 @@ CREATE TABLE `qmdc0_ucm_history` (
 --
 
 INSERT INTO `qmdc0_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
+(0, 1, 2, '', '2022-03-26 17:45:59', 311, 1779, 'e52ebd45376f4269f95c8ff4c2102bd534ef797e', '{\"id\":1,\"name\":\"Cont\\u00e1ctanos\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Calle Canamelares N\\u00b0 426 - Urb. Maranga - San Miguel\",\"suburb\":\"Lima\",\"state\":\"Peru\",\"country\":\"\",\"postcode\":\"\",\"telephone\":\"(01) 2647663\",\"fax\":\"\",\"misc\":\"\",\"image\":\"\",\"email_to\":\"administracion@reingesac.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2022-03-26 17:45:09\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"hide\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"0\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"964812500\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2022-03-26 17:45:59\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":16,\"hits\":\"634\"}', 0),
 (1, 1, 1, '', '2018-04-26 08:29:48', 311, 3307, '777c730b286d7e58aded8f218074942ca2a31faa', '{\"id\":1,\"asset_id\":88,\"title\":\"About Us\",\"alias\":\"about-us\",\"introtext\":\"<h1>about sabestian villa<\\/h1>\\r\\n<p class=\\\"description\\\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipsum posuere. Fusce sodales lacus ut pellentesque sollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna, a consectetur eros quam eu orci. Duis lacus odio, varius tinciduntsit amet, accumsan non ex. Duis id fringilla risus. Donec ac faucibus mauris. Curabitur efficitur gravida ligula.<\\/p>\\r\\n<ul>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/property_icon.png\\\" alt=\\\"home\\\" \\/>\\r\\n<figcaption>Property Age<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Built Year<\\/h3>\\r\\n<h2>2015<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/sq_ft.png\\\" alt=\\\"sqft\\\" \\/>\\r\\n<figcaption>IN Sq.ft<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>area<\\/h3>\\r\\n<h2>2790<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/bed.png\\\" alt=\\\"bed\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bedroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/bath.png\\\" alt=\\\"bathroom\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bathroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/floor.png\\\" alt=\\\"floor\\\" \\/>\\r\\n<figcaption>Total<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Floors<\\/h3>\\r\\n<h2>2<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/garage.png\\\" alt=\\\"garage\\\" \\/>\\r\\n<figcaption>Parking<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Garage<\\/h3>\\r\\n<h2>1<\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-04-26 08:29:48\",\"modified_by\":null,\"checked_out\":null,\"checked_out_time\":null,\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":1,\"ordering\":null,\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":null,\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\"}', 0),
 (2, 1, 1, '', '2018-04-27 06:51:29', 311, 3383, 'aa122317073c3d6f38f5eae8d5afa82870a4501b', '{\"id\":1,\"asset_id\":\"88\",\"title\":\"About Us\",\"alias\":\"about-us\",\"introtext\":\"<div class=\\\"inner-page-about-property\\\">\\r\\n<h1>about sabestian villa<\\/h1>\\r\\n<p class=\\\"description\\\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipsum posuere. Fusce sodales lacus ut pellentesque sollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna, a consectetur eros quam eu orci. Duis lacus odio, varius tinciduntsit amet, accumsan non ex. Duis id fringilla risus. Donec ac faucibus mauris. Curabitur efficitur gravida ligula.<\\/p>\\r\\n<ul>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/property_icon.png\\\" alt=\\\"home\\\" \\/>\\r\\n<figcaption>Property Age<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Built Year<\\/h3>\\r\\n<h2>2015<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/sq_ft.png\\\" alt=\\\"sqft\\\" \\/>\\r\\n<figcaption>IN Sq.ft<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>area<\\/h3>\\r\\n<h2>2790<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/bed.png\\\" alt=\\\"bed\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bedroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/bath.png\\\" alt=\\\"bathroom\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bathroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/floor.png\\\" alt=\\\"floor\\\" \\/>\\r\\n<figcaption>Total<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Floors<\\/h3>\\r\\n<h2>2<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/garage.png\\\" alt=\\\"garage\\\" \\/>\\r\\n<figcaption>Parking<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Garage<\\/h3>\\r\\n<h2>1<\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-04-27 06:51:29\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-04-27 06:50:58\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":2,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"58\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\"}', 0),
-(4, 1, 2, '', '2018-05-02 07:54:04', 311, 2881, '79049742c977d9312ab8ab248289a0336536c158', '{\"id\":1,\"name\":\"Single contact\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"\",\"suburb\":\"\",\"state\":\"\",\"country\":\"\",\"postcode\":\"\",\"telephone\":\"\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\\r\\n<div class=\\\"row contact-address\\\">\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<h2>Office Address<\\/h2>\\r\\n<div class=\\\"row\\\">\\r\\n<div id=\\\"inner-contact-border\\\" class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Address will be appear here, some text.<\\/p>\\r\\n<p>New York City, NY - 10001<\\/p>\\r\\n<p>United States.<\\/p>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Phone : 215 - 123 - 4567<\\/p>\\r\\n<p>Email : info@DreamVillatheme.com<\\/p>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<h2>Site Address<\\/h2>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Address will be appear here, some text.<\\/p>\\r\\n<p>New York City, NY - 10001<\\/p>\\r\\n<p>United States.<\\/p>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Phone : 215 - 123 - 4567<\\/p>\\r\\n<p>Email : info@DreamVillatheme.com<\\/p>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"image\":\"\",\"email_to\":\"oanhnn@vsmarttech.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-05-02 07:52:34\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"banned_email\\\":\\\"\\\",\\\"banned_subject\\\":\\\"\\\",\\\"banned_text\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-05-02 07:54:04\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":2,\"hits\":\"2\"}', 0),
 (5, 1, 2, '', '2018-05-02 08:02:13', 311, 2975, 'c80b527e1b8e8f3136f51dfd52b703dbf3e4f07a', '{\"id\":1,\"name\":\"Single contact\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Address will be appear here, some text.\",\"suburb\":\"New York City\",\"state\":\"New York\",\"country\":\"United States\",\"postcode\":\"10001\",\"telephone\":\"215 - 123 - 4567\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\\r\\n<div class=\\\"row contact-address\\\">\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<h2>Office Address<\\/h2>\\r\\n<div class=\\\"row\\\">\\r\\n<div id=\\\"inner-contact-border\\\" class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Address will be appear here, some text.<\\/p>\\r\\n<p>New York City, NY - 10001<\\/p>\\r\\n<p>United States.<\\/p>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Phone : 215 - 123 - 4567<\\/p>\\r\\n<p>Email : info@DreamVillatheme.com<\\/p>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<h2>Site Address<\\/h2>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Address will be appear here, some text.<\\/p>\\r\\n<p>New York City, NY - 10001<\\/p>\\r\\n<p>United States.<\\/p>\\r\\n<\\/div>\\r\\n<div class=\\\"col-md-6 col-sm-6 col-xs-12\\\">\\r\\n<p>Phone : 215 - 123 - 4567<\\/p>\\r\\n<p>Email : info@DreamVillatheme.com<\\/p>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"image\":\"\",\"email_to\":\"oanhnn@vsmarttech.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-05-02 07:54:04\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"banned_email\\\":\\\"\\\",\\\"banned_subject\\\":\\\"\\\",\\\"banned_text\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-05-02 08:02:13\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":3,\"hits\":\"3\"}', 0),
 (6, 1, 2, '', '2018-05-02 08:03:17', 311, 2039, '894aeb1ff7d42c8c3be0b21d6f81a8d418573fcb', '{\"id\":1,\"name\":\"Single contact\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Address will be appear here, some text.\",\"suburb\":\"New York City\",\"state\":\"New York\",\"country\":\"United States\",\"postcode\":\"10001\",\"telephone\":\"215 - 123 - 4567\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\",\"image\":\"\",\"email_to\":\"oanhnn@vsmarttech.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-05-02 08:02:13\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"banned_email\\\":\\\"\\\",\\\"banned_subject\\\":\\\"\\\",\\\"banned_text\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-05-02 08:03:17\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":4,\"hits\":\"4\"}', 0),
 (7, 1, 2, '', '2018-05-02 08:23:53', 311, 2036, 'fc42969ddaa97e758761fb2cf14b0eae737eaaa0', '{\"id\":1,\"name\":\"Contact Us\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Address will be appear here, some text.\",\"suburb\":\"New York City\",\"state\":\"New York\",\"country\":\"United States\",\"postcode\":\"10001\",\"telephone\":\"215 - 123 - 4567\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\",\"image\":\"\",\"email_to\":\"oanhnn@vsmarttech.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-05-02 08:23:40\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"banned_email\\\":\\\"\\\",\\\"banned_subject\\\":\\\"\\\",\\\"banned_text\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-05-02 08:23:53\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":5,\"hits\":\"18\"}', 0),
@@ -2552,9 +2517,9 @@ INSERT INTO `qmdc0_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `ve
 (10, 1, 2, '', '2018-06-20 04:17:25', 311, 2030, '8785d4dbe6249ad425296cc79a90639b9d6a3f24', '{\"id\":1,\"name\":\"Contact Us\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit\",\"suburb\":\"City\",\"state\":\"State\",\"country\":\"Country\",\"postcode\":\"ZIP Code\",\"telephone\":\"0123456789\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\",\"image\":\"\",\"email_to\":\"sample@joomfreak.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2018-06-20 04:16:19\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"banned_email\\\":\\\"\\\",\\\"banned_subject\\\":\\\"\\\",\\\"banned_text\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2018-06-20 04:17:25\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":8,\"hits\":\"46\"}', 0),
 (11, 2, 1, '', '2021-03-05 10:45:21', 311, 3361, '6624587d5f1c9118fcf8ee91408d215b53c13a46', '{\"id\":2,\"asset_id\":106,\"title\":\"About Us (2)\",\"alias\":\"about-us-2\",\"introtext\":\"<div class=\\\"inner-page-about-property\\\">\\r\\n<h1>about sabestian villa<\\/h1>\\r\\n<p class=\\\"description\\\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipsum posuere. Fusce sodales lacus ut pellentesque sollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna, a consectetur eros quam eu orci. Duis lacus odio, varius tinciduntsit amet, accumsan non ex. Duis id fringilla risus. Donec ac faucibus mauris. Curabitur efficitur gravida ligula.<\\/p>\\r\\n<ul>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/property_icon.png\\\" alt=\\\"home\\\" \\/>\\r\\n<figcaption>Property Age<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Built Year<\\/h3>\\r\\n<h2>2015<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/sq_ft.png\\\" alt=\\\"sqft\\\" \\/>\\r\\n<figcaption>IN Sq.ft<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>area<\\/h3>\\r\\n<h2>2790<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img src=\\\"images\\/bed.png\\\" alt=\\\"bed\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bedroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/bath.png\\\" alt=\\\"bathroom\\\" \\/>\\r\\n<figcaption>Number of<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Bathroom<\\/h3>\\r\\n<h2>3<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/floor.png\\\" alt=\\\"floor\\\" \\/>\\r\\n<figcaption>Total<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Floors<\\/h3>\\r\\n<h2>2<\\/h2>\\r\\n<\\/li>\\r\\n<li>\\r\\n<figure><img class=\\\"bottom\\\" src=\\\"images\\/garage.png\\\" alt=\\\"garage\\\" \\/>\\r\\n<figcaption>Parking<\\/figcaption>\\r\\n<\\/figure>\\r\\n<h3>Garage<\\/h3>\\r\\n<h2>1<\\/h2>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":0,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-05 10:45:21\",\"modified_by\":null,\"checked_out\":null,\"checked_out_time\":null,\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":1,\"ordering\":null,\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":null,\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0),
 (12, 2, 1, '', '2021-03-05 10:45:48', 311, 4653, '5e93b77119fdfb2f17b0c2e39e41c488bd297f93', '{\"id\":2,\"asset_id\":\"106\",\"title\":\"Qui\\u00e9nes Somos\",\"alias\":\"about-us-2\",\"introtext\":\"<p class=\\\"description\\\">Somos una empresa s\\u00f3lida, responsable y con experiencia para realizar estudios ambientales y ocupacionales en los diferentes sectores productivos del pa\\u00eds. Estamos comprometidos con la protecci\\u00f3n del medio ambiente, as\\u00ed como con la salud y seguridad de nuestros profesionales, clientes, contratistas y de todos aquellos con quienes nos relacionamos.<\\/p>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<div id=\\\"myCarousel\\\" class=\\\"slider_div carousel slide\\\" data-ride=\\\"carousel\\\"><!-- Indicators -->\\r\\n<ol class=\\\"carousel-indicators\\\">\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"0\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"1\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"active\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"2\\\"><!--dot--><\\/li>\\r\\n<\\/ol>\\r\\n<!-- Wrapper for slides -->\\r\\n<div class=\\\"carousel-inner\\\">\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item active\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<ul>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/neghbor-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Misi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Satisfacer las necesidades y expectativas de nuestros clientes d\\u00e1ndoles soluciones integrales en servicios ambientales, de seguridad y salud en el trabajo a trav\\u00e9s de nuestro equipo de t\\u00e9cnicos y especialistas en las diferentes disciplinas, y obtengan resultados sustentables en sus negocios a trav\\u00e9s de la identificaci\\u00f3n e implementaci\\u00f3n de soluciones y estrategias ambientales, sociales y de ingenier\\u00eda eficientes.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Visi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Ser una empresa consultora l\\u00edder a nivel nacional e internacional con tecnolog\\u00eda de vanguardia en servicios t\\u00e9cnicos y estrategias en el sector de la producci\\u00f3n.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Valores<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Cultivamos y difundimos valores como: Experiencia, Responsabilidad, Profesionalismo, Trabajo en equipo, Honestidad, Iniciativa, Compromiso, Rentabilidad y confianza, Responsabilidad Social y ambiental, Excelencia e innovaci\\u00f3n, Entrega de resultados.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-05 10:45:48\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-05 10:45:21\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":2,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"0\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0),
-(13, 2, 1, '', '2021-03-19 06:22:03', 311, 4644, '7e43fdaee17b807e5e7010fa21fd95f145d18680', '{\"id\":2,\"asset_id\":\"106\",\"title\":\"Qui\\u00e9nes Somos\",\"alias\":\"about-us-2\",\"introtext\":\"<p class=\\\"description\\\">Somos una empresa s\\u00f3lida, responsable y con experiencia para realizar estudios ambientales y ocupacionales en los diferentes sectores productivos del pa\\u00eds. Estamos comprometidos con la protecci\\u00f3n del medio ambiente, as\\u00ed como con la salud y seguridad de nuestros profesionales, clientes, contratistas y de todos aquellos con quienes nos relacionamos.<\\/p>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<div id=\\\"myCarousel\\\" class=\\\"slider_div carousel slide\\\" data-ride=\\\"carousel\\\"><!-- Indicators -->\\r\\n<ol class=\\\"carousel-indicators\\\">\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"0\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"1\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"active\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"2\\\"><!--dot--><\\/li>\\r\\n<\\/ol>\\r\\n<!-- Wrapper for slides -->\\r\\n<div class=\\\"carousel-inner\\\">\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/mision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item active\\\"><img src=\\\"images\\/vision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<ul>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/neghbor-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Misi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Satisfacer las necesidades y expectativas de nuestros clientes d\\u00e1ndoles soluciones integrales en servicios ambientales, de seguridad y salud en el trabajo a trav\\u00e9s de nuestro equipo de t\\u00e9cnicos y especialistas en las diferentes disciplinas, y obtengan resultados sustentables en sus negocios a trav\\u00e9s de la identificaci\\u00f3n e implementaci\\u00f3n de soluciones y estrategias ambientales, sociales y de ingenier\\u00eda eficientes.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Visi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Ser una empresa consultora l\\u00edder a nivel nacional e internacional con tecnolog\\u00eda de vanguardia en servicios t\\u00e9cnicos y estrategias en el sector de la producci\\u00f3n.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Valores<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Cultivamos y difundimos valores como: Experiencia, Responsabilidad, Profesionalismo, Trabajo en equipo, Honestidad, Iniciativa, Compromiso, Rentabilidad y confianza, Responsabilidad Social y ambiental, Excelencia e innovaci\\u00f3n, Entrega de resultados.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-19 06:22:03\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-19 06:13:07\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":5,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"16\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0);
+(13, 2, 1, '', '2021-03-19 06:22:03', 311, 4644, '7e43fdaee17b807e5e7010fa21fd95f145d18680', '{\"id\":2,\"asset_id\":\"106\",\"title\":\"Qui\\u00e9nes Somos\",\"alias\":\"about-us-2\",\"introtext\":\"<p class=\\\"description\\\">Somos una empresa s\\u00f3lida, responsable y con experiencia para realizar estudios ambientales y ocupacionales en los diferentes sectores productivos del pa\\u00eds. Estamos comprometidos con la protecci\\u00f3n del medio ambiente, as\\u00ed como con la salud y seguridad de nuestros profesionales, clientes, contratistas y de todos aquellos con quienes nos relacionamos.<\\/p>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<div id=\\\"myCarousel\\\" class=\\\"slider_div carousel slide\\\" data-ride=\\\"carousel\\\"><!-- Indicators -->\\r\\n<ol class=\\\"carousel-indicators\\\">\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"0\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"1\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"active\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"2\\\"><!--dot--><\\/li>\\r\\n<\\/ol>\\r\\n<!-- Wrapper for slides -->\\r\\n<div class=\\\"carousel-inner\\\">\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/mision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item active\\\"><img src=\\\"images\\/vision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<ul>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/neghbor-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Misi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Satisfacer las necesidades y expectativas de nuestros clientes d\\u00e1ndoles soluciones integrales en servicios ambientales, de seguridad y salud en el trabajo a trav\\u00e9s de nuestro equipo de t\\u00e9cnicos y especialistas en las diferentes disciplinas, y obtengan resultados sustentables en sus negocios a trav\\u00e9s de la identificaci\\u00f3n e implementaci\\u00f3n de soluciones y estrategias ambientales, sociales y de ingenier\\u00eda eficientes.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Visi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Ser una empresa consultora l\\u00edder a nivel nacional e internacional con tecnolog\\u00eda de vanguardia en servicios t\\u00e9cnicos y estrategias en el sector de la producci\\u00f3n.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Valores<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Cultivamos y difundimos valores como: Experiencia, Responsabilidad, Profesionalismo, Trabajo en equipo, Honestidad, Iniciativa, Compromiso, Rentabilidad y confianza, Responsabilidad Social y ambiental, Excelencia e innovaci\\u00f3n, Entrega de resultados.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-19 06:22:03\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-19 06:13:07\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":5,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"16\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0),
+(14, 2, 1, '', '2021-03-23 00:51:48', 311, 4660, 'f51fe960393e95972e25817df389736235f8ee9f', '{\"id\":2,\"asset_id\":\"106\",\"title\":\"Qui\\u00e9nes Somos\",\"alias\":\"about-us-2\",\"introtext\":\"<p class=\\\"description\\\">Somos una empresa s\\u00f3lida, responsable y con experiencia para realizar estudios ambientales y ocupacionales en los diferentes sectores productivos del pa\\u00eds. Estamos comprometidos con la protecci\\u00f3n del medio ambiente, as\\u00ed como con la salud y seguridad de nuestros profesionales, clientes, contratistas y de todos aquellos con quienes nos relacionamos.<\\/p>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<div id=\\\"myCarousel\\\" class=\\\"slider_div carousel slide\\\" data-ride=\\\"carousel\\\"><!-- Indicators -->\\r\\n<ol class=\\\"carousel-indicators\\\">\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"0\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"1\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"active\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"2\\\"><!--dot--><\\/li>\\r\\n<\\/ol>\\r\\n<!-- Wrapper for slides -->\\r\\n<div class=\\\"carousel-inner\\\">\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/mision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item active\\\"><img src=\\\"images\\/vision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<ul>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/neghbor-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Nuestra Misi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Satisfacer las necesidades y expectativas de nuestros clientes d\\u00e1ndoles soluciones integrales en servicios ambientales, de seguridad y salud en el trabajo a trav\\u00e9s de nuestro equipo de t\\u00e9cnicos y especialistas en las diferentes disciplinas, y obtengan resultados sustentables en sus negocios a trav\\u00e9s de la identificaci\\u00f3n e implementaci\\u00f3n de soluciones y estrategias ambientales, sociales y de ingenier\\u00eda eficientes.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Nuestra Visi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Ser una empresa consultora l\\u00edder a nivel nacional e internacional con tecnolog\\u00eda de vanguardia en servicios t\\u00e9cnicos y estrategias en el sector de la producci\\u00f3n.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Valores<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Cultivamos y difundimos valores como: Experiencia, Responsabilidad, Profesionalismo, Trabajo en equipo, Honestidad, Iniciativa, Compromiso, Rentabilidad y confianza, Responsabilidad Social y ambiental, Excelencia e innovaci\\u00f3n, Entrega de resultados.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-23 00:51:48\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-23 00:50:48\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":7,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"19\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0);
 INSERT INTO `qmdc0_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `version_note`, `save_date`, `editor_user_id`, `character_count`, `sha1_hash`, `version_data`, `keep_forever`) VALUES
-(14, 2, 1, '', '2021-03-23 00:51:48', 311, 4660, 'f51fe960393e95972e25817df389736235f8ee9f', '{\"id\":2,\"asset_id\":\"106\",\"title\":\"Qui\\u00e9nes Somos\",\"alias\":\"about-us-2\",\"introtext\":\"<p class=\\\"description\\\">Somos una empresa s\\u00f3lida, responsable y con experiencia para realizar estudios ambientales y ocupacionales en los diferentes sectores productivos del pa\\u00eds. Estamos comprometidos con la protecci\\u00f3n del medio ambiente, as\\u00ed como con la salud y seguridad de nuestros profesionales, clientes, contratistas y de todos aquellos con quienes nos relacionamos.<\\/p>\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<div id=\\\"myCarousel\\\" class=\\\"slider_div carousel slide\\\" data-ride=\\\"carousel\\\"><!-- Indicators -->\\r\\n<ol class=\\\"carousel-indicators\\\">\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"0\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"1\\\"><!--dot--><\\/li>\\r\\n<li class=\\\"active\\\" data-target=\\\"#myCarousel\\\" data-slide-to=\\\"2\\\"><!--dot--><\\/li>\\r\\n<\\/ol>\\r\\n<!-- Wrapper for slides -->\\r\\n<div class=\\\"carousel-inner\\\">\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/living_room.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item\\\"><img src=\\\"images\\/mision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<div class=\\\"item active\\\"><img src=\\\"images\\/vision.jpg\\\" alt=\\\"house-image\\\" \\/><\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<div class=\\\"col-lg-6 \\\">\\r\\n<div class=\\\"custom\\\">\\r\\n<ul>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/neghbor-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Nuestra Misi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Satisfacer las necesidades y expectativas de nuestros clientes d\\u00e1ndoles soluciones integrales en servicios ambientales, de seguridad y salud en el trabajo a trav\\u00e9s de nuestro equipo de t\\u00e9cnicos y especialistas en las diferentes disciplinas, y obtengan resultados sustentables en sus negocios a trav\\u00e9s de la identificaci\\u00f3n e implementaci\\u00f3n de soluciones y estrategias ambientales, sociales y de ingenier\\u00eda eficientes.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Nuestra Visi\\u00f3n<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Ser una empresa consultora l\\u00edder a nivel nacional e internacional con tecnolog\\u00eda de vanguardia en servicios t\\u00e9cnicos y estrategias en el sector de la producci\\u00f3n.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<li>\\r\\n<div class=\\\"featureicon pull-left\\\"><img src=\\\"images\\/furnished-w.png\\\" alt=\\\"\\\" \\/><\\/div>\\r\\n<div>\\r\\n<h2>Valores<\\/h2>\\r\\n<p style=\\\"text-align: justify;\\\">Cultivamos y difundimos valores como: Experiencia, Responsabilidad, Profesionalismo, Trabajo en equipo, Honestidad, Iniciativa, Compromiso, Rentabilidad y confianza, Responsabilidad Social y ambiental, Excelencia e innovaci\\u00f3n, Entrega de resultados.<\\/p>\\r\\n<\\/div>\\r\\n<\\/li>\\r\\n<\\/ul>\\r\\n<\\/div>\\r\\n<\\/div>\\r\\n<\\/div>\",\"fulltext\":\"\",\"state\":1,\"catid\":\"2\",\"created\":\"2018-04-26 08:29:48\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-23 00:51:48\",\"modified_by\":\"311\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-23 00:50:48\",\"publish_up\":\"2018-04-26 08:29:48\",\"publish_down\":\"0000-00-00 00:00:00\",\"images\":\"{\\\"image_intro\\\":\\\"\\\",\\\"float_intro\\\":\\\"\\\",\\\"image_intro_alt\\\":\\\"\\\",\\\"image_intro_caption\\\":\\\"\\\",\\\"image_fulltext\\\":\\\"\\\",\\\"float_fulltext\\\":\\\"\\\",\\\"image_fulltext_alt\\\":\\\"\\\",\\\"image_fulltext_caption\\\":\\\"\\\"}\",\"urls\":\"{\\\"urla\\\":false,\\\"urlatext\\\":\\\"\\\",\\\"targeta\\\":\\\"\\\",\\\"urlb\\\":false,\\\"urlbtext\\\":\\\"\\\",\\\"targetb\\\":\\\"\\\",\\\"urlc\\\":false,\\\"urlctext\\\":\\\"\\\",\\\"targetc\\\":\\\"\\\"}\",\"attribs\":\"{\\\"article_layout\\\":\\\"\\\",\\\"show_title\\\":\\\"\\\",\\\"link_titles\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_intro\\\":\\\"\\\",\\\"info_block_position\\\":\\\"\\\",\\\"info_block_show_title\\\":\\\"\\\",\\\"show_category\\\":\\\"\\\",\\\"link_category\\\":\\\"\\\",\\\"show_parent_category\\\":\\\"\\\",\\\"link_parent_category\\\":\\\"\\\",\\\"show_associations\\\":\\\"\\\",\\\"show_author\\\":\\\"\\\",\\\"link_author\\\":\\\"\\\",\\\"show_create_date\\\":\\\"\\\",\\\"show_modify_date\\\":\\\"\\\",\\\"show_publish_date\\\":\\\"\\\",\\\"show_item_navigation\\\":\\\"\\\",\\\"show_icons\\\":\\\"\\\",\\\"show_print_icon\\\":\\\"\\\",\\\"show_email_icon\\\":\\\"\\\",\\\"show_vote\\\":\\\"\\\",\\\"show_hits\\\":\\\"\\\",\\\"show_noauth\\\":\\\"\\\",\\\"urls_position\\\":\\\"\\\",\\\"alternative_readmore\\\":\\\"\\\",\\\"article_page_title\\\":\\\"\\\",\\\"show_publishing_options\\\":\\\"\\\",\\\"show_article_options\\\":\\\"\\\",\\\"show_urls_images_backend\\\":\\\"\\\",\\\"show_urls_images_frontend\\\":\\\"\\\"}\",\"version\":7,\"ordering\":\"0\",\"metakey\":\"\",\"metadesc\":\"\",\"access\":\"1\",\"hits\":\"19\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"rights\\\":\\\"\\\",\\\"xreference\\\":\\\"\\\"}\",\"featured\":\"0\",\"language\":\"*\",\"xreference\":\"\",\"note\":\"\"}', 0),
 (15, 1, 2, '', '2021-03-25 06:05:07', 311, 1981, '0f063a1ee8638dc9e43c1c9458c3dcb05c568134', '{\"id\":1,\"name\":\"Cont\\u00e1ctanos\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Calle Canamelares N\\u00b0 426 - Urb. Maranga - San Miguel - Lima\",\"suburb\":\"Lima\",\"state\":\"Peru\",\"country\":\"\",\"postcode\":\"\",\"telephone\":\"(01) 2647663\",\"fax\":\"\",\"misc\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipssollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna.<\\/p>\",\"image\":\"\",\"email_to\":\"administracion@reingesac.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-25 06:02:57\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"964812500\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-25 06:05:07\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":9,\"hits\":\"93\"}', 0),
 (16, 1, 2, '', '2021-03-25 06:06:10', 311, 1773, 'd46b7bbb21e1e4ca12889c926ed063518612d01b', '{\"id\":1,\"name\":\"Cont\\u00e1ctanos\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Calle Canamelares N\\u00b0 426 - Urb. Maranga - San Miguel\",\"suburb\":\"Lima\",\"state\":\"Peru\",\"country\":\"\",\"postcode\":\"\",\"telephone\":\"(01) 2647663\",\"fax\":\"\",\"misc\":\"\",\"image\":\"\",\"email_to\":\"administracion@reingesac.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-03-25 06:05:07\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"964812500\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-03-25 06:06:10\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":10,\"hits\":\"94\"}', 0),
 (17, 1, 2, '', '2021-04-01 23:30:35', 311, 1778, '75b2a1931116c1f6c724a08c05747581dab94f04', '{\"id\":1,\"name\":\"Cont\\u00e1ctanos\",\"alias\":\"single-contact\",\"con_position\":\"\",\"address\":\"Calle Canamelares N\\u00b0 426 - Urb. Maranga - San Miguel\",\"suburb\":\"Lima\",\"state\":\"Peru\",\"country\":\"\",\"postcode\":\"\",\"telephone\":\"(01) 2647663\",\"fax\":\"\",\"misc\":\"\",\"image\":\"\",\"email_to\":\"administracion@reingesac.com\",\"default_con\":0,\"published\":\"1\",\"checked_out\":\"311\",\"checked_out_time\":\"2021-04-01 23:30:02\",\"ordering\":\"1\",\"params\":\"{\\\"show_contact_category\\\":\\\"hide\\\",\\\"show_contact_list\\\":\\\"\\\",\\\"presentation_style\\\":\\\"\\\",\\\"show_tags\\\":\\\"\\\",\\\"show_info\\\":\\\"\\\",\\\"show_name\\\":\\\"\\\",\\\"show_position\\\":\\\"\\\",\\\"show_email\\\":\\\"\\\",\\\"add_mailto_link\\\":\\\"\\\",\\\"show_street_address\\\":\\\"\\\",\\\"show_suburb\\\":\\\"\\\",\\\"show_state\\\":\\\"\\\",\\\"show_postcode\\\":\\\"\\\",\\\"show_country\\\":\\\"\\\",\\\"show_telephone\\\":\\\"\\\",\\\"show_mobile\\\":\\\"\\\",\\\"show_fax\\\":\\\"\\\",\\\"show_webpage\\\":\\\"\\\",\\\"show_image\\\":\\\"\\\",\\\"show_misc\\\":\\\"\\\",\\\"allow_vcard\\\":\\\"\\\",\\\"show_articles\\\":\\\"\\\",\\\"articles_display_num\\\":\\\"\\\",\\\"show_profile\\\":\\\"\\\",\\\"show_links\\\":\\\"\\\",\\\"linka_name\\\":\\\"\\\",\\\"linka\\\":false,\\\"linkb_name\\\":\\\"\\\",\\\"linkb\\\":false,\\\"linkc_name\\\":\\\"\\\",\\\"linkc\\\":false,\\\"linkd_name\\\":\\\"\\\",\\\"linkd\\\":false,\\\"linke_name\\\":\\\"\\\",\\\"linke\\\":false,\\\"contact_layout\\\":\\\"\\\",\\\"show_email_form\\\":\\\"\\\",\\\"show_email_copy\\\":\\\"\\\",\\\"validate_session\\\":\\\"\\\",\\\"custom_reply\\\":\\\"\\\",\\\"redirect\\\":\\\"\\\"}\",\"user_id\":0,\"catid\":\"4\",\"access\":\"1\",\"mobile\":\"964812500\",\"webpage\":false,\"sortname1\":\"\",\"sortname2\":\"\",\"sortname3\":\"\",\"language\":\"*\",\"created\":\"2018-05-02 07:48:31\",\"created_by\":\"311\",\"created_by_alias\":\"\",\"modified\":\"2021-04-01 23:30:35\",\"modified_by\":\"311\",\"metakey\":\"\",\"metadesc\":\"\",\"metadata\":\"{\\\"robots\\\":\\\"\\\",\\\"rights\\\":\\\"\\\"}\",\"featured\":\"0\",\"xreference\":\"\",\"publish_up\":\"0000-00-00 00:00:00\",\"publish_down\":\"0000-00-00 00:00:00\",\"version\":12,\"hits\":\"100\"}', 0),
@@ -2568,20 +2533,20 @@ INSERT INTO `qmdc0_ucm_history` (`version_id`, `ucm_item_id`, `ucm_type_id`, `ve
 --
 
 CREATE TABLE `qmdc0_updates` (
-  `update_id` int(11) NOT NULL,
-  `update_site_id` int(11) DEFAULT '0',
-  `extension_id` int(11) DEFAULT '0',
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `element` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `folder` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `client_id` tinyint(3) DEFAULT '0',
-  `version` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detailsurl` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `infourl` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT ''
+  `update_id` int NOT NULL,
+  `update_site_id` int DEFAULT '0',
+  `extension_id` int DEFAULT '0',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `element` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `folder` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `client_id` tinyint DEFAULT '0',
+  `version` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detailsurl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `infourl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extra_query` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
 
 --
@@ -2589,6 +2554,7 @@ CREATE TABLE `qmdc0_updates` (
 --
 
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(0, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2, 1, 700, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.5', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (3, 2, 0, 'Armenian', '', 'pkg_hy-AM', 'package', '', 0, '3.4.4.1', '', 'https://update.joomla.org/language/details3/hy-AM_details.xml', '', ''),
 (4, 2, 0, 'Malay', '', 'pkg_ms-MY', 'package', '', 0, '3.4.1.2', '', 'https://update.joomla.org/language/details3/ms-MY_details.xml', '', ''),
@@ -2933,9 +2899,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (351, 2, 0, 'Portuguese Brazil', '', 'pkg_pt-BR', 'package', '', 0, '3.9.21.1', '', 'https://update.joomla.org/language/details3/pt-BR_details.xml', '', ''),
 (352, 2, 0, 'Serbian Latin', '', 'pkg_sr-YU', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/sr-YU_details.xml', '', ''),
 (353, 2, 0, 'Spanish', '', 'pkg_es-ES', 'package', '', 0, '3.9.18.1', '', 'https://update.joomla.org/language/details3/es-ES_details.xml', '', ''),
-(354, 2, 0, 'Bosnian', '', 'pkg_bs-BA', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/bs-BA_details.xml', '', ''),
-(355, 2, 0, 'Serbian Cyrillic', '', 'pkg_sr-RS', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/sr-RS_details.xml', '', '');
+(354, 2, 0, 'Bosnian', '', 'pkg_bs-BA', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/bs-BA_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(355, 2, 0, 'Serbian Cyrillic', '', 'pkg_sr-RS', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/sr-RS_details.xml', '', ''),
 (356, 2, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '3.9.16.1', '', 'https://update.joomla.org/language/details3/fi-FI_details.xml', '', ''),
 (357, 2, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/sw-KE_details.xml', '', ''),
 (358, 2, 0, 'English CA', '', 'pkg_en-CA', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/en-CA_details.xml', '', ''),
@@ -3272,9 +3238,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (690, 2, 0, 'Italian', '', 'pkg_it-IT', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/it-IT_details.xml', '', ''),
 (691, 2, 0, 'Latvian', '', 'pkg_lv-LV', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/lv-LV_details.xml', '', ''),
 (692, 2, 0, 'Lithuanian', '', 'pkg_lt-LT', 'package', '', 0, '3.9.16.1', '', 'https://update.joomla.org/language/details3/lt-LT_details.xml', '', ''),
-(693, 2, 0, 'Norwegian Bokmal', '', 'pkg_nb-NO', 'package', '', 0, '3.9.24.2', '', 'https://update.joomla.org/language/details3/nb-NO_details.xml', '', ''),
-(694, 2, 0, 'Persian', '', 'pkg_fa-IR', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/fa-IR_details.xml', '', '');
+(693, 2, 0, 'Norwegian Bokmal', '', 'pkg_nb-NO', 'package', '', 0, '3.9.24.2', '', 'https://update.joomla.org/language/details3/nb-NO_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(694, 2, 0, 'Persian', '', 'pkg_fa-IR', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/fa-IR_details.xml', '', ''),
 (695, 2, 0, 'Polish', '', 'pkg_pl-PL', 'package', '', 0, '3.9.13.1', '', 'https://update.joomla.org/language/details3/pl-PL_details.xml', '', ''),
 (696, 2, 0, 'Portuguese', '', 'pkg_pt-PT', 'package', '', 0, '3.9.15.1', '', 'https://update.joomla.org/language/details3/pt-PT_details.xml', '', ''),
 (697, 2, 0, 'Russian', '', 'pkg_ru-RU', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/ru-RU_details.xml', '', ''),
@@ -3611,9 +3577,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (1030, 2, 0, 'French', '', 'pkg_fr-FR', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/fr-FR_details.xml', '', ''),
 (1031, 2, 0, 'Georgian', '', 'pkg_ka-GE', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/ka-GE_details.xml', '', ''),
 (1032, 2, 0, 'Greek', '', 'pkg_el-GR', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/el-GR_details.xml', '', ''),
-(1033, 2, 0, 'Japanese', '', 'pkg_ja-JP', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/ja-JP_details.xml', '', ''),
-(1034, 2, 0, 'Hungarian', '', 'pkg_hu-HU', 'package', '', 0, '3.9.19.1', '', 'https://update.joomla.org/language/details3/hu-HU_details.xml', '', '');
+(1033, 2, 0, 'Japanese', '', 'pkg_ja-JP', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/ja-JP_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(1034, 2, 0, 'Hungarian', '', 'pkg_hu-HU', 'package', '', 0, '3.9.19.1', '', 'https://update.joomla.org/language/details3/hu-HU_details.xml', '', ''),
 (1035, 2, 0, 'Afrikaans', '', 'pkg_af-ZA', 'package', '', 0, '3.9.16.1', '', 'https://update.joomla.org/language/details3/af-ZA_details.xml', '', ''),
 (1036, 2, 0, 'Arabic Unitag', '', 'pkg_ar-AA', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/ar-AA_details.xml', '', ''),
 (1037, 2, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '3.9.23.1', '', 'https://update.joomla.org/language/details3/ca-ES_details.xml', '', ''),
@@ -3949,9 +3915,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (1367, 2, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '3.9.16.1', '', 'https://update.joomla.org/language/details3/fi-FI_details.xml', '', ''),
 (1368, 2, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/sw-KE_details.xml', '', ''),
 (1369, 2, 0, 'English CA', '', 'pkg_en-CA', 'package', '', 0, '3.9.24.1', '', 'https://update.joomla.org/language/details3/en-CA_details.xml', '', ''),
-(1370, 2, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/cy-GB_details.xml', '', ''),
-(1371, 2, 0, 'Dari Persian', '', 'pkg_prs-AF', 'package', '', 0, '3.4.4.3', '', 'https://update.joomla.org/language/details3/prs-AF_details.xml', '', '');
+(1370, 2, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/cy-GB_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(1371, 2, 0, 'Dari Persian', '', 'pkg_prs-AF', 'package', '', 0, '3.4.4.3', '', 'https://update.joomla.org/language/details3/prs-AF_details.xml', '', ''),
 (1372, 2, 0, 'Slovenian', '', 'pkg_sl-SI', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/sl-SI_details.xml', '', ''),
 (1373, 2, 0, 'Spanish CO', '', 'pkg_es-CO', 'package', '', 0, '3.9.15.1', '', 'https://update.joomla.org/language/details3/es-CO_details.xml', '', ''),
 (1374, 2, 0, 'German CH', '', 'pkg_de-CH', 'package', '', 0, '3.9.25.1', '', 'https://update.joomla.org/language/details3/de-CH_details.xml', '', ''),
@@ -4293,9 +4259,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (1712, 2, 0, 'Dari Persian', '', 'pkg_prs-AF', 'package', '', 0, '3.4.4.3', '', 'https://update.joomla.org/language/details3/prs-AF_details.xml', '', ''),
 (1713, 2, 0, 'Slovenian', '', 'pkg_sl-SI', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/sl-SI_details.xml', '', ''),
 (1714, 2, 0, 'Spanish CO', '', 'pkg_es-CO', 'package', '', 0, '3.9.15.1', '', 'https://update.joomla.org/language/details3/es-CO_details.xml', '', ''),
-(1715, 2, 0, 'German CH', '', 'pkg_de-CH', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-CH_details.xml', '', ''),
-(1716, 2, 0, 'German AT', '', 'pkg_de-AT', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-AT_details.xml', '', '');
+(1715, 2, 0, 'German CH', '', 'pkg_de-CH', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-CH_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(1716, 2, 0, 'German AT', '', 'pkg_de-AT', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-AT_details.xml', '', ''),
 (1717, 2, 0, 'German LI', '', 'pkg_de-LI', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-LI_details.xml', '', ''),
 (1718, 2, 0, 'German LU', '', 'pkg_de-LU', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/de-LU_details.xml', '', ''),
 (1719, 2, 0, 'English NZ', '', 'pkg_en-NZ', 'package', '', 0, '3.9.26.1', '', 'https://update.joomla.org/language/details3/en-NZ_details.xml', '', ''),
@@ -4644,9 +4610,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (2062, 2, 0, 'Dari Persian', '', 'pkg_prs-AF', 'package', '', 0, '3.4.4.3', '', 'https://update.joomla.org/language/details3/prs-AF_details.xml', '', ''),
 (2063, 2, 0, 'Slovenian', '', 'pkg_sl-SI', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/sl-SI_details.xml', '', ''),
 (2064, 2, 0, 'Spanish CO', '', 'pkg_es-CO', 'package', '', 0, '3.9.15.1', '', 'https://update.joomla.org/language/details3/es-CO_details.xml', '', ''),
-(2065, 2, 0, 'German CH', '', 'pkg_de-CH', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-CH_details.xml', '', ''),
-(2066, 2, 0, 'German AT', '', 'pkg_de-AT', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-AT_details.xml', '', '');
+(2065, 2, 0, 'German CH', '', 'pkg_de-CH', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-CH_details.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(2066, 2, 0, 'German AT', '', 'pkg_de-AT', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-AT_details.xml', '', ''),
 (2067, 2, 0, 'German LI', '', 'pkg_de-LI', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-LI_details.xml', '', ''),
 (2068, 2, 0, 'German LU', '', 'pkg_de-LU', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/de-LU_details.xml', '', ''),
 (2069, 2, 0, 'English NZ', '', 'pkg_en-NZ', 'package', '', 0, '3.9.27.1', '', 'https://update.joomla.org/language/details3/en-NZ_details.xml', '', ''),
@@ -5004,9 +4970,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (2421, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (2422, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (2423, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
-(2424, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
-(2425, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', '');
+(2424, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(2425, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (2426, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (2427, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
 (2428, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.9.28', '', 'https://update.joomla.org/core/sts/extension_sts.xml', '', ''),
@@ -5410,9 +5376,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (2826, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2827, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2828, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
-(2829, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
-(2830, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', '');
+(2829, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(2830, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2831, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2832, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (2833, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.3', '', 'https://update.joomla.org/core/extension.xml', '', ''),
@@ -5822,9 +5788,9 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 (3237, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (3238, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (3239, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
-(3240, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
-(3241, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', '');
+(3240, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', '');
 INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+(3241, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (3242, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (3243, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
 (3244, 1, 0, 'Joomla', '', 'joomla', 'file', '', 0, '3.10.6', '', 'https://update.joomla.org/core/extension.xml', '', ''),
@@ -5914,13 +5880,13 @@ INSERT INTO `qmdc0_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 --
 
 CREATE TABLE `qmdc0_update_sites` (
-  `update_site_id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `location` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `enabled` int(11) DEFAULT '0',
-  `last_check_timestamp` bigint(20) DEFAULT '0',
-  `extra_query` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT ''
+  `update_site_id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `location` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` int DEFAULT '0',
+  `last_check_timestamp` bigint DEFAULT '0',
+  `extra_query` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
 --
@@ -5928,9 +5894,10 @@ CREATE TABLE `qmdc0_update_sites` (
 --
 
 INSERT INTO `qmdc0_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
-(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1648242598, ''),
+(0, 'Rapid Contact Updates', 'extension', 'https://mavrosxristoforos.com/index.php?option=com_extensionupdater&extension=rapid_contact', 1, 0, ''),
+(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1648310861, ''),
 (2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1623453948, ''),
-(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1623453948, ''),
+(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1648317668, ''),
 (4, 'K2 Updates', 'extension', 'http://getk2.org/app/update.xml', 1, 1623453949, ''),
 (8, 'Akeeba FEF', 'extension', 'http://cdn.akeebabackup.com/updates/fef.xml', 1, 1623453949, ''),
 (9, 'Akeeba Backup Core', 'extension', 'https://cdn.akeebabackup.com/updates/pkgakeebacore.xml', 1, 1623453949, ''),
@@ -5948,8 +5915,8 @@ INSERT INTO `qmdc0_update_sites` (`update_site_id`, `name`, `type`, `location`, 
 --
 
 CREATE TABLE `qmdc0_update_sites_extensions` (
-  `update_site_id` int(11) NOT NULL DEFAULT '0',
-  `extension_id` int(11) NOT NULL DEFAULT '0'
+  `update_site_id` int NOT NULL DEFAULT '0',
+  `extension_id` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
 --
@@ -5977,11 +5944,11 @@ INSERT INTO `qmdc0_update_sites_extensions` (`update_site_id`, `extension_id`) V
 --
 
 CREATE TABLE `qmdc0_usergroups` (
-  `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
-  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
-  `lft` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
-  `rgt` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+  `id` int UNSIGNED NOT NULL COMMENT 'Primary Key',
+  `parent_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
+  `lft` int NOT NULL DEFAULT '0' COMMENT 'Nested set lft.',
+  `rgt` int NOT NULL DEFAULT '0' COMMENT 'Nested set rgt.',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6006,22 +5973,22 @@ INSERT INTO `qmdc0_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 --
 
 CREATE TABLE `qmdc0_users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `username` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `block` tinyint(4) NOT NULL DEFAULT '0',
-  `sendEmail` tinyint(4) DEFAULT '0',
+  `id` int NOT NULL,
+  `name` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `block` tinyint NOT NULL DEFAULT '0',
+  `sendEmail` tinyint DEFAULT '0',
   `registerDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastvisitDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `activation` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `params` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activation` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `params` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastResetTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Date of last password reset',
-  `resetCount` int(11) NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
-  `otpKey` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Two factor authentication encrypted keys',
-  `otep` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'One time emergency passwords',
-  `requireReset` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'Require user to reset password on next login'
+  `resetCount` int NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
+  `otpKey` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Two factor authentication encrypted keys',
+  `otep` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'One time emergency passwords',
+  `requireReset` tinyint NOT NULL DEFAULT '0' COMMENT 'Require user to reset password on next login'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6029,7 +5996,7 @@ CREATE TABLE `qmdc0_users` (
 --
 
 INSERT INTO `qmdc0_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-(311, 'Super User', 'admin', 'sample@joomfreak.com', '$2y$10$K1hvrRkZoBDc3RrDcT1KOObfSV.A9bG4pvh1HUooDFjs7trWmmDbi', 0, 1, '2018-04-17 03:40:37', '2021-06-11 23:25:45', '0', '{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}', '0000-00-00 00:00:00', 0, '', '', 0);
+(311, 'Super User', 'admin', 'sample@joomfreak.com', '$2y$10$K1hvrRkZoBDc3RrDcT1KOObfSV.A9bG4pvh1HUooDFjs7trWmmDbi', 0, 1, '2018-04-17 03:40:37', '2022-03-26 16:59:42', '0', '{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}', '0000-00-00 00:00:00', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -6038,13 +6005,13 @@ INSERT INTO `qmdc0_users` (`id`, `name`, `username`, `email`, `password`, `block
 --
 
 CREATE TABLE `qmdc0_user_keys` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `series` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `invalid` tinyint(4) NOT NULL,
-  `time` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `uastring` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `user_id` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `series` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `invalid` tinyint NOT NULL,
+  `time` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uastring` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -6054,17 +6021,17 @@ CREATE TABLE `qmdc0_user_keys` (
 --
 
 CREATE TABLE `qmdc0_user_notes` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `catid` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `subject` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `state` tinyint(3) NOT NULL DEFAULT '0',
-  `checked_out` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0',
+  `catid` int UNSIGNED NOT NULL DEFAULT '0',
+  `subject` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` tinyint NOT NULL DEFAULT '0',
+  `checked_out` int UNSIGNED NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `created_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `created_user_id` int UNSIGNED NOT NULL DEFAULT '0',
   `created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified_user_id` int(10) UNSIGNED NOT NULL,
+  `modified_user_id` int UNSIGNED NOT NULL,
   `modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `review_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `publish_up` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -6078,10 +6045,10 @@ CREATE TABLE `qmdc0_user_notes` (
 --
 
 CREATE TABLE `qmdc0_user_profiles` (
-  `user_id` int(11) NOT NULL,
-  `profile_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile_value` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ordering` int(11) NOT NULL DEFAULT '0'
+  `user_id` int NOT NULL,
+  `profile_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ordering` int NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Simple user profile storage table';
 
 -- --------------------------------------------------------
@@ -6091,8 +6058,8 @@ CREATE TABLE `qmdc0_user_profiles` (
 --
 
 CREATE TABLE `qmdc0_user_usergroup_map` (
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
-  `group_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id'
+  `user_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
+  `group_id` int UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6109,7 +6076,7 @@ INSERT INTO `qmdc0_user_usergroup_map` (`user_id`, `group_id`) VALUES
 --
 
 CREATE TABLE `qmdc0_utf8_conversion` (
-  `converted` tinyint(4) NOT NULL DEFAULT '0'
+  `converted` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6126,10 +6093,10 @@ INSERT INTO `qmdc0_utf8_conversion` (`converted`) VALUES
 --
 
 CREATE TABLE `qmdc0_viewlevels` (
-  `id` int(10) UNSIGNED NOT NULL COMMENT 'Primary Key',
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `ordering` int(11) NOT NULL DEFAULT '0',
-  `rules` varchar(5120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.'
+  `id` int UNSIGNED NOT NULL COMMENT 'Primary Key',
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `ordering` int NOT NULL DEFAULT '0',
+  `rules` varchar(5120) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'JSON encoded access control.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6925,313 +6892,229 @@ ALTER TABLE `qmdc0_viewlevels`
 -- AUTO_INCREMENT de la tabla `qmdc0_action_logs`
 --
 ALTER TABLE `qmdc0_action_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_action_logs_extensions`
 --
 ALTER TABLE `qmdc0_action_logs_extensions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_action_log_config`
 --
 ALTER TABLE `qmdc0_action_log_config`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_ak_profiles`
 --
 ALTER TABLE `qmdc0_ak_profiles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_ak_stats`
 --
 ALTER TABLE `qmdc0_ak_stats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_assets`
 --
 ALTER TABLE `qmdc0_assets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=122;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_banners`
 --
 ALTER TABLE `qmdc0_banners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_banner_clients`
 --
 ALTER TABLE `qmdc0_banner_clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_categories`
 --
 ALTER TABLE `qmdc0_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_contact_details`
 --
 ALTER TABLE `qmdc0_contact_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_content`
 --
 ALTER TABLE `qmdc0_content`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_content_types`
 --
 ALTER TABLE `qmdc0_content_types`
-  MODIFY `type_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `type_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_extensions`
 --
 ALTER TABLE `qmdc0_extensions`
-  MODIFY `extension_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10037;
+  MODIFY `extension_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10039;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_fields`
 --
 ALTER TABLE `qmdc0_fields`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_fields_groups`
 --
 ALTER TABLE `qmdc0_fields_groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_finder_filters`
 --
 ALTER TABLE `qmdc0_finder_filters`
-  MODIFY `filter_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `filter_id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_finder_links`
 --
 ALTER TABLE `qmdc0_finder_links`
-  MODIFY `link_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `link_id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_finder_taxonomy`
 --
 ALTER TABLE `qmdc0_finder_taxonomy`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_finder_terms`
 --
 ALTER TABLE `qmdc0_finder_terms`
-  MODIFY `term_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `term_id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_finder_types`
 --
 ALTER TABLE `qmdc0_finder_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_attachments`
 --
 ALTER TABLE `qmdc0_k2_attachments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_categories`
 --
 ALTER TABLE `qmdc0_k2_categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_comments`
 --
 ALTER TABLE `qmdc0_k2_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_extra_fields`
 --
 ALTER TABLE `qmdc0_k2_extra_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_extra_fields_groups`
 --
 ALTER TABLE `qmdc0_k2_extra_fields_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_items`
 --
 ALTER TABLE `qmdc0_k2_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_tags`
 --
 ALTER TABLE `qmdc0_k2_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_tags_xref`
 --
 ALTER TABLE `qmdc0_k2_tags_xref`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_users`
 --
 ALTER TABLE `qmdc0_k2_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_k2_user_groups`
 --
 ALTER TABLE `qmdc0_k2_user_groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_languages`
 --
 ALTER TABLE `qmdc0_languages`
-  MODIFY `lang_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `lang_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_menu`
 --
 ALTER TABLE `qmdc0_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_menu_types`
 --
 ALTER TABLE `qmdc0_menu_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_messages`
 --
 ALTER TABLE `qmdc0_messages`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_modules`
 --
 ALTER TABLE `qmdc0_modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_newsfeeds`
 --
 ALTER TABLE `qmdc0_newsfeeds`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_overrider`
 --
 ALTER TABLE `qmdc0_overrider`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key';
+  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key';
 
 --
 -- AUTO_INCREMENT de la tabla `qmdc0_postinstall_messages`
 --
 ALTER TABLE `qmdc0_postinstall_messages`
-  MODIFY `postinstall_message_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_privacy_consents`
---
-ALTER TABLE `qmdc0_privacy_consents`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_privacy_requests`
---
-ALTER TABLE `qmdc0_privacy_requests`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_redirect_links`
---
-ALTER TABLE `qmdc0_redirect_links`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_tags`
---
-ALTER TABLE `qmdc0_tags`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_template_styles`
---
-ALTER TABLE `qmdc0_template_styles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_ucm_content`
---
-ALTER TABLE `qmdc0_ucm_content`
-  MODIFY `core_content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_ucm_history`
---
-ALTER TABLE `qmdc0_ucm_history`
-  MODIFY `version_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_updates`
---
-ALTER TABLE `qmdc0_updates`
-  MODIFY `update_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3323;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_update_sites`
---
-ALTER TABLE `qmdc0_update_sites`
-  MODIFY `update_site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_usergroups`
---
-ALTER TABLE `qmdc0_usergroups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_users`
---
-ALTER TABLE `qmdc0_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_user_keys`
---
-ALTER TABLE `qmdc0_user_keys`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_user_notes`
---
-ALTER TABLE `qmdc0_user_notes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `qmdc0_viewlevels`
---
-ALTER TABLE `qmdc0_viewlevels`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=7;
+  MODIFY `postinstall_message_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -13,6 +13,7 @@ class JConfig {
 	public $captcha = '0';
 	public $cookie_domain = '';
 	public $cookie_path = '';
+	//public $db = 'headsys1_reingesac';
 	public $db = 'headsys1_reingesac';
 	public $dbprefix = 'qmdc0_';
 	public $dbtype = 'mysqli';
@@ -49,7 +50,8 @@ class JConfig {
 	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $offset = 'UTC';
 	public $offset_user = 'UTC';
-	public $password = 'H-Systems-2020';
+	//public $password = 'H-Systems-2020';
+	public $password = 'Aldo2022.';
 	public $robots = '';
 	public $secret = 'ATH8cWQQM6GpO1WGdQ5ohjJsWBnf3bd4';
 	public $sef = '1';
@@ -67,7 +69,8 @@ class JConfig {
 	public $smtpuser = '';
 	public $tmp_path = '/home5/headsys1/public_html/reingesac/tmp';
 	public $unicodeslugs = '0';
-	public $user = 'headsys1_reinges';
+	//public $user = 'headsys1_reinges';
+	public $user = 'root';
 	public $memcached_persist = '1';
 	public $memcached_compress = '0';
 	public $memcached_server_host = 'localhost';
