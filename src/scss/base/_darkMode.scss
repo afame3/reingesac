@@ -1,0 +1,39 @@
+.dark-mode{
+    background-color: darken($grisOscuro,10);
+    p {
+        color: $blanco;
+    }
+    a,h1,h2,h3,h4,h5{
+        color: $gris;
+    }
+    .servicio {
+        background-color: $grisOscuro;
+        border: 1px solid $grisOscuro;
+    }
+    .contenido-servicio{
+        background-color: $grisOscuro;
+        //border: 1px solid $negro;
+        border: 0;
+        color: $blanco;
+    }
+    .servicio-detalle{
+        background-color: $grisOscuro;
+    }
+    .btn-cerrar{
+        color: $negro;
+    }
+    .galeria-imagenes{
+        picture {
+            border: 1px solid $blanco;
+        }
+    }
+    .texto-nosotros{
+        color: $blanco;
+    }
+    .formulario{
+        color: $blanco;
+        legend{
+            color:$blanco;
+        }
+    }
+}

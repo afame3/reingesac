@@ -1,0 +1,66 @@
+.header{
+    &.nosotros{
+        width: 100%;
+        position: relative;
+        z-index: 100;
+    }
+    
+} 
+@include tablet{
+    .icono-nosotros{
+        @include grid(3, 3rem);
+        text-align: center;
+    }
+}
+.icono{
+    text-align: center;
+    h3{
+        text-transform: uppercase;
+    }
+
+}
+.icono-mision{
+    text-align: center;
+    p{
+        text-align: justify;
+    }
+    @include tablet {
+        h4{
+            text-align: center;
+        }
+        p{
+            //text-align: left;
+            text-align: justify;
+        }
+        svg{
+            text-align: center;
+        }
+    }
+}
+.contenido-nosotros{
+    text-align: left;
+    @include tablet{
+        
+        @include grid(2 , 4rem);
+     }
+}
+.texto-nosotros blockquote {
+    font-weight: $black;
+    font-size: 2.2rem;
+    margin: 3rem 0 0 0;
+    padding-left: 1rem 0 3rem 0;
+    
+}
+.dark-mode blockquote{
+        color: $blanco;
+    }
+
+.texto-nosotros p{
+    text-align: justify;
+}
+.contenido-politicas li:before{content: "- "}
+.contenido-politicas li{
+    text-indent: -10px;
+    font-size: 2rem;
+    text-align: justify;
+}

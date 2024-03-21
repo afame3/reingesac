@@ -1,0 +1,61 @@
+.no-webp .imagen-cotizar{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/image247.jpg');
+}
+.webp .imagen-cotizar{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/image247.webp');
+}
+.imagen-cotizar{
+    background-position: center center;
+    background-size: cover;
+    padding: $separacion 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center ; 
+    h2{
+        font-size: 4rem;
+        font-weight: $black;
+        color: $blanco;
+    }
+    p{
+        font-size: 1.8rem;
+        color: $blanco;
+    }
+}
+.escribenos{
+    border: 1px solid $verdePrincipal;
+}
+.mensaje{
+    display: grid;
+    flex-direction: column;
+    
+    @include tablet{
+        @include grid(2, 2rem);
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+}
+.cotizar-mensaje{
+    text-align: center;
+
+    @include tablet{
+        text-align: left;
+        h4{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+        }
+    }
+}
+.cotizar-botones{
+    text-align: center;
+    @include tablet{
+        text-align: right;
+    }
+    .boton-gris{
+        color: $verdePrincipal;
+        border: 1px solid $verdePrincipal;
+        background-color: $blanco;
+        
+    }
+}

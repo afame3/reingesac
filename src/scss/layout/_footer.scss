@@ -1,0 +1,61 @@
+.footer{
+    padding: $separacion / 2 0;
+    background-color: $negro;
+    padding-bottom: 0;
+    text-align: center;
+}
+.contenedor-footer{
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    display: grid;
+    flex-direction: column;
+    color: $blanco;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+        
+    @include tablet{
+        @include grid(5, 3rem);
+    }
+    .sedes{
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+    }
+    .icono{
+            padding-top: 0;
+            margin-top: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            padding-top: 2rem;
+    }
+    h5{
+            color: $blanco;
+            text-align: left;
+            margin-bottom: 0;
+            
+    }
+    p{
+
+        color: $blanco;
+        padding-top: 0;
+        margin-top: 0;
+        font-size: 1.5rem;
+
+           
+            text-align: left;
+
+        
+            
+    }
+    img{
+            padding-top: 3rem;
+        }
+}
+
+.copyright{
+    padding: $separacion / 2 0;
+    color: $blanco;
+    text-align: center;
+    background-color: $verdePrincipal;
+}
